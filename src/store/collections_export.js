@@ -20,9 +20,16 @@ class CollectionListModule extends VuexModule {
     // loading state
     state = State.INVALID;
 
+    apiURL = null;
+
     @Mutation
     setCollections(collections) {
         this.collections = collections;
+    }
+
+    @Mutation
+    setApiURL(apiURL) {
+        this.apiURL = apiURL;
     }
 
     @Mutation
@@ -41,7 +48,7 @@ class CollectionListModule extends VuexModule {
         }
 
         this.setState(State.LOADING);
-        const response = await axios.get(`${process.env.VUE_APP_OAREPO_API_URL}collections`);
+        const response = await axios.get(`${this.apiURL}collections`);
         this.setCollections(response.data);
         this.setState(State.LOADED);
 
