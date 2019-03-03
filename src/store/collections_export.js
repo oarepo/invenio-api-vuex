@@ -317,7 +317,7 @@ class CollectionItemModule extends VuexModule {
         if (this.loaded
             && this.collectionDefinition.code === collectionDefinition.code
             && this.itemId === itemId && !force) {
-            return undefined; // already loaded
+            return { item: this.item }; // already loaded
         }
 
         this.setCollectionDefinition(collectionDefinition);

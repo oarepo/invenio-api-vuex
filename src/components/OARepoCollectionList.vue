@@ -1,9 +1,8 @@
 <template>
 <div>
-    <template v-for="collection of collections">
-    <slot v-bind:collection="collection">
+    <slot v-bind:collections="collections">
+        <router-view/>
     </slot>
-    </template>
 </div>
 </template>
 
@@ -13,18 +12,15 @@ import Vue from 'vue';
 import Component from 'vue-class-component';
 
 export default @Component({
-    props: {
-        collectionListModule: Object,
-    },
 })
 class OARepoCollectionList extends Vue {
     // getters
     get collections() {
-        return this.collectionListModule.collections;
+        return this.oarepo$.collectionListModule.collections;
     }
 
     mounted() {
-        this.collectionListModule.loadCollections();
+        this.oarepo$.collectionListModule.loadCollections();
     }
 }
 </script>

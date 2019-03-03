@@ -1,8 +1,8 @@
 <template>
 <div class="container" v-if="loaded">
     <template v-if="item && item.metadata">
-    <slot name="title" v-bind:collection="collection" v-bind:item="item">
-        <h3>{{ item.metadata.title[locale] || item.metadata.title.en }}</h3>
+    <slot  v-bind:collection="collection" v-bind:item="item">
+        <router-view></router-view>
     </slot>
 
     <slot name="content-before" v-bind:collection="collection" v-bind:item="item">
@@ -27,7 +27,6 @@ import OARepoFacetList from './OARepoFacetList.vue';
 export default @Component({
     props: {
         collectionCode: String,
-        collectionItemModule: Object,
         itemId: String,
         locale: String,
     },
@@ -39,25 +38,25 @@ export default @Component({
 class OARepoCollection extends Vue {
     // getters
     get loaded() {
-        return this.collectionItemModule.loaded;
+        return this.oarepo$.collectionItemModule.loaded;
     }
 
     get collection() {
-        return this.collectionItemModule.collectionListModule.collections.find(
+        return this.oarepo$.collectionItemModule.collectionListModule.collections.find(
             value => value.code === this.collectionCode,
         );
     }
 
     get item() {
-        return this.collectionItemModule.item;
+        return this.oarepo$.collectionItemModule.item;
     }
 
     @Emit('dataLoaded')
     reloadData() {
         return new Promise((resolve) => {
-            this.collectionItemModule.collectionListModule.loadCollections().then(
+            this.oarepo$.collectionItemModule.collectionListModule.loadCollections().then(
                 () => {
-                    this.collectionItemModule.load({
+                    this.oarepo$.collectionItemModule.load({
                         collectionDefinition: this.collection,
                         collectionCode: this.collectionCode,
                         itemId: this.itemId,
@@ -77,7 +76,7 @@ class OARepoCollection extends Vue {
 
     @Watch('locale')
     onLocaleChanged(locale) {
-        this.collectionItemModule.collectionModule.changeLocale(locale);
+        this.oarepo$.collectionItemModule.collectionModule.changeLocale(locale);
     }
 
     @Watch('$route')
