@@ -306,6 +306,10 @@ class CollectionItemModule extends VuexModule {
         return this.state === State.LOADED;
     }
 
+    get itemRestUrl() {
+        return `${this.restUrl}${this.itemId}`;
+    }
+
     @Action
     async load(
         {
@@ -324,7 +328,7 @@ class CollectionItemModule extends VuexModule {
         this.setItemId(itemId);
         this.setState(State.LOADING);
 
-        const response = await axios.get(`${this.restUrl}/${this.itemId}`);
+        const response = await axios.get(this.itemRestUrl);
         const item = response.data;
 
         this.setItem(item);

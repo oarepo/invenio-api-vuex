@@ -4,16 +4,6 @@
     <slot  v-bind:collection="collection" v-bind:item="item">
         <router-view></router-view>
     </slot>
-
-    <slot name="content-before" v-bind:collection="collection" v-bind:item="item">
-    </slot>
-
-    <slot name="raw-content" v-bind:collection="collection" v-bind:item="item">
-        {{ item }}
-    </slot>
-
-    <slot name="content-after" v-bind:collection="collection" v-bind:item="item">
-    </slot>
     </template>
 </div>
 </template>
