@@ -335,6 +335,15 @@ class CollectionItemModule extends VuexModule {
         this.setState(State.LOADED);
         return { item: response.data };
     }
+
+    @Action
+    async reload() {
+        this.load({
+            collectionDefinition: this.collectionDefinition,
+            itemId: this.itemId,
+            force: true,
+        });
+    }
 }
 
 export {
