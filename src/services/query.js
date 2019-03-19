@@ -37,6 +37,17 @@ export default class Query {
         }
     }
 
+    removeKey(key) {
+        if (this.query[key] !== undefined) {
+            delete this.query[key];
+        }
+    }
+
+    replace(key, value) {
+        this.removeKey(key);
+        this.set(key, value);
+    }
+
     has(key, value) {
         const stringValue = value.toString();
         const prev = this.query[key];
