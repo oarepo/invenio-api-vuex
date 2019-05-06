@@ -8,7 +8,6 @@
 <script>
 import Vue from 'vue';
 import Component from 'vue-class-component';
-import Query from '../services/query';
 
 export default @Component({
     name: 'oarepo-facet-list',
@@ -19,16 +18,21 @@ export default @Component({
 class OARepoFacetList extends Vue {
     facetSelected(bucketP, selected) {
         const bucket = bucketP;
-
-        const q = new Query(this.$route.query);
         if (selected) {
-            q.set(bucket.facet, bucket.key);
+            this.oarepo$.collectionModule.facetSelected(
+                {
+                    facet: bucket.facet,
+                    key: bucket.key,
+                },
+            );
         } else {
-            q.remove(bucket.facet, bucket.key);
+            this.oarepo$.collectionModule.facetDeselected(
+                {
+                    facet: bucket.facet,
+                    key: bucket.key,
+                },
+            );
         }
-        this.$router.push({
-            query: q.query,
-        });
     }
 }
 </script>

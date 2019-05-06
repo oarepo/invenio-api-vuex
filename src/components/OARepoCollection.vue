@@ -27,10 +27,14 @@ export default @Component({
 class OARepoCollection extends Vue {
     // getters
     get loaded() {
-        return this.oarepo$.collectionModule.collectionListModule.loaded;
+        return this.oarepo$.collectionModule.collectionListModule.loaded && this.collectionCode;
     }
 
     get collection() {
+        console.log('collection returning', this.collectionCode, this.oarepo$.collectionModule.collectionListModule.collections,
+            this.oarepo$.collectionModule.collectionListModule.collections.find(
+                value => value.code === this.collectionCode,
+            ));
         return this.oarepo$.collectionModule.collectionListModule.collections.find(
             value => value.code === this.collectionCode,
         );
@@ -46,6 +50,7 @@ class OARepoCollection extends Vue {
 
     @Emit('dataLoaded')
     reloadData() {
+        console.log('Loading', this.collectionCode);
         return new Promise((resolve) => {
             this.oarepo$.collectionModule.collectionListModule.loadCollections().then(
                 () => {

@@ -70,13 +70,25 @@ class CollectionModule extends VuexModule {
 
     items = [];
 
-    next = null;
-
-    prev = null;
-
     queryParams = {};
 
     collectionListModule = null;
+
+    facetHandler = null;
+
+    router = null;
+
+    totalPages = 0;
+
+    @Mutation
+    setFacetHandler(facetHandler) {
+        this.facetHandler = facetHandler;
+    }
+
+    @Mutation
+    setRouter(router) {
+        this.router = router;
+    }
 
     @Mutation
     setState(state) {
@@ -138,22 +150,15 @@ class CollectionModule extends VuexModule {
         {
             aggregations,
             items,
-            prev,
-            next,
-            append,
+            total,
         },
     ) {
         const q = new Query(this.queryParams);
         this.aggregations = this.flatten(aggregations, q);
-        if (append) {
-            const ids = this.items.map(x => x.id);
-            items = items.filter(x => !ids.includes(x.id));
-            this.items.push(...items);
-        } else {
-            this.items = items;
-        }
-        this.prev = prev;
-        this.next = next;
+        this.items = items;
+        const pageSize = this.queryParams.size || 10;
+        this.totalPages = Math.ceil(total / pageSize);
+
     }
 
     get restSearchUrl() {
@@ -174,7 +179,6 @@ class CollectionModule extends VuexModule {
             collectionDefinition,
             params,
             force,
-            append,
         },
     ) {
         // duplicate params
@@ -204,17 +208,15 @@ class CollectionModule extends VuexModule {
         const response = await axios.get(`${this.restSearchUrl}`, {
             params: axiosParams,
         });
-        const { aggregations, hits, links } = response.data;
+        const { aggregations, hits } = response.data;
 
         this.setSearchResults({
             aggregations,
-            append,
             items: hits.hits,
-            prev: links.prev,
-            next: links.next,
+            total: hits.total,
         });
         this.setState(State.LOADED);
-        return { response: response.data, append };
+        return { response: response.data };
     }
 
     @Action
@@ -222,22 +224,52 @@ class CollectionModule extends VuexModule {
         this.setSearchResults({
             aggregations: this.aggregations,
             items: this.items,
-            prev: this.prev,
-            next: this.next,
         });
     }
 
     @Action
-    async loadNextPage() {
+    async setPage(page) {
         return this.search({
             collectionDefinition: this.collectionDefinition,
             params: {
                 ...this.queryParams,
-                page: (this.queryParams.page || 0) + 1,
+                page,
             },
             force: false,
-            append: true,
+            append: false,
         });
+    }
+
+    @Action
+    async facetSelected(
+        {
+            facet,
+            key,
+        },
+    ) {
+        if (!this.facetHandler || !this.facetHandler.facetSelected || !this.facetHandler.facetSelected(facet, key)) {
+            const q = new Query(this.router.currentRoute.query);
+            q.set(facet, key);
+            this.router.push({
+                query: q.query,
+            });
+        }
+    }
+
+    @Action
+    async facetDeselected(
+        {
+            facet,
+            key,
+        },
+    ) {
+        if (!this.facetHandler || !this.facetHandler.facetDeselected || !this.facetHandler.facetDeselected(facet, key)) {
+            const q = new Query(this.router.currentRoute.query);
+            q.remove(facet, key);
+            this.router.push({
+                query: q.query,
+            });
+        }
     }
 }
 

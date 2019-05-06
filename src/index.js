@@ -1,16 +1,25 @@
 import OARepoCollectionList from './components/OARepoCollectionList.vue';
 import OARepoCollection from './components/OARepoCollection.vue';
-import OARepoCollectionItem from './components/OARepoCollectionItem.vue';
+import OARepoItem from './components/OARepoItem.vue';
 import OARepoFacetList from './components/OARepoFacetList.vue';
 
 import Query from './services/query';
 import { CollectionItemModule, CollectionListModule, CollectionModule } from './store/collections_export';
 
 const OARepo = {
-    install(Vue, { store, valueTranslator, apiURL }) {
+    install(
+        Vue,
+        {
+            store,
+            valueTranslator,
+            apiURL,
+            facetHandler,
+            router,
+        },
+    ) {
         Vue.component('oarepo-collection-list', OARepoCollectionList);
         Vue.component('oarepo-collection', OARepoCollection);
-        Vue.component('oarepo-collection-item', OARepoCollectionItem);
+        Vue.component('oarepo-item', OARepoItem);
         Vue.component('oarepo-facet-list', OARepoFacetList);
 
 
@@ -37,6 +46,9 @@ const OARepo = {
 
         oarepo$.collectionModule.setValueTranslator(valueTranslator);
 
+        oarepo$.collectionModule.setFacetHandler(facetHandler);
+        oarepo$.collectionModule.setRouter(router);
+
         Vue.prototype.oarepo$ = oarepo$;
     },
 };
@@ -44,7 +56,7 @@ const OARepo = {
 // Export components individually
 export {
     OARepoCollection,
-    OARepoCollectionItem,
+    OARepoItem,
     OARepoCollectionList,
     OARepoFacetList,
     Query,

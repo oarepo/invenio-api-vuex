@@ -25,7 +25,8 @@ export default class Query {
 
         if (prev === undefined) {
             return;
-        } if (!Array.isArray(this.query[key])) {
+        }
+        if (!Array.isArray(this.query[key])) {
             this.query[key] = [this.query[key]];
         } else {
             this.query[key] = this.query[key].slice();
@@ -54,9 +55,22 @@ export default class Query {
 
         if (prev === undefined) {
             return false;
-        } if (!Array.isArray(this.query[key])) {
+        }
+        if (!Array.isArray(this.query[key])) {
             this.query[key] = [this.query[key]];
         }
         return this.query[key].filter(x => x === stringValue).length > 0;
+    }
+
+    get(key, singleValue = false) {
+        const val = this.query[key];
+
+        if (val === undefined || val === []) {
+            return singleValue ? undefined : [];
+        }
+        if (!Array.isArray(this.query[key])) {
+            return singleValue ? val : [val];
+        }
+        return singleValue ? val[0] : val;
     }
 }
