@@ -41,6 +41,13 @@ class CollectionListModule extends VuexModule {
         return this.state === State.LOADED;
     }
 
+    get visibleCollections() {
+        if (this.state !== State.LOADED) {
+            return [];
+        }
+        return this.collections.filter(x => !x.hidden);
+    }
+
     @Action
     async loadCollections(force = false) {
         if (this.loaded && !force) {
@@ -247,6 +254,7 @@ class CollectionModule extends VuexModule {
             key,
         },
     ) {
+        console.log('Handle and selected', this.facetHandler, this.facetHandler.facetSelected(facet, key));
         if (!this.facetHandler || !this.facetHandler.facetSelected || !this.facetHandler.facetSelected(facet, key)) {
             const q = new Query(this.router.currentRoute.query);
             q.set(facet, key);
