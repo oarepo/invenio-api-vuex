@@ -14,7 +14,6 @@ const OARepo = {
             valueTranslator,
             apiURL,
             facetHandler,
-            router,
         },
     ) {
         Vue.component('oarepo-collection-list', OARepoCollectionList);
@@ -47,7 +46,8 @@ const OARepo = {
         oarepo$.collectionModule.setValueTranslator(valueTranslator);
 
         oarepo$.collectionModule.setFacetHandler(facetHandler);
-        oarepo$.collectionModule.setRouter(router);
+
+        // setTimeout(() => { oarepo$.collectionModule.setRouter(router); }, 1000);
 
         Vue.prototype.oarepo$ = oarepo$;
     },

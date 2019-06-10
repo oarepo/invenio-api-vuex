@@ -190,7 +190,6 @@ class CollectionModule extends VuexModule {
     ) {
         // duplicate params
         const queryParams = params || {};
-
         if (this.loaded
             && this.collectionDefinition.code === collectionDefinition.code
             && this.queryParams === queryParams && !force) {
