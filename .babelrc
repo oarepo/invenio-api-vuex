@@ -1,15 +1,20 @@
 {
   "presets": [
-    "@babel/preset-env",
+    "bili/babel",
     "vue"
   ],
   "plugins": [
     "syntax-dynamic-import",
-    "@babel/plugin-proposal-class-properties",
     [
       "@babel/plugin-proposal-decorators",
       {
-        "decoratorsBeforeExport": false
+        "legacy": true
+      }
+    ],
+    [
+      "@babel/plugin-proposal-class-properties",
+      {
+        "loose": true
       }
     ]
   ]
