@@ -23,9 +23,9 @@ export default @Component({
     components: {
         'oarepo-facet-list': OARepoFacetList,
     },
-    name: 'oarepo-collection',
+    name: 'oarepo-item',
 })
-class OARepoCollection extends Vue {
+class OARepoItem extends Vue {
     // getters
     get loaded() {
         return this.oarepo$.collectionItemModule.loaded;
