@@ -383,6 +383,18 @@ class CollectionItemModule extends VuexModule {
             force: true,
         });
     }
+
+    @Action
+    async patch(data) {
+        if (!Array.isArray(data)) {
+            data = [data];
+        }
+        return axios.patch(this.itemRestUrl, data, {
+            headers: {
+                'Content-Type': 'application/json-patch+json',
+            },
+        });
+    }
 }
 
 export {

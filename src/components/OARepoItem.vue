@@ -73,6 +73,11 @@ class OARepoItem extends Vue {
     onQueryChanged() {
         this.reloadData();
     }
+
+    // modification operations
+    async oarepoSubmitPatch(data) {
+        return this.oarepo$.collectionItemModule.patch(data);
+    }
 }
 </script>
 
