@@ -81,8 +81,8 @@ class OARepoItem extends Vue {
         if (data === undefined) {
             // save all
             data = []
-            this.activeEditors.forEach((x => {
-                data.push(...x.patchRepresentation)
+            this.activeEditors.map(x=>x.patchRepresentation()).filter(x=>x !== undefined && x != null).forEach((x => {
+                data.push(...x)
             }))
         }
         return this.oarepo$.collectionItemModule.patch(data)
