@@ -9,133 +9,133 @@
 </template>
 
 <script>
-import Vue from 'vue';
-import Component from 'vue-class-component';
-import { Watch, Emit } from 'vue-property-decorator';
-import OARepoFacetList from './OARepoFacetList.vue';
-import { CollectionItemModule, CollectionModule } from '../store/collections_export';
+import Vue from 'vue'
+import Component from 'vue-class-component'
+import { Watch, Emit } from 'vue-property-decorator'
+import OARepoFacetList from './OARepoFacetList.vue'
+import { CollectionItemModule, CollectionModule } from '../store/collections_export'
 
 export default @Component({
     props: {
         collectionCode: String,
         itemId: String,
         locale: String,
-        isolated: Boolean,
+        isolated: Boolean
     },
     components: {
-        'oarepo-facet-list': OARepoFacetList,
+        'oarepo-facet-list': OARepoFacetList
     },
-    name: 'oarepo-item',
+    name: 'oarepo-item'
 })
 class OARepoItem extends Vue {
-    activeEditors = [];
+    activeEditors = []
 
-    store = null;
+    store = null
 
-    collectionStore = null;
+    collectionStore = null
 
-    storeName = null;
+    storeName = null
 
-    collectionStoreName = null;
+    collectionStoreName = null
 
-    mounted() {
+    mounted () {
         if (this.isolated) {
-            this.createIsolatedStore();
+            this.createIsolatedStore()
         } else {
-            this.store = this.oarepo$.collectionItemModule;
+            this.store = this.oarepo$.collectionItemModule
         }
-        this.reloadData();
+        this.reloadData()
     }
 
-    createIsolatedStore() {
-        this.storeName = `${this.collectionCode}${this.itemId}`;
-        this.collectionStoreName = `collection-${this.collectionCode}${this.itemId}`;
+    createIsolatedStore () {
+        this.storeName = `${this.collectionCode}${this.itemId}`
+        this.collectionStoreName = `collection-${this.collectionCode}${this.itemId}`
         this.store = new CollectionItemModule({
             store: this.$store,
-            name: this.storeName,
-        });
+            name: this.storeName
+        })
         this.collectionStore = new CollectionModule({
             store: this.$store,
-            name: this.collectionStoreName,
-        });
+            name: this.collectionStoreName
+        })
 
-        this.collectionStore.setCollectionListModule(this.oarepo$.collectionListModule);
+        this.collectionStore.setCollectionListModule(this.oarepo$.collectionListModule)
         this.collectionStore.setCollectionDefinition(
-            this.oarepo$.collectionListModule.collections.filter(x => x.code === this.collectionCode)[0],
-        );
-        this.store.setCollectionListModule(this.oarepo$.collectionListModule);
-        this.store.setCollectionModule(this.collectionStore);
+            this.oarepo$.collectionListModule.collections.filter(x => x.code === this.collectionCode)[0]
+        )
+        this.store.setCollectionListModule(this.oarepo$.collectionListModule)
+        this.store.setCollectionModule(this.collectionStore)
     }
 
-    beforeDestroy() {
+    beforeDestroy () {
         if (this.isolated) {
-            this.$store.unregisterModule(this.storeName);
-            this.$store.unregisterModule(this.collectionStoreName);
+            this.$store.unregisterModule(this.storeName)
+            this.$store.unregisterModule(this.collectionStoreName)
         }
     }
 
     // getters
-    get loaded() {
-        return this.store && this.store.loaded;
+    get loaded () {
+        return this.store && this.store.loaded
     }
 
-    get collection() {
+    get collection () {
         return this.store.collectionListModule.collections.find(
-            value => value.code === this.collectionCode,
-        );
+            value => value.code === this.collectionCode
+        )
     }
 
-    get item() {
-        return this.store.item;
+    get item () {
+        return this.store.item
     }
 
     @Emit('dataLoaded')
-    reloadData() {
+    reloadData () {
         return new Promise((resolve) => {
             this.store.collectionListModule.loadCollections().then(
                 () => {
                     this.store.load({
                         collectionDefinition: this.collection,
                         collectionCode: this.collectionCode,
-                        itemId: this.itemId,
+                        itemId: this.itemId
                     }).then(({ append }) => {
                         resolve({
-                            append,
-                        });
-                    });
-                },
-            );
-        });
+                            append
+                        })
+                    })
+                }
+            )
+        })
     }
 
     @Watch('locale')
-    onLocaleChanged(locale) {
-        this.store.collectionModule.changeLocale(locale);
+    onLocaleChanged (locale) {
+        this.store.collectionModule.changeLocale(locale)
     }
 
     @Watch('$route')
-    onQueryChanged() {
-        this.reloadData();
+    onQueryChanged () {
+        this.reloadData()
     }
 
     // modification operations
-    async patch(data) {
+    async patch (data) {
         if (data === undefined) {
             // save all
-            data = [];
+            data = []
             this.activeEditors.map(x => x.patchRepresentation()).filter(x => x !== undefined && x != null).forEach((x) => {
-                data.push(...x);
-            });
+                data.push(...x)
+            })
         }
-        return this.store.patch(data);
+        return this.store.patch(data)
     }
 
-    registerEditor(editor) {
-        this.activeEditors.push(editor);
+    registerEditor (editor) {
+        this.activeEditors.push(editor)
     }
 
-    unregisterEditor(editor) {
-        this.activeEditors = this.activeEditors.filter(x => editor !== x);
+    unregisterEditor (editor) {
+        this.activeEditors = this.activeEditors.filter(x => editor !== x)
     }
 }
 </script>
