@@ -252,10 +252,10 @@ class CollectionModule extends VuexModule {
         {
             facet,
             key,
+            bucket
         },
     ) {
-        console.log('Handle and selected', this.facetHandler, this.facetHandler.facetSelected(facet, key));
-        if (!this.facetHandler || !this.facetHandler.facetSelected || !this.facetHandler.facetSelected(facet, key)) {
+        if (!this.facetHandler || !this.facetHandler.facetSelected || !this.facetHandler.facetSelected(facet, key, bucket)) {
             const q = new Query(this.router.currentRoute.query);
             q.set(facet, key);
             this.router.push({
@@ -269,9 +269,10 @@ class CollectionModule extends VuexModule {
         {
             facet,
             key,
+            bucket
         },
     ) {
-        if (!this.facetHandler || !this.facetHandler.facetDeselected || !this.facetHandler.facetDeselected(facet, key)) {
+        if (!this.facetHandler || !this.facetHandler.facetDeselected || !this.facetHandler.facetDeselected(facet, key, bucket)) {
             const q = new Query(this.router.currentRoute.query);
             q.remove(facet, key);
             this.router.push({
