@@ -140,6 +140,7 @@ class CollectionModule extends VuexModule {
                         bucket.label = valueTranslator(x.key, {
                             type: 'bucket',
                             facet: key,
+                            bucket: bucket
                         });
                         bucket.selected = queryParams.has(key, bucket.key);
                     });

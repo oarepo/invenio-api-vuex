@@ -23,6 +23,7 @@ class OARepoFacetList extends Vue {
                 {
                     facet: bucket.facet,
                     key: bucket.key,
+                    bucket: bucket
                 },
             );
         } else {
@@ -30,6 +31,7 @@ class OARepoFacetList extends Vue {
                 {
                     facet: bucket.facet,
                     key: bucket.key,
+                    bucket: bucket
                 },
             );
         }
