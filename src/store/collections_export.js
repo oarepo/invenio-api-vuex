@@ -271,7 +271,7 @@ class CollectionModule extends VuexModule {
         if (!this.facetHandler || !this.facetHandler[methodName]) {
             return null
         }
-        return this.facetHandler(...options)
+        return this.facetHandler[methodName](...options)
     }
 
     @Action
