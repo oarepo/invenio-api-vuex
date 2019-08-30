@@ -10,8 +10,8 @@
     "sanitize-html": "^1.20.0",
     "vue-class-component": "^6.3.2",
     "vue-property-decorator": "^7.3.0",
-    "vuex-class-modules": "^1.0.0",
-    "vue-runtime-helpers": "^1.0.1"
+    "vue-runtime-helpers": "^1.0.1",
+    "vuex-class-modules": "^1.0.0"
   },
   "devDependencies": {
     "@babel/core": "^7.4.5",
@@ -31,7 +31,8 @@
     "glob": "^7.1.4",
     "postcss": "^7.0.17",
     "rollup-plugin-vue": "^5.0.0",
-    "vue-template-compiler": "^2.6.10"
+    "vue-template-compiler": "^2.6.10",
+    "set-value": "^2.0.1"
   },
   "description": "Base Vue UI Components for OA Repository",
   "directories": {
