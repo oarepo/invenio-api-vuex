@@ -1,57 +1,57 @@
-import OARepoCollectionList from './components/OARepoCollectionList.vue';
-import OARepoCollection from './components/OARepoCollection.vue';
-import OARepoItem from './components/OARepoItem.vue';
-import OARepoFacetList from './components/OARepoFacetList.vue';
+import OARepoCollectionList from './components/OARepoCollectionList.vue'
+import OARepoCollection from './components/OARepoCollection.vue'
+import OARepoItem from './components/OARepoItem.vue'
+import OARepoFacetList from './components/OARepoFacetList.vue'
 
-import Query from './services/query';
-import { CollectionItemModule, CollectionListModule, CollectionModule } from './store/collections_export';
+import Query from './services/query'
+import { CollectionItemModule, CollectionListModule, CollectionModule } from './store/collections_export'
 
 const OARepo = {
-    install(
+    install (
         Vue,
         {
             store,
             valueTranslator,
             apiURL,
-            facetHandler,
-        },
+            facetHandler
+        }
     ) {
-        Vue.component('oarepo-collection-list', OARepoCollectionList);
-        Vue.component('oarepo-collection', OARepoCollection);
-        Vue.component('oarepo-item', OARepoItem);
-        Vue.component('oarepo-facet-list', OARepoFacetList);
+        Vue.component('oarepo-collection-list', OARepoCollectionList)
+        Vue.component('oarepo-collection', OARepoCollection)
+        Vue.component('oarepo-item', OARepoItem)
+        Vue.component('oarepo-facet-list', OARepoFacetList)
 
 
         const oarepo$ = {
             collectionListModule: new CollectionListModule({
                 store,
-                name: 'collections',
+                name: 'collections'
             }),
             collectionModule: new CollectionModule({
                 store,
-                name: 'collection',
+                name: 'collection'
             }),
             collectionItemModule: new CollectionItemModule({
                 store,
-                name: 'collectionItem',
-            }),
-        };
+                name: 'collectionItem'
+            })
+        }
 
-        oarepo$.collectionListModule.setApiURL(apiURL);
+        oarepo$.collectionListModule.setApiURL(apiURL)
 
-        oarepo$.collectionModule.setCollectionListModule(oarepo$.collectionListModule);
-        oarepo$.collectionItemModule.setCollectionListModule(oarepo$.collectionListModule);
-        oarepo$.collectionItemModule.setCollectionModule(oarepo$.collectionModule);
+        oarepo$.collectionModule.setCollectionListModule(oarepo$.collectionListModule)
+        oarepo$.collectionItemModule.setCollectionListModule(oarepo$.collectionListModule)
+        oarepo$.collectionItemModule.setCollectionModule(oarepo$.collectionModule)
 
-        oarepo$.collectionModule.setValueTranslator(valueTranslator);
+        oarepo$.collectionModule.setValueTranslator(valueTranslator)
 
-        oarepo$.collectionModule.setFacetHandler(facetHandler);
+        oarepo$.collectionModule.setFacetHandler(facetHandler)
 
         // setTimeout(() => { oarepo$.collectionModule.setRouter(router); }, 1000);
 
-        Vue.prototype.oarepo$ = oarepo$;
-    },
-};
+        Vue.prototype.oarepo$ = oarepo$
+    }
+}
 
 // Export components individually
 export {
@@ -63,5 +63,5 @@ export {
     CollectionListModule,
     CollectionModule,
     CollectionItemModule,
-    OARepo,
-};
+    OARepo
+}

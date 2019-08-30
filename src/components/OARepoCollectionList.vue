@@ -8,19 +8,18 @@
 
 <script>
 
-import Vue from 'vue';
-import Component from 'vue-class-component';
+import Vue from 'vue'
+import Component from 'vue-class-component'
 
-export default @Component({
-})
+export default @Component({})
 class OARepoCollectionList extends Vue {
     // getters
-    get collections() {
-        return this.oarepo$.collectionListModule.collections;
+    get collections () {
+        return this.oarepo$.collectionListModule.collections
     }
 
-    mounted() {
-        this.oarepo$.collectionListModule.loadCollections();
+    mounted () {
+        this.oarepo$.collectionListModule.loadCollections()
     }
 }
 </script>

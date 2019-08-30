@@ -1,283 +1,294 @@
 /* eslint "import/prefer-default-export": "off" */
 
 import {
-    Action, Module, Mutation, VuexModule,
-} from 'vuex-class-modules';
-import axios from 'axios';
-import Query from '../services/query';
+    Action, Module, Mutation, VuexModule
+} from 'vuex-class-modules'
+import axios from 'axios'
+import Query from '../services/query'
 
 const State = {
     INVALID: 0,
     LOADING: 1,
-    LOADED: 2,
-};
+    LOADED: 2
+}
 
 @Module
 class CollectionListModule extends VuexModule {
     // state
-    collections = [];
+    collections = []
 
     // loading state
-    state = State.INVALID;
+    state = State.INVALID
 
-    apiURL = null;
-
-    @Mutation
-    setCollections(collections) {
-        this.collections = collections;
-    }
+    apiURL = null
 
     @Mutation
-    setApiURL(apiURL) {
-        this.apiURL = apiURL;
+    setCollections (collections) {
+        this.collections = collections
     }
 
     @Mutation
-    setState(state) {
-        this.state = state;
+    setApiURL (apiURL) {
+        this.apiURL = apiURL
     }
 
-    get loaded() {
-        return this.state === State.LOADED;
+    @Mutation
+    setState (state) {
+        this.state = state
     }
 
-    get visibleCollections() {
+    get loaded () {
+        return this.state === State.LOADED
+    }
+
+    get visibleCollections () {
         if (this.state !== State.LOADED) {
-            return [];
+            return []
         }
-        return this.collections.filter(x => !x.hidden);
+        return this.collections.filter(x => !x.hidden)
     }
 
     @Action
-    async loadCollections(force = false) {
+    async loadCollections (force = false) {
         if (this.loaded && !force) {
-            return this.collections;
+            return this.collections
         }
 
-        this.setState(State.LOADING);
-        const response = await axios.get(`${this.apiURL}collections`);
-        this.setCollections(response.data);
-        this.setState(State.LOADED);
+        this.setState(State.LOADING)
+        const response = await axios.get(`${this.apiURL}collections`)
+        this.setCollections(response.data)
+        this.setState(State.LOADED)
 
-        return response.data;
+        return response.data
     }
 }
 
 @Module
 class CollectionModule extends VuexModule {
     // state
-    collectionDefinition = {};
+    collectionDefinition = {}
 
     // translations
-    valueTranslator = null;
+    valueTranslator = null
 
-    state = State.INVALID;
+    state = State.INVALID
 
-    aggregations = {};
+    aggregations = {}
 
-    items = [];
+    items = []
 
-    queryParams = {};
+    queryParams = {}
 
-    collectionListModule = null;
+    collectionListModule = null
 
-    facetHandler = null;
+    facetHandler = null
 
-    router = null;
+    router = null
 
-    totalPages = 0;
+    totalPages = 0
 
     @Mutation
-    setFacetHandler(facetHandler) {
-        this.facetHandler = facetHandler;
+    setFacetHandler (facetHandler) {
+        this.facetHandler = facetHandler
     }
 
     @Mutation
-    setRouter(router) {
-        this.router = router;
+    setRouter (router) {
+        this.router = router
     }
 
     @Mutation
-    setState(state) {
-        this.state = state;
+    setState (state) {
+        this.state = state
     }
 
     @Mutation
-    setCollectionListModule(collectionListModule) {
-        this.collectionListModule = collectionListModule;
+    setCollectionListModule (collectionListModule) {
+        this.collectionListModule = collectionListModule
     }
 
     @Mutation
-    setCollectionDefinition(collectionDefinition) {
-        this.collectionDefinition = collectionDefinition;
+    setCollectionDefinition (collectionDefinition) {
+        this.collectionDefinition = collectionDefinition
     }
 
     @Mutation
-    setValueTranslator(valueTranslator) {
-        this.valueTranslator = valueTranslator;
+    setValueTranslator (valueTranslator) {
+        this.valueTranslator = valueTranslator
     }
 
     @Mutation
-    setQueryParams(queryParams) {
+    setQueryParams (queryParams) {
         // make duplicate
-        this.queryParams = Object.assign({}, queryParams);
+        this.queryParams = Object.assign({}, queryParams)
     }
 
-    flatten(aggregations, queryParams) {
-        const valueTranslator = this.valueTranslator || (x => x);
-        const flattenedAggregations = {};
+    flatten (aggregations, queryParams) {
+        const valueTranslator = this.valueTranslator || (x => x)
+        const flattenedAggregations = {}
         Object.entries(aggregations).forEach(([key, val]) => {
-            const value = val;
+            const value = val
 
             if (key !== 'doc_count') {
                 if (value.buckets !== undefined) {
                     value.label = valueTranslator(key, {
-                        type: 'facet',
-                    });
+                        type: 'facet'
+                    })
                     value.buckets.forEach((x) => {
-                        const bucket = x;
-                        bucket.facet = key;
+                        const bucket = x
+                        bucket.facet = key
                         bucket.label = valueTranslator(x.key, {
                             type: 'bucket',
                             facet: key,
                             bucket: bucket
-                        });
-                        bucket.selected = queryParams.has(key, bucket.key);
-                    });
-                    flattenedAggregations[key] = value;
+                        })
+                        const _key = this.callFacetHandler('facetKey', key, bucket.key, bucket) || bucket.key
+
+                        bucket.selected = queryParams.has(key, _key)
+                    })
+                    flattenedAggregations[key] = value
                 } else {
-                    Object.assign(flattenedAggregations, this.flatten(value, queryParams));
+                    Object.assign(flattenedAggregations, this.flatten(value, queryParams))
                 }
             }
-        });
-        return flattenedAggregations;
+        })
+        return flattenedAggregations
     }
 
     @Mutation
-    setSearchResults(
+    setSearchResults (
         {
             aggregations,
             items,
-            total,
-        },
-    ) {
-        const q = new Query(this.queryParams);
-        this.aggregations = this.flatten(aggregations, q);
-        this.items = items;
-        const pageSize = this.queryParams.size || 10;
-        this.totalPages = Math.ceil(total / pageSize);
-
-    }
-
-    get restSearchUrl() {
-        const col = this.collectionDefinition;
-        if (col && col.rest) {
-            return col.rest;
+            total
         }
-        return undefined;
+    ) {
+        const q = new Query(this.queryParams)
+        this.aggregations = this.flatten(aggregations, q)
+        this.items = items
+        const pageSize = this.queryParams.size || 10
+        this.totalPages = Math.ceil(total / pageSize)
+
     }
 
-    get loaded() {
-        return this.state === State.LOADED;
+    get restSearchUrl () {
+        const col = this.collectionDefinition
+        if (col && col.rest) {
+            return col.rest
+        }
+        return undefined
+    }
+
+    get loaded () {
+        return this.state === State.LOADED
     }
 
     @Action
-    async search(
+    async search (
         {
             collectionDefinition,
             params,
-            force,
-        },
+            force
+        }
     ) {
         // duplicate params
-        const queryParams = params || {};
+        const queryParams = params || {}
         if (this.loaded
             && this.collectionDefinition.code === collectionDefinition.code
             && this.queryParams === queryParams && !force) {
-            return undefined; // already loaded
+            return undefined // already loaded
         }
-        this.setCollectionDefinition(collectionDefinition);
-        this.setQueryParams(queryParams);
-        this.setState(State.LOADING);
+        this.setCollectionDefinition(collectionDefinition)
+        this.setQueryParams(queryParams)
+        this.setState(State.LOADING)
 
         // convert to http params
-        const axiosParams = new URLSearchParams();
+        const axiosParams = new URLSearchParams()
         Object.entries(queryParams).forEach(([pkey, pvalue]) => {
             if (Array.isArray(pvalue)) {
                 pvalue.forEach((val) => {
-                    axiosParams.append(pkey, val);
-                });
+                    axiosParams.append(pkey, val)
+                })
             } else {
-                axiosParams.append(pkey, pvalue);
+                axiosParams.append(pkey, pvalue)
             }
-        });
+        })
 
         const response = await axios.get(`${this.restSearchUrl}`, {
-            params: axiosParams,
-        });
-        const { aggregations, hits } = response.data;
+            params: axiosParams
+        })
+        const { aggregations, hits } = response.data
 
         this.setSearchResults({
             aggregations,
             items: hits.hits,
-            total: hits.total,
-        });
-        this.setState(State.LOADED);
-        return { response: response.data };
+            total: hits.total
+        })
+        this.setState(State.LOADED)
+        return { response: response.data }
     }
 
     @Action
-    changeLocale() {
+    changeLocale () {
         this.setSearchResults({
             aggregations: this.aggregations,
-            items: this.items,
-        });
+            items: this.items
+        })
     }
 
     @Action
-    async setPage(page) {
+    async setPage (page) {
         return this.search({
             collectionDefinition: this.collectionDefinition,
             params: {
                 ...this.queryParams,
-                page,
+                page
             },
             force: false,
-            append: false,
-        });
+            append: false
+        })
     }
 
     @Action
-    async facetSelected(
+    async facetSelected (
         {
             facet,
             key,
             bucket
-        },
+        }
     ) {
-        if (!this.facetHandler || !this.facetHandler.facetSelected || !this.facetHandler.facetSelected(facet, key, bucket)) {
-            const q = new Query(this.router.currentRoute.query);
-            q.set(facet, key);
+        if (!this.callFacetHandler('facetSelected', facet, key, bucket)) {
+            key = this.callFacetHandler('facetKey', facet, key, bucket) || key
+            const q = new Query(this.router.currentRoute.query)
+            q.set(facet, key)
             this.router.push({
-                query: q.query,
-            });
+                query: q.query
+            })
         }
     }
 
+    callFacetHandler (methodName, ...options) {
+        if (!this.facetHandler || !this.facetHandler[methodName]) {
+            return null
+        }
+        return this.facetHandler(...options)
+    }
+
     @Action
-    async facetDeselected(
+    async facetDeselected (
         {
             facet,
             key,
             bucket
-        },
+        }
     ) {
-        if (!this.facetHandler || !this.facetHandler.facetDeselected || !this.facetHandler.facetDeselected(facet, key, bucket)) {
-            const q = new Query(this.router.currentRoute.query);
-            q.remove(facet, key);
+        if (!this.callFacetHandler('facetDeselected', facet, key, bucket)) {
+            key = this.callFacetHandler('facetKey', facet, key, bucket) || key
+            const q = new Query(this.router.currentRoute.query)
+            q.remove(facet, key)
             this.router.push({
-                query: q.query,
-            });
+                query: q.query
+            })
         }
     }
 }
@@ -285,117 +296,117 @@ class CollectionModule extends VuexModule {
 @Module
 class CollectionItemModule extends VuexModule {
     // state
-    collectionDefinition = {};
+    collectionDefinition = {}
 
     // translations
-    valueTranslator = null;
+    valueTranslator = null
 
-    state = State.INVALID;
+    state = State.INVALID
 
-    item = {};
+    item = {}
 
-    itemId = null;
+    itemId = null
 
-    collectionListModule = null;
+    collectionListModule = null
 
-    collectionModule = null;
+    collectionModule = null
 
     @Mutation
-    setCollectionListModule(collectionListModule) {
-        this.collectionListModule = collectionListModule;
+    setCollectionListModule (collectionListModule) {
+        this.collectionListModule = collectionListModule
     }
 
     @Mutation
-    setCollectionModule(collectionModule) {
-        this.collectionModule = collectionModule;
+    setCollectionModule (collectionModule) {
+        this.collectionModule = collectionModule
     }
 
     @Mutation
-    setState(state) {
-        this.state = state;
+    setState (state) {
+        this.state = state
     }
 
     @Mutation
-    setCollectionDefinition(collectionDefinition) {
-        this.collectionDefinition = collectionDefinition;
+    setCollectionDefinition (collectionDefinition) {
+        this.collectionDefinition = collectionDefinition
     }
 
     @Mutation
-    setValueTranslator(valueTranslator) {
-        this.valueTranslator = valueTranslator;
+    setValueTranslator (valueTranslator) {
+        this.valueTranslator = valueTranslator
     }
 
     @Mutation
-    setItem(item) {
-        this.item = item;
+    setItem (item) {
+        this.item = item
     }
 
     @Mutation
-    setItemId(itemId) {
-        this.itemId = itemId;
+    setItemId (itemId) {
+        this.itemId = itemId
     }
 
-    get restUrl() {
-        const col = this.collectionDefinition;
+    get restUrl () {
+        const col = this.collectionDefinition
         if (col && col.rest) {
-            return col.rest;
+            return col.rest
         }
-        return undefined;
+        return undefined
     }
 
-    get loaded() {
-        return this.state === State.LOADED;
+    get loaded () {
+        return this.state === State.LOADED
     }
 
-    get itemRestUrl() {
-        return `${this.restUrl}${this.itemId}`;
+    get itemRestUrl () {
+        return `${this.restUrl}${this.itemId}`
     }
 
     @Action
-    async load(
+    async load (
         {
             collectionDefinition,
             itemId,
-            force = false,
-        },
+            force = false
+        }
     ) {
         if (this.loaded
             && this.collectionDefinition.code === collectionDefinition.code
             && this.itemId === itemId && !force) {
-            return { item: this.item }; // already loaded
+            return { item: this.item } // already loaded
         }
 
-        this.setCollectionDefinition(collectionDefinition);
-        this.setItemId(itemId);
-        this.setState(State.LOADING);
+        this.setCollectionDefinition(collectionDefinition)
+        this.setItemId(itemId)
+        this.setState(State.LOADING)
 
-        const response = await axios.get(this.itemRestUrl);
-        const item = response.data;
+        const response = await axios.get(this.itemRestUrl)
+        const item = response.data
 
-        this.setItem(item);
-        this.setState(State.LOADED);
-        return { item: response.data };
+        this.setItem(item)
+        this.setState(State.LOADED)
+        return { item: response.data }
     }
 
     @Action
-    async reload() {
+    async reload () {
         this.load({
             collectionDefinition: this.collectionDefinition,
             itemId: this.itemId,
-            force: true,
-        });
+            force: true
+        })
     }
 
     @Action
-    async patch(data) {
+    async patch (data) {
         if (!Array.isArray(data)) {
-            data = [data];
+            data = [data]
         }
         return axios.patch(this.itemRestUrl, data, {
             headers: {
-                'Content-Type': 'application/json-patch+json',
-            },
-        });
+                'Content-Type': 'application/json-patch+json'
+            }
+        })
     }
 }
 
@@ -403,5 +414,5 @@ export {
     CollectionListModule,
     CollectionModule,
     CollectionItemModule,
-    State,
-};
+    State
+}
