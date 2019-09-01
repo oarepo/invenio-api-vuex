@@ -14,6 +14,7 @@ import Component from 'vue-class-component'
 import { Watch, Emit } from 'vue-property-decorator'
 import OARepoFacetList from './OARepoFacetList.vue'
 import { CollectionItemModule, CollectionModule } from '../store/collections_export'
+import { InvalidDataException } from '../exceptions'
 
 export default @Component({
     props: {
@@ -122,6 +123,14 @@ class OARepoItem extends Vue {
     async patch (data) {
         if (data === undefined) {
             // save all
+            const statuses = await Promise.all(this.activeEditors.map(x => x.validate()))
+            if (statuses.filter(x=>!x).length) {
+                throw new InvalidDataException(
+                  statuses.map((x, idx) => {
+                    return [this.activeEditors[idx].name, x]
+                  }).filter(x=>!x[1]).map(x=>`${x[0]}`).join(', ')
+                )
+            }
             data = []
             this.activeEditors.map(x => x.patchRepresentation()).filter(x => x !== undefined && x != null).forEach((x) => {
                 data.push(...x)

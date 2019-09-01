@@ -5,6 +5,7 @@ import OARepoFacetList from './components/OARepoFacetList.vue'
 
 import Query from './services/query'
 import { CollectionItemModule, CollectionListModule, CollectionModule } from './store/collections_export'
+import { InvalidDataException } from './exceptions'
 
 const OARepo = {
     install (
@@ -63,5 +64,6 @@ export {
     CollectionListModule,
     CollectionModule,
     CollectionItemModule,
+    InvalidDataException,
     OARepo
 }
