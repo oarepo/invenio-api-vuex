@@ -1,6 +1,6 @@
 {
   "name": "@oarepo/invenio-oarepo-ui-vue",
-  "version": "1.4.1",
+  "version": "1.5.1",
   "main": "index.esm.js",
   "license": "MIT",
   "peerDependencies": {

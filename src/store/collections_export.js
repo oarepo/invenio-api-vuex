@@ -83,18 +83,11 @@ class CollectionModule extends VuexModule {
 
     facetHandler = null
 
-    router = null
-
     totalPages = 0
 
     @Mutation
     setFacetHandler (facetHandler) {
         this.facetHandler = facetHandler
-    }
-
-    @Mutation
-    setRouter (router) {
-        this.router = router
     }
 
     @Mutation
@@ -249,6 +242,14 @@ class CollectionModule extends VuexModule {
         })
     }
 
+    getRouter() {
+        const router = this.callFacetHandler('getRouter')
+        if (!router) {
+            throw new Error('Please set up getRouter method on facetHandler')
+        }
+        return router
+    }
+
     @Action
     async facetSelected (
         {
@@ -259,9 +260,10 @@ class CollectionModule extends VuexModule {
     ) {
         if (!this.callFacetHandler('facetSelected', facet, key, bucket)) {
             key = this.callFacetHandler('facetKey', facet, key, bucket) || key
-            const q = new Query(this.router.currentRoute.query)
+            const router = this.getRouter()
+            const q = new Query(router.currentRoute.query)
             q.set(facet, key)
-            this.router.push({
+            router.push({
                 query: q.query
             })
         }
@@ -284,9 +286,10 @@ class CollectionModule extends VuexModule {
     ) {
         if (!this.callFacetHandler('facetDeselected', facet, key, bucket)) {
             key = this.callFacetHandler('facetKey', facet, key, bucket) || key
-            const q = new Query(this.router.currentRoute.query)
+            const router = this.getRouter()
+            const q = new Query(router.currentRoute.query)
             q.remove(facet, key)
-            this.router.push({
+            router.push({
                 query: q.query
             })
         }
@@ -402,11 +405,16 @@ class CollectionItemModule extends VuexModule {
         if (!Array.isArray(data)) {
             data = [data]
         }
-        return axios.patch(this.itemRestUrl, data, {
+        const resp = await axios.patch(this.itemRestUrl, data, {
             headers: {
                 'Content-Type': 'application/json-patch+json'
             }
         })
+        if (resp.status === 200) {
+            this.setItem(resp.data)
+        }
+
+        return resp
     }
 }
 
