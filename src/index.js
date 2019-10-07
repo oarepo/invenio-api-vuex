@@ -14,7 +14,8 @@ const OARepo = {
             store,
             valueTranslator,
             apiURL,
-            facetHandler
+            facetHandler,
+            itemPreprocessors
         }
     ) {
         Vue.component('oarepo-collection-list', OARepoCollectionList)
@@ -49,6 +50,12 @@ const OARepo = {
         oarepo$.collectionModule.setFacetHandler(facetHandler)
 
         // setTimeout(() => { oarepo$.collectionModule.setRouter(router); }, 1000);
+
+        if (itemPreprocessors !== undefined) {
+            itemPreprocessors.forEach(x => {
+                oarepo$.collectionItemModule.registerItemPreprocessor(x)
+            })
+        }
 
         Vue.prototype.oarepo$ = oarepo$
     }

@@ -314,6 +314,8 @@ class CollectionItemModule extends VuexModule {
 
     collectionModule = null
 
+    itemPreprocessors = []
+
     @Mutation
     setCollectionListModule (collectionListModule) {
         this.collectionListModule = collectionListModule
@@ -347,6 +349,16 @@ class CollectionItemModule extends VuexModule {
     @Mutation
     setItemId (itemId) {
         this.itemId = itemId
+    }
+
+    @Mutation
+    registerItemPreprocessor (itemPreprocessor) {
+        this.itemPreprocessors.push(itemPreprocessor)
+    }
+
+    @Mutation
+    unregisterItemPreprocessor (itemPreprocessor) {
+        this.itemPreprocessors = this.itemPreprocessors.filter(x => x !== itemPreprocessor)
     }
 
     get restUrl () {
@@ -386,6 +398,7 @@ class CollectionItemModule extends VuexModule {
         const response = await axios.get(this.itemRestUrl)
         const item = response.data
 
+        this.itemPreprocessors.forEach(x => x(item, 'loaded'))
         this.setItem(item)
         this.setState(State.LOADED)
         return { item: response.data }
