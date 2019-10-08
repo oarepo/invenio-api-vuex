@@ -141,7 +141,12 @@ class CollectionModule extends VuexModule {
                     })
                     flattenedAggregations[key] = value
                 } else {
-                    Object.assign(flattenedAggregations, this.flatten(value, queryParams))
+                    // NOTE: This is needed for numeric aggregations
+                    if ('value' in value && Number.isInteger(value['value'])) {
+                        flattenedAggregations[key] = value
+                    } else {
+                        Object.assign(flattenedAggregations, this.flatten(value, queryParams))
+                    }
                 }
             }
         })
@@ -211,7 +216,6 @@ class CollectionModule extends VuexModule {
             params: axiosParams
         })
         const { aggregations, hits } = response.data
-
         this.setSearchResults({
             aggregations,
             items: hits.hits,
