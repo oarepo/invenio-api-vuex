@@ -121,8 +121,7 @@ class CollectionModule extends VuexModule {
         const flattenedAggregations = {}
         Object.entries(aggregations).forEach(([key, val]) => {
             const value = val
-
-            if (key !== 'doc_count') {
+            if (key !== 'doc_count' && value !== null) {
                 if (value.buckets !== undefined) {
                     value.label = valueTranslator(key, {
                         type: 'facet'
