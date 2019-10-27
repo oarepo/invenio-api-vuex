@@ -121,9 +121,7 @@ class CollectionModule extends VuexModule {
         const flattenedAggregations = {}
         Object.entries(aggregations).forEach(([key, val]) => {
             const value = val
-            if (this.callFacetHandler('showFacet', key, value) === false) {
-                return
-            }
+            const facetShown = !(this.callFacetHandler('showFacet', key, value) === false)
             if (key !== 'doc_count' && value !== null) {
                 if (value.buckets !== undefined) {
                     value.label = valueTranslator(key, {
@@ -141,10 +139,12 @@ class CollectionModule extends VuexModule {
 
                         bucket.selected = queryParams.has(key, _key)
                     })
+                    value.facetShown = facetShown
                     flattenedAggregations[key] = value
                 } else {
                     // NOTE: This is needed for numeric aggregations
                     if ('value' in value && Number.isInteger(value['value'])) {
+                        value.facetShown = facetShown
                         flattenedAggregations[key] = value
                     } else {
                         Object.assign(flattenedAggregations, this.flatten(value, queryParams))
@@ -261,14 +261,19 @@ class CollectionModule extends VuexModule {
         {
             facet,
             key,
-            bucket
+            bucket,
+            replace
         }
     ) {
         if (!this.callFacetHandler('facetSelected', facet, key, bucket)) {
             key = this.callFacetHandler('facetKey', facet, key, bucket) || key
             const router = this.getRouter()
             const q = new Query(router.currentRoute.query)
-            q.set(facet, key)
+            if (replace) {
+                q.replace(facet, key)
+            } else {
+                q.set(facet, key)
+            }
             router.push({
                 query: q.query
             })
