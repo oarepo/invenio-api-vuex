@@ -124,11 +124,12 @@ class OARepoItem extends Vue {
         if (data === undefined) {
             // save all
             const statuses = await Promise.all(this.activeEditors.map(x => x.validate()))
-            if (statuses.filter(x=>!x).length) {
+            if (statuses.filter(x => !x).length) {
                 throw new InvalidDataException(
-                  statuses.map((x, idx) => {
-                    return [this.activeEditors[idx].name, x]
-                  }).filter(x=>!x[1]).map(x=>`${x[0]}`).join(', ')
+                    statuses.map((x, idx) => {
+
+                        return [this.activeEditors[idx].name, x]
+                    }).filter(x => !x[1]).map(x => `${x[0]}`).join(', ')
                 )
             }
             data = []

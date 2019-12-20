@@ -6,12 +6,14 @@ import OARepoFacetList from './components/OARepoFacetList.vue'
 import Query from './services/query'
 import { CollectionItemModule, CollectionListModule, CollectionModule } from './store/collections_export'
 import { InvalidDataException } from './exceptions'
+import { loaderAfterEach } from './services/loader'
 
 const OARepo = {
     install (
         Vue,
         {
             store,
+            router,
             valueTranslator,
             apiURL,
             facetHandler,
@@ -58,6 +60,7 @@ const OARepo = {
         }
 
         Vue.prototype.oarepo$ = oarepo$
+        router.afterEach(loaderAfterEach)
     }
 }
 
@@ -72,5 +75,6 @@ export {
     CollectionModule,
     CollectionItemModule,
     InvalidDataException,
+    loaderAfterEach,
     OARepo
 }
