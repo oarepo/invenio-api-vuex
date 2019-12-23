@@ -165,7 +165,7 @@ Fetches the list of collections from the server
 
 Collection module is responsible for loading a single collection of
 records (listing of records) and creating a new record. The module
-is mapped at ``oarepoCollectionList``
+is mapped at ``oarepoCollection``
 
 #### Usage
 
