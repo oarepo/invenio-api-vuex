@@ -237,7 +237,7 @@ A list of loaded records as returned from the elasticsearch. Each record looks l
 
 A list of loaded facets. Each facet looks like:
 
-```json
+```javascript
 {
     "element": {},    // original facet element
     "facets": [       // transformed and translated values
