@@ -67,8 +67,8 @@ Store modules are implemented with ``vuex-class-modules``.
 
 ### Collections module <a name="collections-module"></a>
 
-Use this store only if ``invenio-oarepo-ui`` is installed on the backend.
-This store returns a list of contained data models/collections together 
+Use this store module only if ``invenio-oarepo-ui`` is installed on the backend.
+This module returns a list of contained data models/collections together 
 with extra information about the collections, such as:
 * name
 * description
