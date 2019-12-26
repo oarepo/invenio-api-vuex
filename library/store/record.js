@@ -55,14 +55,16 @@ class RecordModule extends VuexModule {
     @Mutation
     setResponse(response) {
         const record = response.data
-        this.config.collectionRecordPreprocessors(this.collectionId).call(record, { record: this })
+        const collectionRecordPreprocessors =
+            this.config.recordPreprocessors[this.collectionId] || this.config.defaultRecordPreprocessors
+        collectionRecordPreprocessors.call(record, { record: this })
 
         this.record = record
 
         this.metadata = record.metadata
         this.links = record.links
-        this.created = record.created
-        this.updated = record.updated
+        this.created = new Date(record.created)
+        this.updated = new Date(record.updated)
     }
 
     @Action

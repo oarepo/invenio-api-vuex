@@ -49,14 +49,20 @@ class CollectionModule extends VuexModule {
             records,
             total
         }
-        this.facets = this.transformFacets(aggregations)
-        this.records = records
+        const collectionFacetOptions = this.config.facetOptions[this.collectionId] || this.config.defaultFacetOptions
+        this.facets = this.transformFacets(aggregations, collectionFacetOptions)
+        const collectionListRecordPreprocessors =
+            this.config.listRecordPreprocessors[this.collectionId] || this.config.defaultListRecordPreprocessors
+        console.log(collectionListRecordPreprocessors)
+        this.records = records.map(
+            x => collectionListRecordPreprocessors.chainCall(x, {
+                collection: this
+            }))
         const pageSize = this.queryParams.size || this.config.defaultPageSize
         this.totalPages = Math.ceil(total / pageSize)
     }
 
-    transformFacets (aggregations) {
-        const facetOptions = this.config.collectionFacetOptions(this.collectionId)
+    transformFacets (aggregations, facetOptions) {
         const flattenedFacets =
             facetFlattener(aggregations, facetOptions.facetExtractors, this)
 
@@ -116,7 +122,7 @@ class CollectionModule extends VuexModule {
     }
 
     @Action
-    async create ({metadata, storeModule}) {
+    async create ({ metadata, storeModule }) {
         const resp = await axios.post(
             this.config.collectionURL(this.collectionId),
             metadata, {

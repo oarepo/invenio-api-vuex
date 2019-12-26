@@ -1,6 +1,5 @@
 /* eslint "import/prefer-default-export": "off" */
 
-import { Module, VuexModule } from 'vuex-class-modules'
 import { bucketExtractor, facetTranslator, NOT_A_FACET, TranslationOptions } from './facets'
 
 class CallbackList {
@@ -38,6 +37,26 @@ class CallbackList {
         }
         return arg
     }
+}
+
+function convertToCallbackList(x) {
+    if (x === null || x === undefined) {
+        return new CallbackList()
+    }
+    if (x instanceof CallbackList) {
+        return x
+    }
+    if (!Array.isArray(x)) {
+        x = [x]
+    }
+    return new CallbackList(...x)
+}
+
+function convertDictToCallbackList(obj) {
+    if (obj === null || obj === undefined) {
+        return {}
+    }
+    return Object.fromEntries(Object.entries(obj).map(x => [x[0], convertToCallbackList(x[1])]))
 }
 
 class FacetOptions {
@@ -126,10 +145,7 @@ class FacetOptions {
     }
 }
 
-@Module({
-    generateMutationSetters: true
-})
-class ConfigModule extends VuexModule {
+class ConfigModule {
     // api URL, must NOT end with '/'
     apiURL = null
 
@@ -151,6 +167,13 @@ class ConfigModule extends VuexModule {
 
     defaultRecordPreprocessors = new CallbackList()
 
+    /*
+     * @type {Object<string, CallbackList>}
+     */
+    listRecordPreprocessors = {}
+
+    defaultListRecordPreprocessors = new CallbackList()
+
 
     get collectionsURL () {
         return `${this.apiURL}/1.0/oarepo/collections`
@@ -163,17 +186,6 @@ class ConfigModule extends VuexModule {
     recordURL (collectionId, persistentId) {
         return `${this.apiURL}/${collectionId}/${persistentId}`
     }
-
-    /*
-     * @return {FacetOptions}
-     */
-    collectionFacetOptions (collectionId) {
-        return this.facetOptions[collectionId] || this.defaultFacetOptions
-    }
-
-    collectionRecordPreprocessors (collectionId) {
-        return this.recordPreprocessors[collectionId] || this.defaultRecordPreprocessors
-    }
 }
 
 export {
@@ -181,5 +193,7 @@ export {
     CallbackList,
     NOT_A_FACET,
     TranslationOptions,
-    FacetOptions
+    FacetOptions,
+    convertToCallbackList,
+    convertDictToCallbackList
 }
