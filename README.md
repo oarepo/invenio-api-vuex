@@ -21,7 +21,7 @@ yarn add @oarepo/invenio-api
 ```javascript
 
 import Vue from 'vue'
-import InvenioAPI from '@oarepo/invenio-vuex-api' 
+import InvenioAPI from '@oarepo/invenio-api' 
 
 Vue.use(Vuex)
 
@@ -413,6 +413,8 @@ Saves (via HTTP POST) the current record and persists any modifications
 ## Configuration
 
 ```javascript
+import InvenioAPI from '@oarepo/invenio-api'
+
 Vue.use(InvenioAPI, {
     store,
     apiURL: '/api',
@@ -422,7 +424,11 @@ Vue.use(InvenioAPI, {
     facetOptions: {},
 
     defaultRecordPreprocessors: new CallbackList(),
-    recordPreprocessors: {}
+    recordPreprocessors: {},
+
+    collectionListModule: CollectionListModule,
+    collectionModule: CollectionModule,
+    recordModule: RecordModule,
 })
 ```
 
@@ -589,9 +595,8 @@ new FacetOptions({
 
 #### Translation
 
-This block configures the default ``facetTranslator``. The translator can translate
-facet code and facet values into a human readable string. To translate the string,
-facetTranslator uses ``i18n`` in configuration.  
+This block configures the default ``facetTranslator``. Using ``config.i18n(key)``, 
+the translator converts facet code and facet values into a human readable string. 
 
 The description below will use the following facet as returned from facet extractor:
 
