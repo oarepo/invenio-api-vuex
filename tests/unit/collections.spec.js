@@ -1,7 +1,7 @@
 import { createLocalVue } from '@vue/test-utils'
 import Vuex from 'vuex'
 import moxios from 'moxios'
-import { ConfigModule, CollectionListModule } from '@oarepo/invenio-oarepo-ui-vue'
+import { ConfigModule, CollectionListModule } from '@oarepo/invenio-api-vuex'
 import { expect } from 'chai'
 
 describe('CollectionListModule', () => {

@@ -1,7 +1,7 @@
 import { createLocalVue } from '@vue/test-utils'
 import Vuex from 'vuex'
 import moxios from 'moxios'
-import { ConfigModule, CollectionModule, TranslationOptions } from '@oarepo/invenio-oarepo-ui-vue'
+import { ConfigModule, CollectionModule, TranslationOptions } from '@oarepo/invenio-api-vuex'
 import { expect } from 'chai'
 import { FacetOptions } from '../../library/store/config'
 import { RecordModule } from '../../library/store/record'
