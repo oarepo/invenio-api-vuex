@@ -1,13 +1,7 @@
-/* eslint "import/prefer-default-export": "off" */
-
-import { Action, Module, VuexModule, Mutation } from 'vuex-class-modules'
+import { Action, Mutation, VuexModule } from 'vuex-class-modules'
 import axios from 'axios'
 import { State } from './types'
 
-
-@Module({
-    generateMutationSetters: true
-})
 class RecordModule extends VuexModule {
 
     /** @type {ConfigModule} */

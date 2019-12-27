@@ -21,6 +21,7 @@ REST API.
     3. [Record module](#record)
 4. [Configuration](#configuration)
     1. [Facet processing](#facet-processing)
+5. [Mixins](#mixins)
 
 
 ## Installation
@@ -436,9 +437,9 @@ Vue.use(InvenioAPI, {
     defaultRecordPreprocessors: new CallbackList(),
     recordPreprocessors: {},
 
-    collectionListModule: CollectionListModule,
-    collectionModule: CollectionModule,
-    recordModule: RecordModule,
+    collectionListMixins: [],
+    collectionMixins: [],
+    recordMixins: [],
 })
 ```
 
@@ -732,3 +733,44 @@ facet = {
     // rest of facet
 }
 ```
+
+## Mixins
+
+The provided stores can be extended with custom mixin classes to add extra 
+properties/mutations/actions. To do so, provide functions that return a new
+mixin class inherited from the provided superclass. This pattern is described
+at https://justinfagnani.com/2015/12/21/real-mixins-with-javascript-classes/
+
+An example:
+
+```javascript
+import { Action, Mutation } from 'vuex-class-modules'
+
+Vue.use(InvenioAPI, {
+    store,
+    apiURL: '/api',
+    collectionListMixins: [
+        (superclass) => class extends superclass {
+            num = 1
+
+            @Mutation
+            setNumber(num) {
+                this.num = num
+            }
+
+            @Action
+            async numAction() {
+                return new Promise((resolve) => {
+                    setTimeout(() => {
+                        this.num = 3
+                        resolve()
+                    }, 10)
+                })
+            }        
+        }
+    ],
+})
+```
+
+Now, ``num`` is defined as a getter on $oarepo.collectionList and mutations/actions
+are added to the store module. 

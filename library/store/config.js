@@ -1,5 +1,3 @@
-/* eslint "import/prefer-default-export": "off" */
-
 import { bucketExtractor, facetTranslator, NOT_A_FACET, TranslationOptions } from './facets'
 
 class CallbackList {

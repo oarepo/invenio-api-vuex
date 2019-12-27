@@ -1,16 +1,9 @@
-/* eslint "import/prefer-default-export": "off" */
-
-import {
-    Action, Module, Mutation, VuexModule
-} from 'vuex-class-modules'
+import { Action, Mutation, VuexModule } from 'vuex-class-modules'
 import axios from 'axios'
 import { State } from './types'
 import { facetFlattener } from './facets'
 
 
-@Module({
-    generateMutationSetters: true
-})
 class CollectionModule extends VuexModule {
     /** @type {ConfigModule} */
     config = null
