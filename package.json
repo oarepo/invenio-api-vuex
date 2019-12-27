@@ -1,6 +1,6 @@
 {
   "name": "@oarepo/invenio-oarepo-ui-vue",
-  "version": "1.9.0",
+  "version": "1.9.2",
   "main": "index.esm.js",
   "license": "MIT",
   "peerDependencies": {
@@ -40,7 +40,7 @@
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "rm -rf dist; bili -c bili.config.js --plugins.vue --format esm && cp package.json dist/"
+    "build": "rm -rf dist; bili -c bili.config.js --plugins.vue --format esm && cp package.json dist/ && cp README.md dist/"
   },
   "repository": {
     "type": "git",
