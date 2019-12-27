@@ -46,7 +46,6 @@ class CollectionModule extends VuexModule {
         this.facets = this.transformFacets(aggregations, collectionFacetOptions)
         const collectionListRecordPreprocessors =
             this.config.listRecordPreprocessors[this.collectionId] || this.config.defaultListRecordPreprocessors
-        console.log(collectionListRecordPreprocessors)
         this.records = records.map(
             x => collectionListRecordPreprocessors.chainCall(x, {
                 collection: this
