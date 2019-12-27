@@ -1,14 +1,13 @@
 import Vue from 'vue'
 import App from './App.vue'
 import store from './store'
-import InvenioAPI from '@oarepo/invenio-api'
+import InvenioAPI from '@oarepo/invenio-api-vuex'
 import VueRouter from 'vue-router'
 import routes from './router'
 import VuexPreloader from '@oarepo/vuex-preloader'
 import VueQuerySynchronizer from '@oarepo/vue-query-synchronizer'
 import { TranslationOptions } from '../library'
 import { FacetOptions } from '../library/store/config'
-import deepmerge from 'deepmerge'
 
 Vue.config.productionTip = false
 
@@ -19,21 +18,15 @@ Vue.use(InvenioAPI, {
         defaultTranslateValues: TranslationOptions.TRANSLATE
     }),
     listRecordPreprocessors: {
-        objects(record, { collection }) {
-            return deepmerge(
-                record,
-                {
-                    links: {
-                        ui: {
-                            name: 'oarepoRecord',
-                            params: {
-                                collectionId: collection.collectionId,
-                                recordId: record.metadata.id
-                            }
-                        }
-                    }
+        objects (record, { collection }) {
+            record.links.ui = {
+                name: 'oarepoRecord',
+                params: {
+                    collectionId: collection.collectionId,
+                    recordId: record.metadata.id
                 }
-            )
+            }
+            return record
         }
     }
 })

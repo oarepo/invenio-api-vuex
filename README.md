@@ -1,4 +1,4 @@
-# @oarepo/invenio-api
+# @oarepo/invenio-api-vuex
 
 A set of vuex store modules and route utils to work with Invenio 3
 REST API.
@@ -15,13 +15,13 @@ REST API.
 
 ## Installation
 ```
-yarn add @oarepo/invenio-api
+yarn add @oarepo/invenio-api-vuex
 ```
 
 ```javascript
 
 import Vue from 'vue'
-import InvenioAPI from '@oarepo/invenio-api' 
+import InvenioAPI from '@oarepo/invenio-api-vuex' 
 
 Vue.use(Vuex)
 
@@ -45,7 +45,7 @@ add the following configuration to your routes:
 
 
 ```javascript
-import { routerCollection, routerItem } from '@oarepo/invenio-api' 
+import { routerCollection, routerItem } from '@oarepo/invenio-api-vuex' 
 
 routes = [
     routerCollection({
@@ -80,7 +80,7 @@ This module is registered under the name 'oarepoCollectionList' and is
 not loaded automatically unless registered in the router.
 
 ```javascript
-import { routerCollectionList } from '@oarepo/invenio-api' 
+import { routerCollectionList } from '@oarepo/invenio-api-vuex' 
 
 routes = [
     routerCollectionList({
@@ -413,7 +413,7 @@ Saves (via HTTP POST) the current record and persists any modifications
 ## Configuration
 
 ```javascript
-import InvenioAPI from '@oarepo/invenio-api'
+import InvenioAPI from '@oarepo/invenio-api-vuex'
 
 Vue.use(InvenioAPI, {
     store,

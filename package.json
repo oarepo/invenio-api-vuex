@@ -1,10 +1,11 @@
 {
-  "name": "invenio-oarepo-ui-vue",
+  "name": "@oarepo/invenio-api-vuex",
   "version": "2.0.0",
   "private": true,
   "scripts": {
     "serve": "vue-cli-service serve",
-    "build": "vue-cli-service build",
+    "build-sample": "vue-cli-service build",
+    "build": "rm -rf dist; cd library; bili -c bili.config.js --plugins.vue --format esm ./index.js && cp ../package.json dist/ && mv dist ..",
     "lint": "vue-cli-service lint",
     "test:unit": "vue-cli-service test:unit"
   },
@@ -26,10 +27,14 @@
     "@vue/cli-service": "^4.1.0",
     "@vue/test-utils": "1.0.0-beta.29",
     "babel-eslint": "^10.0.3",
+    "babel-plugin-syntax-dynamic-import": "^6.18.0",
+    "babel-preset-vue": "^2.0.2",
+    "bili": "^4.8.1",
     "chai": "^4.1.2",
     "eslint": "^5.16.0",
     "eslint-plugin-vue": "^5.0.0",
     "moxios": "^0.4.0",
+    "rollup-plugin-vue": "^5.1.4",
     "sinon": "^7.5.0",
     "vue-cli-plugin-serve-api-mocks": "^1.0.0",
     "vue-template-compiler": "^2.6.10"

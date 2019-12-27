@@ -1,4 +1,4 @@
-import { routerCollectionList, routerCollection, routerRecord } from '@oarepo/invenio-api'
+import { routerCollectionList, routerCollection, routerRecord } from '@oarepo/invenio-api-vuex'
 import Collections from './components/Collections'
 import Record from './components/Record'
 import Collection from './components/Collection'
