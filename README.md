@@ -3,6 +3,13 @@
 A set of vuex store modules and route utils to work with Invenio 3
 REST API.
 
+<p align="center">
+    <a href="https://travis-ci.org/oarepo/invenio-api-vuex">
+        <img src="https://img.shields.io/travis/oarepo/invenio-api-vuex"
+            alt="travis build stat"></a>
+</p>
+
+
 1. [Installation](#installation)
 2. [Using it together with vuex preloader](#preloader)
 3. [Store modules](#modules)
