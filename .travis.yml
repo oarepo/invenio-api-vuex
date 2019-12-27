@@ -6,6 +6,7 @@ script: yarn build && yarn test:unit
 
 deploy:
   provider: npm
+  edge: true
   local_dir: dist
   email: miroslav.simek@gmail.com
   api_key:
