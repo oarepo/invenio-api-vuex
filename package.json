@@ -5,7 +5,7 @@
   "scripts": {
     "serve": "vue-cli-service serve",
     "build-sample": "vue-cli-service build",
-    "build": "rm -rf dist; cd library; bili -c bili.config.js --plugins.vue --format esm ./index.js && cp ../package.json dist/ && mv dist ..",
+    "build": "rm -rf dist; cd library; bili -c bili.config.js --plugins.vue --format esm ./index.js && cp ../package.json dist/ && cp ../README.md dist && mv dist ..",
     "lint": "vue-cli-service lint",
     "test:unit": "vue-cli-service test:unit"
   },
