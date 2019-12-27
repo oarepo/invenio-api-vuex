@@ -4,9 +4,12 @@ A set of vuex store modules and route utils to work with Invenio 3
 REST API.
 
 <p align="center">
-    <a href="https://travis-ci.org/oarepo/invenio-api-vuex">
+    <a href="https://travis-ci.org/oarepo/invenio-api-vuex" target="_blank">
         <img src="https://img.shields.io/travis/oarepo/invenio-api-vuex"
             alt="travis build stat"></a>
+    <a href="https://www.npmjs.com/package/@oarepo/invenio-api-vuex" target="_blank">
+        <img src="https://img.shields.io/npm/v/@oarepo/invenio-api-vuex"
+            alt="npm version"></a>
 </p>
 
 
