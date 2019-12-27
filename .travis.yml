@@ -2,9 +2,9 @@ language: node_js
 node_js:
   - 11
 
-scripts:
-  test: "yarn test:unit"
-  build: "yarn build"
+script:
+  - yarn build
+  - yarn test:unit
 
 deploy:
   provider: npm
