@@ -1,12 +1,8 @@
-/* eslint "import/prefer-default-export": "off" */
-
-import { Action, Module, VuexModule } from 'vuex-class-modules'
+// import { Action, Module, VuexModule } from 'vuex-class-modules'
+import { Action, VuexModule } from 'vuex-class-modules'
 import axios from 'axios'
 import { State } from './types'
 
-@Module({
-    generateMutationSetters: true
-})
 class CollectionListModule extends VuexModule {
     /** @type {ConfigModule} */
     config = null

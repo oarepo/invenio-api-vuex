@@ -1,10 +1,17 @@
-import { ConfigModule, FacetOptions, CallbackList, convertToCallbackList, convertDictToCallbackList } from './store/config'
+import {
+    CallbackList,
+    ConfigModule,
+    convertDictToCallbackList,
+    convertToCallbackList,
+    FacetOptions
+} from './store/config'
 import { CollectionListModule } from './store/collections'
 import { CollectionModule } from './store/collection'
 import { RecordModule } from './store/record'
 import { TranslationOptions } from './store/facets'
 import { State } from './store/types'
-import { routerRecord, routerCollection, routerCollectionList } from './router'
+import { routerCollection, routerCollectionList, routerRecord } from './router'
+import { applyMixins } from './store/mixin'
 
 export {
     ConfigModule,
@@ -37,9 +44,9 @@ export default {
             listRecordPreprocessors: {},
 
             configModule: ConfigModule,
-            collectionListModule: CollectionListModule,
-            collectionModule: CollectionModule,
-            recordModule: RecordModule
+            collectionListMixins: [],
+            collectionMixins: [],
+            recordMixins: []
         }
         options = {
             ...defaultOptions,
@@ -60,21 +67,21 @@ export default {
         config.listRecordPreprocessors = convertDictToCallbackList(options.listRecordPreprocessors)
         config.defaultListRecordPreprocessors = convertToCallbackList(options.defaultListRecordPreprocessors)
 
-        const collections = new options.collectionListModule(
+        const collections = new applyMixins(CollectionListModule, options.collectionListMixins)(
             config,
             {
                 store,
                 name: 'oarepoCollectionList'
             }
         )
-        const collection = new options.collectionModule(
+        const collection = new applyMixins(CollectionModule, options.collectionMixins)(
             config,
             {
                 store,
                 name: 'oarepoCollection'
             }
         )
-        const record = new options.recordModule(
+        const record = new applyMixins(RecordModule, options.recordMixins)(
             config,
             {
                 store,
