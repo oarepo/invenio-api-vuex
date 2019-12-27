@@ -1,0 +1,1194 @@
+{
+  "created": "2019-12-01T23:48:10.851166+00:00",
+  "id": "32861b6d-1655-4c61-9914-80c5f9a19838",
+  "links": {
+    "attachments": "https://restaurovani.vscht.cz/api/drafts/restorations/objects/32861b6d-1655-4c61-9914-80c5f9a19838/attachments",
+    "publish": "https://restaurovani.vscht.cz/api/drafts/restorations/objects/32861b6d-1655-4c61-9914-80c5f9a19838/publish",
+    "self": "https://restaurovani.vscht.cz/api/drafts/restorations/objects/32861b6d-1655-4c61-9914-80c5f9a19838",
+    "works": "https://restaurovani.vscht.cz/api/drafts/restorations/objects/32861b6d-1655-4c61-9914-80c5f9a19838/works"
+  },
+  "metadata": {
+    "$schema": "https://restaurovani.vscht.cz/schemas/draft/krokd/restoration-object-v1.0.0.json",
+    "_bucket": "5c1bd15b-9a2b-4804-afc7-52f039ea3c15",
+    "_files": [
+      {
+        "bucket": "5c1bd15b-9a2b-4804-afc7-52f039ea3c15",
+        "caption": "Ryt\u00e1 \u010d\u00ed\u0161ka, stav p\u0159ed restaurov\u00e1n\u00edm",
+        "checksum": "md5:240c00d4b7eccbf7fa65aca8a6f59c66",
+        "file_id": "f3eeb3ad-2a3c-481f-92af-9d24b38c4567",
+        "generated-image": true,
+        "iiif": "/api/iiif/v2/5c1bd15b-9a2b-4804-afc7-52f039ea3c15:c1171790-e342-41e2-91eb-84e0bc0441c3:sp5-balikova-anticke-sklo-8.jpg/",
+        "image_height": 855,
+        "image_width": 1166,
+        "key": "sp5-balikova-anticke-sklo-8.jpg",
+        "mime_type": "image/jpeg",
+        "original_url": "/api/drafts/restorations/works/96e02d5f-8fd8-429f-b35d-4f9ddb68ab04/attachments/sp5-balikova-anticke-sklo-8.jpg",
+        "selected": true,
+        "size": 49232,
+        "version_id": "c1171790-e342-41e2-91eb-84e0bc0441c3",
+        "work_bucket_id": "ae745399-037a-4d0a-856e-d61370fe6fa5"
+      },
+      {
+        "bucket": "5c1bd15b-9a2b-4804-afc7-52f039ea3c15",
+        "caption": "\u010c\u00ed\u0161ka po restaurov\u00e1n\u00ed, pohled ze t\u0159\u00ed stran",
+        "checksum": "md5:10aefc67f55852ebad4c321a7d1e8b8b",
+        "file_id": "467e5c32-77e5-4542-b970-e2400a66a06c",
+        "generated-image": true,
+        "iiif": "/api/iiif/v2/5c1bd15b-9a2b-4804-afc7-52f039ea3c15:604a719c-c7fd-4b1e-ad53-9117aa3645f9:sp5-balikova-anticke-sklo-44.jpg/",
+        "image_height": 560,
+        "image_width": 1128,
+        "key": "sp5-balikova-anticke-sklo-44.jpg",
+        "mime_type": "image/jpeg",
+        "original_url": "/api/drafts/restorations/works/96e02d5f-8fd8-429f-b35d-4f9ddb68ab04/attachments/sp5-balikova-anticke-sklo-44.jpg",
+        "selected": true,
+        "size": 34876,
+        "version_id": "604a719c-c7fd-4b1e-ad53-9117aa3645f9",
+        "work_bucket_id": "ae745399-037a-4d0a-856e-d61370fe6fa5"
+      },
+      {
+        "bucket": "5c1bd15b-9a2b-4804-afc7-52f039ea3c15",
+        "caption": "\u010c\u00ed\u0161ka po restaurov\u00e1n\u00ed, kontrastn\u00ed podklad",
+        "checksum": "md5:f2f4da4fc5eff3a78161ece71002d0ff",
+        "featured_image": true,
+        "file_id": "8b91a7b6-1d3c-4d9f-bf8b-4bb3e7500259",
+        "generated-image": true,
+        "iiif": "/api/iiif/v2/5c1bd15b-9a2b-4804-afc7-52f039ea3c15:96644e15-8376-49e4-9f3f-cca1f91cfd57:sp5-balikova-anticke-sklo-42.jpg/",
+        "image_height": 591,
+        "image_width": 608,
+        "key": "sp5-balikova-anticke-sklo-42.jpg",
+        "mime_type": "image/jpeg",
+        "original_url": "/api/drafts/restorations/works/96e02d5f-8fd8-429f-b35d-4f9ddb68ab04/attachments/sp5-balikova-anticke-sklo-42.jpg",
+        "selected": true,
+        "size": 33695,
+        "version_id": "96644e15-8376-49e4-9f3f-cca1f91cfd57",
+        "work_bucket_id": "ae745399-037a-4d0a-856e-d61370fe6fa5"
+      }
+    ],
+    "archeologic": false,
+    "category": "sklo",
+    "created": "2019-12-02",
+    "creationPeriod": {
+      "since": 1,
+      "until": 200
+    },
+    "creator": "rychnovl@vscht.cz",
+    "description": [
+      {
+        "lang": "cs",
+        "value": "Ryt\u00e1 \u010d\u00ed\u0161ka poch\u00e1z\u00ed z Lannovy sb\u00edrky antick\u00e9ho skla. Jde o jednod\u00edlnou n\u00e1levkovitou n\u00e1dobu s\u00a0nev\u00fdrazn\u00fdm obl\u00fdm profilem, konick\u00fdm t\u011blem, rovnou podstavou se zaoblenou hranou a plynule nasazen\u00fdm rovn\u00fdm dnem. \u010c\u00ed\u0161ka m\u00e1 kruhov\u00e9 \u00fast\u00ed s\njednoduch\u00fdm obl\u00fdm okrajem a jej\u00ed povrch je dekorov\u00e1n ve t\u0159ech \u00farovn\u00edch v\u00edcen\u00e1sobn\u00fdmi\nm\u011blk\u00fdmi r\u00fdhami sdru\u017een\u00fdmi v\u00a0p\u00e1sech \u0161irok\u00fdch 2 - 3 m.\u00a0 "
+      }
+    ],
+    "dimensions": [
+      {
+        "dimension": {
+          "id": 107,
+          "level": 1,
+          "links": {
+            "parent": "https://restaurovani.vscht.cz/api/taxonomies/dimension/",
+            "parent_tree": "https://restaurovani.vscht.cz/api/taxonomies/dimension/?drilldown=True",
+            "self": "https://restaurovani.vscht.cz/api/taxonomies/dimension/vyska/",
+            "tree": "https://restaurovani.vscht.cz/api/taxonomies/dimension/vyska/?drilldown=True"
+          },
+          "path": "/vyska",
+          "slug": "vyska",
+          "title": [
+            {
+              "lang": "cs",
+              "value": "v\u00fd\u0161ka"
+            }
+          ],
+          "tooltip": ""
+        },
+        "unit": "mm",
+        "value": 96.0
+      }
+    ],
+    "id": "32861b6d-1655-4c61-9914-80c5f9a19838",
+    "identifier": "32861b6d-1655-4c61-9914-80c5f9a19838",
+    "itemType": [
+      {
+        "ancestors": [
+          {
+            "level": 1,
+            "slug": "sklo"
+          }
+        ],
+        "id": 19,
+        "level": 2,
+        "links": {
+          "parent": "https://restaurovani.vscht.cz/api/taxonomies/item-type/sklo/",
+          "parent_tree": "https://restaurovani.vscht.cz/api/taxonomies/item-type/sklo/?drilldown=True",
+          "self": "https://restaurovani.vscht.cz/api/taxonomies/item-type/sklo/sklo-ke-stolovani/",
+          "tree": "https://restaurovani.vscht.cz/api/taxonomies/item-type/sklo/sklo-ke-stolovani/?drilldown=True"
+        },
+        "path": "/sklo/sklo-ke-stolovani",
+        "slug": "sklo-ke-stolovani",
+        "title": [
+          {
+            "lang": "cs",
+            "value": "sklo ke stolov\u00e1n\u00ed"
+          }
+        ],
+        "tooltip": "zahrnuje sklo n\u00e1pojov\u00e9, serv\u00edrovac\u00ed i u\u017eitkov\u00e9. T\u011bmto kategori\u00edm typov\u011b odpov\u00edd\u00e1 nap\u0159. poh\u00e1r, \u010d\u00ed\u0161e, korbel, \u0161\u00e1lek, miska, tal\u00ed\u0159, d\u017eb\u00e1n, konvice, kutrolf apod."
+      }
+    ],
+    "keywords": [
+      "Lannova sb\u00edrka ",
+      "Vojt\u011bch Lanna ml.",
+      "antick\u00e9 sklo",
+      "\u0159\u00edmsk\u00e9 sklo"
+    ],
+    "modified": "2019-12-25",
+    "parts": [
+      {
+        "color": [
+          {
+            "ancestors": [
+              {
+                "level": 1,
+                "slug": "sklo"
+              },
+              {
+                "level": 2,
+                "slug": "cire"
+              }
+            ],
+            "id": 113,
+            "level": 3,
+            "links": {
+              "parent": "https://restaurovani.vscht.cz/api/taxonomies/color/sklo/cire/",
+              "parent_tree": "https://restaurovani.vscht.cz/api/taxonomies/color/sklo/cire/?drilldown=True",
+              "self": "https://restaurovani.vscht.cz/api/taxonomies/color/sklo/cire/bezbarve/",
+              "tree": "https://restaurovani.vscht.cz/api/taxonomies/color/sklo/cire/bezbarve/?drilldown=True"
+            },
+            "path": "/sklo/cire/bezbarve",
+            "slug": "bezbarve",
+            "title": [
+              {
+                "lang": "cs",
+                "value": "bezbarv\u00e9 sklo"
+              }
+            ],
+            "tooltip": ""
+          }
+        ],
+        "fabricationTechnology": [
+          {
+            "ancestors": [
+              {
+                "level": 1,
+                "slug": "sklo"
+              },
+              {
+                "level": 2,
+                "slug": "dekorativni-techniky-skla"
+              }
+            ],
+            "id": 339,
+            "level": 3,
+            "links": {
+              "parent": "https://restaurovani.vscht.cz/api/taxonomies/fabrication-technology/sklo/dekorativni-techniky-skla/",
+              "parent_tree": "https://restaurovani.vscht.cz/api/taxonomies/fabrication-technology/sklo/dekorativni-techniky-skla/?drilldown=True",
+              "self": "https://restaurovani.vscht.cz/api/taxonomies/fabrication-technology/sklo/dekorativni-techniky-skla/ryte/",
+              "tree": "https://restaurovani.vscht.cz/api/taxonomies/fabrication-technology/sklo/dekorativni-techniky-skla/ryte/?drilldown=True"
+            },
+            "path": "/sklo/dekorativni-techniky-skla/ryte",
+            "slug": "ryte",
+            "title": [
+              {
+                "lang": "cs",
+                "value": "ryt\u00e9 sklo"
+              }
+            ],
+            "tooltip": ""
+          },
+          {
+            "ancestors": [
+              {
+                "level": 1,
+                "slug": "sklo"
+              },
+              {
+                "level": 2,
+                "slug": "technologie-vyroby-skla"
+              }
+            ],
+            "id": 331,
+            "level": 3,
+            "links": {
+              "parent": "https://restaurovani.vscht.cz/api/taxonomies/fabrication-technology/sklo/technologie-vyroby-skla/",
+              "parent_tree": "https://restaurovani.vscht.cz/api/taxonomies/fabrication-technology/sklo/technologie-vyroby-skla/?drilldown=True",
+              "self": "https://restaurovani.vscht.cz/api/taxonomies/fabrication-technology/sklo/technologie-vyroby-skla/foukane/",
+              "tree": "https://restaurovani.vscht.cz/api/taxonomies/fabrication-technology/sklo/technologie-vyroby-skla/foukane/?drilldown=True"
+            },
+            "path": "/sklo/technologie-vyroby-skla/foukane",
+            "slug": "foukane",
+            "title": [
+              {
+                "lang": "cs",
+                "value": "foukan\u00e9 sklo"
+              }
+            ],
+            "tooltip": "z voln\u00e9 ruky i do formy"
+          }
+        ],
+        "main": true,
+        "materialType": {
+          "ancestors": [
+            {
+              "level": 1,
+              "slug": "sklo"
+            }
+          ],
+          "id": 74,
+          "level": 2,
+          "links": {
+            "parent": "https://restaurovani.vscht.cz/api/taxonomies/material-type/sklo/",
+            "parent_tree": "https://restaurovani.vscht.cz/api/taxonomies/material-type/sklo/?drilldown=True",
+            "self": "https://restaurovani.vscht.cz/api/taxonomies/material-type/sklo/sodno-vapenate/",
+            "tree": "https://restaurovani.vscht.cz/api/taxonomies/material-type/sklo/sodno-vapenate/?drilldown=True"
+          },
+          "path": "/sklo/sodno-vapenate",
+          "slug": "sodno-vapenate",
+          "title": [
+            {
+              "lang": "cs",
+              "value": "sodno-v\u00e1penat\u00e9 sklo"
+            }
+          ],
+          "tooltip": "natronov\u00e9 sklo nebo sodno-popelov\u00e9 sklo; Ben\u00e1tsk\u00e9 sklo (d\u011blen\u00ed dle Verit\u00e0): common glass, vitrum blanchum, cristallo; sklo v ben\u00e1tsk\u00e9 stylo: fa\u00e7on de Venice"
+        },
+        "name": [
+          {
+            "lang": "cs",
+            "value": "__base__"
+          }
+        ]
+      }
+    ],
+    "public": false,
+    "restorationRequestor": {
+      "address": "",
+      "contact": "",
+      "id": 491,
+      "level": 1,
+      "links": {
+        "parent": "https://restaurovani.vscht.cz/api/taxonomies/requestors/",
+        "parent_tree": "https://restaurovani.vscht.cz/api/taxonomies/requestors/?drilldown=True",
+        "self": "https://restaurovani.vscht.cz/api/taxonomies/requestors/umeleckoprumyslove-muzeum-v-praze/",
+        "tree": "https://restaurovani.vscht.cz/api/taxonomies/requestors/umeleckoprumyslove-muzeum-v-praze/?drilldown=True"
+      },
+      "path": "/umeleckoprumyslove-muzeum-v-praze",
+      "slug": "umeleckoprumyslove-muzeum-v-praze",
+      "title": [
+        {
+          "lang": "cs",
+          "value": "Um\u011bleckopr\u016fmyslov\u00e9 muzeum v Praze"
+        }
+      ],
+      "tooltip": ""
+    },
+    "stylePeriod": {
+      "descendants_count": 4,
+      "endYear": 476,
+      "id": 186,
+      "level": 2,
+      "links": {
+        "self": "https://restaurovani.vscht.cz/api/taxonomies/period/antika/rimska-antika/",
+        "tree": "https://restaurovani.vscht.cz/api/taxonomies/period/antika/rimska-antika/?drilldown=True"
+      },
+      "path": "/antika/rimska-antika",
+      "slug": "rimska-antika",
+      "startYear": -753,
+      "title": [
+        {
+          "lang": "cs",
+          "value": "\u0159\u00edmsk\u00e1 antika"
+        }
+      ],
+      "tooltip": ""
+    },
+    "thumbnail": {
+      "bucket": "5c1bd15b-9a2b-4804-afc7-52f039ea3c15",
+      "caption": "\u010c\u00ed\u0161ka po restaurov\u00e1n\u00ed, kontrastn\u00ed podklad",
+      "checksum": "md5:f2f4da4fc5eff3a78161ece71002d0ff",
+      "featured_image": true,
+      "file_id": "8b91a7b6-1d3c-4d9f-bf8b-4bb3e7500259",
+      "generated-image": true,
+      "iiif": "/api/iiif/v2/5c1bd15b-9a2b-4804-afc7-52f039ea3c15:96644e15-8376-49e4-9f3f-cca1f91cfd57:sp5-balikova-anticke-sklo-42.jpg/",
+      "image_height": 591,
+      "image_width": 608,
+      "key": "sp5-balikova-anticke-sklo-42.jpg",
+      "mime_type": "image/jpeg",
+      "original_url": "/api/drafts/restorations/works/96e02d5f-8fd8-429f-b35d-4f9ddb68ab04/attachments/sp5-balikova-anticke-sklo-42.jpg",
+      "selected": true,
+      "size": 33695,
+      "version_id": "96644e15-8376-49e4-9f3f-cca1f91cfd57",
+      "work_bucket_id": "ae745399-037a-4d0a-856e-d61370fe6fa5"
+    },
+    "title": [
+      {
+        "lang": "cs",
+        "value": "Antick\u00e1 ryt\u00e1 \u010d\u00ed\u0161ka"
+      }
+    ],
+    "works": [
+      {
+        "created": "2019-12-01T23:48:12.782517+00:00",
+        "id": "96e02d5f-8fd8-429f-b35d-4f9ddb68ab04",
+        "links": {
+          "attachments": "https://restaurovani.vscht.cz/api/drafts/restorations/works/96e02d5f-8fd8-429f-b35d-4f9ddb68ab04/attachments",
+          "publish": "https://restaurovani.vscht.cz/api/drafts/restorations/works/96e02d5f-8fd8-429f-b35d-4f9ddb68ab04/publish",
+          "self": "https://restaurovani.vscht.cz/api/drafts/restorations/works/96e02d5f-8fd8-429f-b35d-4f9ddb68ab04"
+        },
+        "metadata": {
+          "$schema": "https://restaurovani.vscht.cz/schemas/draft/krokd/restoration-work-v1.0.0.json",
+          "_bucket": "ae745399-037a-4d0a-856e-d61370fe6fa5",
+          "_files": [
+            {
+              "bucket": "ae745399-037a-4d0a-856e-d61370fe6fa5",
+              "checksum": "md5:115fa867d2f8ac87664f97722085251b",
+              "file_id": "56af8f8e-89c7-4d37-b540-48da302f8cca",
+              "generated-image": true,
+              "iiif": "/api/iiif/v2/ae745399-037a-4d0a-856e-d61370fe6fa5:dbd73f07-30ce-4daa-88b1-e4902af0062c:sp5-balikova-anticke-sklo-0.jpg/",
+              "image_height": 1064,
+              "image_width": 1196,
+              "key": "sp5-balikova-anticke-sklo-0.jpg",
+              "mime_type": "image/jpeg",
+              "size": 126972,
+              "version_id": "dbd73f07-30ce-4daa-88b1-e4902af0062c"
+            },
+            {
+              "bucket": "ae745399-037a-4d0a-856e-d61370fe6fa5",
+              "checksum": "md5:7bf710d8712cd5baba5b2e755850ea45",
+              "file_id": "c1b97804-c6e5-4bb8-9de0-c49bd02c3abb",
+              "generated-image": true,
+              "iiif": "/api/iiif/v2/ae745399-037a-4d0a-856e-d61370fe6fa5:1d27d556-51be-4eea-a09b-b555b50416e8:sp5-balikova-anticke-sklo-1.jpg/",
+              "image_height": 433,
+              "image_width": 647,
+              "key": "sp5-balikova-anticke-sklo-1.jpg",
+              "mime_type": "image/jpeg",
+              "size": 30559,
+              "version_id": "1d27d556-51be-4eea-a09b-b555b50416e8"
+            },
+            {
+              "bucket": "ae745399-037a-4d0a-856e-d61370fe6fa5",
+              "checksum": "md5:b07a85a116c604318679f60288c61d0c",
+              "file_id": "f85753ea-1016-4c0a-a8ce-cc4fc2319c2a",
+              "generated-image": true,
+              "iiif": "/api/iiif/v2/ae745399-037a-4d0a-856e-d61370fe6fa5:47e20c54-c828-462a-81ef-1f1177318ef0:sp5-balikova-anticke-sklo-2.jpg/",
+              "image_height": 433,
+              "image_width": 647,
+              "key": "sp5-balikova-anticke-sklo-2.jpg",
+              "mime_type": "image/jpeg",
+              "size": 23203,
+              "version_id": "47e20c54-c828-462a-81ef-1f1177318ef0"
+            },
+            {
+              "bucket": "ae745399-037a-4d0a-856e-d61370fe6fa5",
+              "checksum": "md5:a32ab43a9ccca59af25355b603f5b778",
+              "file_id": "32e2ade9-5548-4323-824a-de7bc6ac848a",
+              "generated-image": true,
+              "iiif": "/api/iiif/v2/ae745399-037a-4d0a-856e-d61370fe6fa5:8e0a8c09-1421-4a84-a98b-3a9b6268df22:sp5-balikova-anticke-sklo-3.jpg/",
+              "image_height": 515,
+              "image_width": 770,
+              "key": "sp5-balikova-anticke-sklo-3.jpg",
+              "mime_type": "image/jpeg",
+              "size": 48731,
+              "version_id": "8e0a8c09-1421-4a84-a98b-3a9b6268df22"
+            },
+            {
+              "bucket": "ae745399-037a-4d0a-856e-d61370fe6fa5",
+              "checksum": "md5:4a96b7966054961b6f80642c3f32fda9",
+              "file_id": "d42f750d-3e34-4f5c-beea-e9eb2f6d4d15",
+              "generated-image": true,
+              "iiif": "/api/iiif/v2/ae745399-037a-4d0a-856e-d61370fe6fa5:e66a953b-cd77-4ee4-a475-486a0dd649e5:sp5-balikova-anticke-sklo-4.jpg/",
+              "image_height": 515,
+              "image_width": 770,
+              "key": "sp5-balikova-anticke-sklo-4.jpg",
+              "mime_type": "image/jpeg",
+              "size": 56659,
+              "version_id": "e66a953b-cd77-4ee4-a475-486a0dd649e5"
+            },
+            {
+              "bucket": "ae745399-037a-4d0a-856e-d61370fe6fa5",
+              "checksum": "md5:4f17433def355b8409cfd05248e9a9b7",
+              "file_id": "9b03ba43-0557-4cc4-af31-1cd86a0ab6ec",
+              "generated-image": true,
+              "iiif": "/api/iiif/v2/ae745399-037a-4d0a-856e-d61370fe6fa5:44467196-e33e-4cf8-bed3-5489a9277500:sp5-balikova-anticke-sklo-5.jpg/",
+              "image_height": 834,
+              "image_width": 1339,
+              "key": "sp5-balikova-anticke-sklo-5.jpg",
+              "mime_type": "image/jpeg",
+              "size": 104298,
+              "version_id": "44467196-e33e-4cf8-bed3-5489a9277500"
+            },
+            {
+              "bucket": "ae745399-037a-4d0a-856e-d61370fe6fa5",
+              "checksum": "md5:5ca3130f39d8068971db8de6b4cd4984",
+              "file_id": "2ff058c7-5e44-488e-ada8-b477cd8f4fe7",
+              "generated-image": true,
+              "iiif": "/api/iiif/v2/ae745399-037a-4d0a-856e-d61370fe6fa5:4693dec6-5ce0-4d84-87de-68f091486089:sp5-balikova-anticke-sklo-6.jpg/",
+              "image_height": 922,
+              "image_width": 1380,
+              "key": "sp5-balikova-anticke-sklo-6.jpg",
+              "mime_type": "image/jpeg",
+              "size": 198747,
+              "version_id": "4693dec6-5ce0-4d84-87de-68f091486089"
+            },
+            {
+              "bucket": "ae745399-037a-4d0a-856e-d61370fe6fa5",
+              "checksum": "md5:2a724f1658260fc53ba7daa15cdd1851",
+              "file_id": "d2e752f0-da81-4a09-8399-39a82a16fd52",
+              "generated-image": true,
+              "iiif": "/api/iiif/v2/ae745399-037a-4d0a-856e-d61370fe6fa5:645bf17f-bfb3-4384-8aad-d49803f967bb:sp5-balikova-anticke-sklo-7.jpg/",
+              "image_height": 763,
+              "image_width": 977,
+              "key": "sp5-balikova-anticke-sklo-7.jpg",
+              "mime_type": "image/jpeg",
+              "size": 54115,
+              "version_id": "645bf17f-bfb3-4384-8aad-d49803f967bb"
+            },
+            {
+              "bucket": "ae745399-037a-4d0a-856e-d61370fe6fa5",
+              "caption": "Ryt\u00e1 \u010d\u00ed\u0161ka, stav p\u0159ed restaurov\u00e1n\u00edm",
+              "checksum": "md5:240c00d4b7eccbf7fa65aca8a6f59c66",
+              "file_id": "6b3cec19-153f-4228-81c7-3d8b9b0e0680",
+              "generated-image": true,
+              "iiif": "/api/iiif/v2/ae745399-037a-4d0a-856e-d61370fe6fa5:15e9e2ea-60bf-4e1a-a225-ad037f1e2249:sp5-balikova-anticke-sklo-8.jpg/",
+              "image_height": 855,
+              "image_width": 1166,
+              "key": "sp5-balikova-anticke-sklo-8.jpg",
+              "mime_type": "image/jpeg",
+              "original_url": "/api/drafts/restorations/works/96e02d5f-8fd8-429f-b35d-4f9ddb68ab04/attachments/sp5-balikova-anticke-sklo-8.jpg",
+              "selected": true,
+              "size": 49232,
+              "version_id": "15e9e2ea-60bf-4e1a-a225-ad037f1e2249"
+            },
+            {
+              "bucket": "ae745399-037a-4d0a-856e-d61370fe6fa5",
+              "checksum": "md5:338ae2a18e7f3e8f20dcaf7f52b49626",
+              "file_id": "d4b8c0a9-2192-4a92-b6db-0d909cc79d93",
+              "generated-image": true,
+              "iiif": "/api/iiif/v2/ae745399-037a-4d0a-856e-d61370fe6fa5:feae6cb8-adb4-4c22-884c-2a9ad554475a:sp5-balikova-anticke-sklo-9.jpg/",
+              "image_height": 669,
+              "image_width": 894,
+              "key": "sp5-balikova-anticke-sklo-9.jpg",
+              "mime_type": "image/jpeg",
+              "size": 46018,
+              "version_id": "feae6cb8-adb4-4c22-884c-2a9ad554475a"
+            },
+            {
+              "bucket": "ae745399-037a-4d0a-856e-d61370fe6fa5",
+              "checksum": "md5:7f72017e75b76ff3a23a04bfa4b48c3b",
+              "file_id": "aa615492-20a8-46dc-9036-efe5525166e9",
+              "generated-image": true,
+              "iiif": "/api/iiif/v2/ae745399-037a-4d0a-856e-d61370fe6fa5:387863f7-63bb-4a9b-9ef8-330eb2e6fac7:sp5-balikova-anticke-sklo-10.jpg/",
+              "image_height": 732,
+              "image_width": 1038,
+              "key": "sp5-balikova-anticke-sklo-10.jpg",
+              "mime_type": "image/jpeg",
+              "size": 41316,
+              "version_id": "387863f7-63bb-4a9b-9ef8-330eb2e6fac7"
+            },
+            {
+              "bucket": "ae745399-037a-4d0a-856e-d61370fe6fa5",
+              "checksum": "md5:a5b5702e02bc5320e66968374fd21996",
+              "file_id": "4473c515-301d-4f30-9448-a57315fc985d",
+              "generated-image": true,
+              "iiif": "/api/iiif/v2/ae745399-037a-4d0a-856e-d61370fe6fa5:90013f14-66e0-4207-b864-293b0fda6dbf:sp5-balikova-anticke-sklo-11.jpg/",
+              "image_height": 623,
+              "image_width": 990,
+              "key": "sp5-balikova-anticke-sklo-11.jpg",
+              "mime_type": "image/jpeg",
+              "size": 33701,
+              "version_id": "90013f14-66e0-4207-b864-293b0fda6dbf"
+            },
+            {
+              "bucket": "ae745399-037a-4d0a-856e-d61370fe6fa5",
+              "checksum": "md5:d54e6f7cc2e3c87afa785c983a4a6516",
+              "file_id": "10ad062b-2ed4-4c8f-af51-f57fe67e7a72",
+              "generated-image": true,
+              "iiif": "/api/iiif/v2/ae745399-037a-4d0a-856e-d61370fe6fa5:2af8bfe5-93e8-4675-84d8-4a7331b90d68:sp5-balikova-anticke-sklo-12.jpg/",
+              "image_height": 598,
+              "image_width": 678,
+              "key": "sp5-balikova-anticke-sklo-12.jpg",
+              "mime_type": "image/jpeg",
+              "size": 22443,
+              "version_id": "2af8bfe5-93e8-4675-84d8-4a7331b90d68"
+            },
+            {
+              "bucket": "ae745399-037a-4d0a-856e-d61370fe6fa5",
+              "checksum": "md5:f0859c7858ad3b4bb4878ac201c96f53",
+              "file_id": "3f74a7e4-8b47-4a47-9600-ccc716fe6149",
+              "generated-image": true,
+              "iiif": "/api/iiif/v2/ae745399-037a-4d0a-856e-d61370fe6fa5:8ac888a6-4b04-4bd2-ad32-479ee3896c04:sp5-balikova-anticke-sklo-13.jpg/",
+              "image_height": 574,
+              "image_width": 859,
+              "key": "sp5-balikova-anticke-sklo-13.jpg",
+              "mime_type": "image/jpeg",
+              "size": 33841,
+              "version_id": "8ac888a6-4b04-4bd2-ad32-479ee3896c04"
+            },
+            {
+              "bucket": "ae745399-037a-4d0a-856e-d61370fe6fa5",
+              "checksum": "md5:0988bf9c4d0a863d5aee3467492cf737",
+              "file_id": "ebd7ff05-902a-4ec9-a0a6-0c2a55bd571f",
+              "generated-image": true,
+              "iiif": "/api/iiif/v2/ae745399-037a-4d0a-856e-d61370fe6fa5:7c74a00a-ddda-4f27-a3e4-506a06e06df3:sp5-balikova-anticke-sklo-14.jpg/",
+              "image_height": 590,
+              "image_width": 590,
+              "key": "sp5-balikova-anticke-sklo-14.jpg",
+              "mime_type": "image/jpeg",
+              "size": 33868,
+              "version_id": "7c74a00a-ddda-4f27-a3e4-506a06e06df3"
+            },
+            {
+              "bucket": "ae745399-037a-4d0a-856e-d61370fe6fa5",
+              "checksum": "md5:3b8dccdcae1eb6c44841c828abc05d2d",
+              "file_id": "7fb8df51-225e-44e2-a135-3282c808b75a",
+              "generated-image": true,
+              "iiif": "/api/iiif/v2/ae745399-037a-4d0a-856e-d61370fe6fa5:f59e4480-6a78-4132-802d-58461ecb3242:sp5-balikova-anticke-sklo-15.jpg/",
+              "image_height": 521,
+              "image_width": 782,
+              "key": "sp5-balikova-anticke-sklo-15.jpg",
+              "mime_type": "image/jpeg",
+              "size": 59127,
+              "version_id": "f59e4480-6a78-4132-802d-58461ecb3242"
+            },
+            {
+              "bucket": "ae745399-037a-4d0a-856e-d61370fe6fa5",
+              "checksum": "md5:64f6b6c94930e2e8bcc411421db161d9",
+              "file_id": "a0fb2898-3b29-4f7c-a174-88af48fa9a68",
+              "generated-image": true,
+              "iiif": "/api/iiif/v2/ae745399-037a-4d0a-856e-d61370fe6fa5:ceaa68e9-9d88-4a28-a0f0-9879f7fc08a4:sp5-balikova-anticke-sklo-16.jpg/",
+              "image_height": 678,
+              "image_width": 1050,
+              "key": "sp5-balikova-anticke-sklo-16.jpg",
+              "mime_type": "image/jpeg",
+              "size": 39092,
+              "version_id": "ceaa68e9-9d88-4a28-a0f0-9879f7fc08a4"
+            },
+            {
+              "bucket": "ae745399-037a-4d0a-856e-d61370fe6fa5",
+              "checksum": "md5:d13a59429bc27142cb4610ef2bcb261f",
+              "file_id": "f00609d3-1799-4ab4-8f28-7e57647d6612",
+              "generated-image": true,
+              "iiif": "/api/iiif/v2/ae745399-037a-4d0a-856e-d61370fe6fa5:2fb35cad-5fa1-489b-8993-fb8d41bb7175:sp5-balikova-anticke-sklo-17.jpg/",
+              "image_height": 621,
+              "image_width": 743,
+              "key": "sp5-balikova-anticke-sklo-17.jpg",
+              "mime_type": "image/jpeg",
+              "size": 128046,
+              "version_id": "2fb35cad-5fa1-489b-8993-fb8d41bb7175"
+            },
+            {
+              "bucket": "ae745399-037a-4d0a-856e-d61370fe6fa5",
+              "checksum": "md5:fb8cbe070d732daa849fe83eb723c9ba",
+              "file_id": "2b47aa8d-ce04-4090-bb80-8e9ec7ceabdb",
+              "generated-image": true,
+              "iiif": "/api/iiif/v2/ae745399-037a-4d0a-856e-d61370fe6fa5:3c78b8fb-661b-4859-b10f-781349605d02:sp5-balikova-anticke-sklo-18.jpg/",
+              "image_height": 593,
+              "image_width": 890,
+              "key": "sp5-balikova-anticke-sklo-18.jpg",
+              "mime_type": "image/jpeg",
+              "size": 71120,
+              "version_id": "3c78b8fb-661b-4859-b10f-781349605d02"
+            },
+            {
+              "bucket": "ae745399-037a-4d0a-856e-d61370fe6fa5",
+              "checksum": "md5:c61e3662836b81c318a3a48518096133",
+              "file_id": "e4133adc-7082-433a-a185-308a912f3a8a",
+              "generated-image": true,
+              "iiif": "/api/iiif/v2/ae745399-037a-4d0a-856e-d61370fe6fa5:006d6dd7-c1c1-41b8-a273-8d374ac2c797:sp5-balikova-anticke-sklo-19.jpg/",
+              "image_height": 445,
+              "image_width": 662,
+              "key": "sp5-balikova-anticke-sklo-19.jpg",
+              "mime_type": "image/jpeg",
+              "size": 75060,
+              "version_id": "006d6dd7-c1c1-41b8-a273-8d374ac2c797"
+            },
+            {
+              "bucket": "ae745399-037a-4d0a-856e-d61370fe6fa5",
+              "checksum": "md5:c6c546edb14875630229f67645775449",
+              "file_id": "6159094c-7178-4f03-ab9e-ff22b410637f",
+              "generated-image": true,
+              "iiif": "/api/iiif/v2/ae745399-037a-4d0a-856e-d61370fe6fa5:713c8bcc-9c79-42a5-a62a-9d11e418dfb7:sp5-balikova-anticke-sklo-20.jpg/",
+              "image_height": 486,
+              "image_width": 711,
+              "key": "sp5-balikova-anticke-sklo-20.jpg",
+              "mime_type": "image/jpeg",
+              "size": 49758,
+              "version_id": "713c8bcc-9c79-42a5-a62a-9d11e418dfb7"
+            },
+            {
+              "bucket": "ae745399-037a-4d0a-856e-d61370fe6fa5",
+              "checksum": "md5:b8cd4d0312b09ed83d58394bf2142e40",
+              "file_id": "1315ebc9-4589-49d6-90fa-cb5a12dcec94",
+              "generated-image": true,
+              "iiif": "/api/iiif/v2/ae745399-037a-4d0a-856e-d61370fe6fa5:6c7b5476-b09d-41c7-92ff-2c604401eeac:sp5-balikova-anticke-sklo-21.jpg/",
+              "image_height": 468,
+              "image_width": 700,
+              "key": "sp5-balikova-anticke-sklo-21.jpg",
+              "mime_type": "image/jpeg",
+              "size": 37689,
+              "version_id": "6c7b5476-b09d-41c7-92ff-2c604401eeac"
+            },
+            {
+              "bucket": "ae745399-037a-4d0a-856e-d61370fe6fa5",
+              "checksum": "md5:3edc3e72a2d2d63802c35cd1c96dad99",
+              "file_id": "c874f632-6d51-471a-a9f3-637f74a1a57d",
+              "generated-image": true,
+              "iiif": "/api/iiif/v2/ae745399-037a-4d0a-856e-d61370fe6fa5:31d08bff-2f83-417b-be2d-a5d1f5920cb0:sp5-balikova-anticke-sklo-22.jpg/",
+              "image_height": 467,
+              "image_width": 693,
+              "key": "sp5-balikova-anticke-sklo-22.jpg",
+              "mime_type": "image/jpeg",
+              "size": 68335,
+              "version_id": "31d08bff-2f83-417b-be2d-a5d1f5920cb0"
+            },
+            {
+              "bucket": "ae745399-037a-4d0a-856e-d61370fe6fa5",
+              "checksum": "md5:034aaa5c8205b610fa34ea247f717918",
+              "file_id": "b9c6d5a4-f10c-4734-8f42-7fdb1fa36dfc",
+              "generated-image": true,
+              "iiif": "/api/iiif/v2/ae745399-037a-4d0a-856e-d61370fe6fa5:8788d33b-00a0-400c-a9e4-a8a1de4247f8:sp5-balikova-anticke-sklo-23.jpg/",
+              "image_height": 652,
+              "image_width": 780,
+              "key": "sp5-balikova-anticke-sklo-23.jpg",
+              "mime_type": "image/jpeg",
+              "size": 91474,
+              "version_id": "8788d33b-00a0-400c-a9e4-a8a1de4247f8"
+            },
+            {
+              "bucket": "ae745399-037a-4d0a-856e-d61370fe6fa5",
+              "checksum": "md5:1ed70de65df19abd6b158443cb50eace",
+              "file_id": "bf71931f-50c4-4221-ba21-803c0c8ee897",
+              "generated-image": true,
+              "iiif": "/api/iiif/v2/ae745399-037a-4d0a-856e-d61370fe6fa5:eee5918a-8f84-4e97-8442-d9eaa83b79d2:sp5-balikova-anticke-sklo-24.jpg/",
+              "image_height": 650,
+              "image_width": 971,
+              "key": "sp5-balikova-anticke-sklo-24.jpg",
+              "mime_type": "image/jpeg",
+              "size": 43040,
+              "version_id": "eee5918a-8f84-4e97-8442-d9eaa83b79d2"
+            },
+            {
+              "bucket": "ae745399-037a-4d0a-856e-d61370fe6fa5",
+              "checksum": "md5:7bc72c7b60ff1b0ee37b9fedfd55ab50",
+              "file_id": "8cec101f-c616-4b66-8843-00e837471ca5",
+              "generated-image": true,
+              "iiif": "/api/iiif/v2/ae745399-037a-4d0a-856e-d61370fe6fa5:c1da93bd-3126-4ed8-af3b-11e89a27383f:sp5-balikova-anticke-sklo-25.jpg/",
+              "image_height": 432,
+              "image_width": 1239,
+              "key": "sp5-balikova-anticke-sklo-25.jpg",
+              "mime_type": "image/jpeg",
+              "size": 40963,
+              "version_id": "c1da93bd-3126-4ed8-af3b-11e89a27383f"
+            },
+            {
+              "bucket": "ae745399-037a-4d0a-856e-d61370fe6fa5",
+              "checksum": "md5:9770328b080a80aef5d49e0a98c6b5a4",
+              "file_id": "cc8e2366-cf0e-4621-ad92-4635e54734a9",
+              "generated-image": true,
+              "iiif": "/api/iiif/v2/ae745399-037a-4d0a-856e-d61370fe6fa5:2cd562cd-730e-4585-926f-9c298355b933:sp5-balikova-anticke-sklo-26.jpg/",
+              "image_height": 650,
+              "image_width": 919,
+              "key": "sp5-balikova-anticke-sklo-26.jpg",
+              "mime_type": "image/jpeg",
+              "size": 27369,
+              "version_id": "2cd562cd-730e-4585-926f-9c298355b933"
+            },
+            {
+              "bucket": "ae745399-037a-4d0a-856e-d61370fe6fa5",
+              "checksum": "md5:d0cb54b735eef6039d2224853d02dd39",
+              "file_id": "650d196a-fc5b-48be-ad51-18125b9ddda5",
+              "generated-image": true,
+              "iiif": "/api/iiif/v2/ae745399-037a-4d0a-856e-d61370fe6fa5:e218472c-ffda-4c5f-be02-71e24d865d48:sp5-balikova-anticke-sklo-27.jpg/",
+              "image_height": 565,
+              "image_width": 855,
+              "key": "sp5-balikova-anticke-sklo-27.jpg",
+              "mime_type": "image/jpeg",
+              "size": 28206,
+              "version_id": "e218472c-ffda-4c5f-be02-71e24d865d48"
+            },
+            {
+              "bucket": "ae745399-037a-4d0a-856e-d61370fe6fa5",
+              "checksum": "md5:9ce796edbff43a4419dae2492d650f7f",
+              "file_id": "f2077bc1-f8c2-4b04-b56a-5ae20f049759",
+              "generated-image": true,
+              "iiif": "/api/iiif/v2/ae745399-037a-4d0a-856e-d61370fe6fa5:1471851f-349a-4dc7-b0b6-a1062fb50267:sp5-balikova-anticke-sklo-28.jpg/",
+              "image_height": 665,
+              "image_width": 866,
+              "key": "sp5-balikova-anticke-sklo-28.jpg",
+              "mime_type": "image/jpeg",
+              "size": 31925,
+              "version_id": "1471851f-349a-4dc7-b0b6-a1062fb50267"
+            },
+            {
+              "bucket": "ae745399-037a-4d0a-856e-d61370fe6fa5",
+              "checksum": "md5:eac38fa805f4c9a364e81a977a66f9f7",
+              "file_id": "e8799260-8acf-4510-a952-ad8f542d8f2c",
+              "generated-image": true,
+              "iiif": "/api/iiif/v2/ae745399-037a-4d0a-856e-d61370fe6fa5:fa124e1c-ec4e-4a9b-8441-0edcac31b262:sp5-balikova-anticke-sklo-29.jpg/",
+              "image_height": 585,
+              "image_width": 866,
+              "key": "sp5-balikova-anticke-sklo-29.jpg",
+              "mime_type": "image/jpeg",
+              "size": 43078,
+              "version_id": "fa124e1c-ec4e-4a9b-8441-0edcac31b262"
+            },
+            {
+              "bucket": "ae745399-037a-4d0a-856e-d61370fe6fa5",
+              "checksum": "md5:c7237c28852ee2f74973b02827eddb12",
+              "file_id": "0a87307e-6163-4176-85a9-b047b091933c",
+              "generated-image": true,
+              "iiif": "/api/iiif/v2/ae745399-037a-4d0a-856e-d61370fe6fa5:8b5afc7b-ea5c-4e2f-a985-7cff4095f015:sp5-balikova-anticke-sklo-30.jpg/",
+              "image_height": 741,
+              "image_width": 808,
+              "key": "sp5-balikova-anticke-sklo-30.jpg",
+              "mime_type": "image/jpeg",
+              "size": 29527,
+              "version_id": "8b5afc7b-ea5c-4e2f-a985-7cff4095f015"
+            },
+            {
+              "bucket": "ae745399-037a-4d0a-856e-d61370fe6fa5",
+              "checksum": "md5:517d9842388d6edb6007701ecf6885dd",
+              "file_id": "274c36e3-dd0b-46df-8501-91e3e61137bc",
+              "generated-image": true,
+              "iiif": "/api/iiif/v2/ae745399-037a-4d0a-856e-d61370fe6fa5:780ddf0d-3756-46dd-9976-2b5e29a7dc6f:sp5-balikova-anticke-sklo-31.jpg/",
+              "image_height": 740,
+              "image_width": 695,
+              "key": "sp5-balikova-anticke-sklo-31.jpg",
+              "mime_type": "image/jpeg",
+              "size": 25150,
+              "version_id": "780ddf0d-3756-46dd-9976-2b5e29a7dc6f"
+            },
+            {
+              "bucket": "ae745399-037a-4d0a-856e-d61370fe6fa5",
+              "checksum": "md5:8dda8f72c5e849c286f404b0633ea644",
+              "file_id": "365edebe-036e-46ba-aacf-cf8e558c65df",
+              "generated-image": true,
+              "iiif": "/api/iiif/v2/ae745399-037a-4d0a-856e-d61370fe6fa5:6ef76aa0-ded1-494a-9fa4-d7378d91a655:sp5-balikova-anticke-sklo-32.jpg/",
+              "image_height": 288,
+              "image_width": 1214,
+              "key": "sp5-balikova-anticke-sklo-32.jpg",
+              "mime_type": "image/jpeg",
+              "size": 26866,
+              "version_id": "6ef76aa0-ded1-494a-9fa4-d7378d91a655"
+            },
+            {
+              "bucket": "ae745399-037a-4d0a-856e-d61370fe6fa5",
+              "checksum": "md5:305726fba1891bded650f595edd49091",
+              "file_id": "2d524a8f-60c0-4034-a2d7-5499d9c50d98",
+              "generated-image": true,
+              "iiif": "/api/iiif/v2/ae745399-037a-4d0a-856e-d61370fe6fa5:db856738-b2da-4220-a732-e8070068572a:sp5-balikova-anticke-sklo-33.jpg/",
+              "image_height": 485,
+              "image_width": 723,
+              "key": "sp5-balikova-anticke-sklo-33.jpg",
+              "mime_type": "image/jpeg",
+              "size": 16821,
+              "version_id": "db856738-b2da-4220-a732-e8070068572a"
+            },
+            {
+              "bucket": "ae745399-037a-4d0a-856e-d61370fe6fa5",
+              "checksum": "md5:812fd43a7f046599bfc50862eed421ef",
+              "file_id": "96baf6d3-1ac9-4417-b9c9-1fe2642db5c4",
+              "generated-image": true,
+              "iiif": "/api/iiif/v2/ae745399-037a-4d0a-856e-d61370fe6fa5:6cece112-6a8d-42b7-8f8a-c0802dade69b:sp5-balikova-anticke-sklo-34.jpg/",
+              "image_height": 488,
+              "image_width": 741,
+              "key": "sp5-balikova-anticke-sklo-34.jpg",
+              "mime_type": "image/jpeg",
+              "size": 27517,
+              "version_id": "6cece112-6a8d-42b7-8f8a-c0802dade69b"
+            },
+            {
+              "bucket": "ae745399-037a-4d0a-856e-d61370fe6fa5",
+              "checksum": "md5:5d2c4666fd90b626186244f9f9a7c14d",
+              "file_id": "0030e2e2-92b3-4239-84fa-5d3097453a09",
+              "generated-image": true,
+              "iiif": "/api/iiif/v2/ae745399-037a-4d0a-856e-d61370fe6fa5:a52f58bd-771b-4dae-ab2f-919f51655bb3:sp5-balikova-anticke-sklo-35.jpg/",
+              "image_height": 572,
+              "image_width": 716,
+              "key": "sp5-balikova-anticke-sklo-35.jpg",
+              "mime_type": "image/jpeg",
+              "size": 24908,
+              "version_id": "a52f58bd-771b-4dae-ab2f-919f51655bb3"
+            },
+            {
+              "bucket": "ae745399-037a-4d0a-856e-d61370fe6fa5",
+              "checksum": "md5:9758a176a94bfafc0529fc62143ec5c0",
+              "file_id": "66f53e23-d0ca-443a-a012-5b56b804e8a2",
+              "generated-image": true,
+              "iiif": "/api/iiif/v2/ae745399-037a-4d0a-856e-d61370fe6fa5:d2737caa-49df-4c38-beea-84a4e1a7d3ab:sp5-balikova-anticke-sklo-36.jpg/",
+              "image_height": 572,
+              "image_width": 657,
+              "key": "sp5-balikova-anticke-sklo-36.jpg",
+              "mime_type": "image/jpeg",
+              "size": 24167,
+              "version_id": "d2737caa-49df-4c38-beea-84a4e1a7d3ab"
+            },
+            {
+              "bucket": "ae745399-037a-4d0a-856e-d61370fe6fa5",
+              "checksum": "md5:28141c03a50e06b296b855265ccc9523",
+              "file_id": "801aed51-c84d-4f36-a3fb-4e102ebea2ad",
+              "generated-image": true,
+              "iiif": "/api/iiif/v2/ae745399-037a-4d0a-856e-d61370fe6fa5:bc5ece58-c958-4239-865e-6fb263009754:sp5-balikova-anticke-sklo-37.jpg/",
+              "image_height": 860,
+              "image_width": 653,
+              "key": "sp5-balikova-anticke-sklo-37.jpg",
+              "mime_type": "image/jpeg",
+              "size": 84396,
+              "version_id": "bc5ece58-c958-4239-865e-6fb263009754"
+            },
+            {
+              "bucket": "ae745399-037a-4d0a-856e-d61370fe6fa5",
+              "checksum": "md5:98eca85d2f85c67514c285e7e3fafbe6",
+              "file_id": "4725f951-db4d-405c-aef0-39329a3df80b",
+              "generated-image": true,
+              "iiif": "/api/iiif/v2/ae745399-037a-4d0a-856e-d61370fe6fa5:d8b4f8c4-60dc-4afd-a490-321e78461288:sp5-balikova-anticke-sklo-38.jpg/",
+              "image_height": 1049,
+              "image_width": 1226,
+              "key": "sp5-balikova-anticke-sklo-38.jpg",
+              "mime_type": "image/jpeg",
+              "size": 78537,
+              "version_id": "d8b4f8c4-60dc-4afd-a490-321e78461288"
+            },
+            {
+              "bucket": "ae745399-037a-4d0a-856e-d61370fe6fa5",
+              "checksum": "md5:0494a911bfd50ae3175009aac69d334a",
+              "file_id": "a5a82459-471f-4702-aeb0-eedfc6b197ce",
+              "generated-image": true,
+              "iiif": "/api/iiif/v2/ae745399-037a-4d0a-856e-d61370fe6fa5:cc09a416-04b3-433a-ba04-6d717a914881:sp5-balikova-anticke-sklo-39.jpg/",
+              "image_height": 395,
+              "image_width": 1619,
+              "key": "sp5-balikova-anticke-sklo-39.jpg",
+              "mime_type": "image/jpeg",
+              "size": 56447,
+              "version_id": "cc09a416-04b3-433a-ba04-6d717a914881"
+            },
+            {
+              "bucket": "ae745399-037a-4d0a-856e-d61370fe6fa5",
+              "checksum": "md5:035c7d0efbdba16ae38fd924b2adaa1b",
+              "file_id": "23d7a33c-0919-4ef6-b7cc-51ef4e94ee70",
+              "generated-image": true,
+              "iiif": "/api/iiif/v2/ae745399-037a-4d0a-856e-d61370fe6fa5:4defddb3-09dd-41e9-b794-595e9f5d8d24:sp5-balikova-anticke-sklo-40.jpg/",
+              "image_height": 1015,
+              "image_width": 1269,
+              "key": "sp5-balikova-anticke-sklo-40.jpg",
+              "mime_type": "image/jpeg",
+              "size": 80004,
+              "version_id": "4defddb3-09dd-41e9-b794-595e9f5d8d24"
+            },
+            {
+              "bucket": "ae745399-037a-4d0a-856e-d61370fe6fa5",
+              "checksum": "md5:210774fe74e83deca4ef2e94bb121e91",
+              "file_id": "ed318b6f-13bd-42ac-816d-f90b3f56069a",
+              "generated-image": true,
+              "iiif": "/api/iiif/v2/ae745399-037a-4d0a-856e-d61370fe6fa5:9fd55b8f-7a66-4b2a-9d5a-58d1c3f9a2be:sp5-balikova-anticke-sklo-41.jpg/",
+              "image_height": 512,
+              "image_width": 1503,
+              "key": "sp5-balikova-anticke-sklo-41.jpg",
+              "mime_type": "image/jpeg",
+              "size": 38866,
+              "version_id": "9fd55b8f-7a66-4b2a-9d5a-58d1c3f9a2be"
+            },
+            {
+              "bucket": "ae745399-037a-4d0a-856e-d61370fe6fa5",
+              "caption": "\u010c\u00ed\u0161ka po restaurov\u00e1n\u00ed, kontrastn\u00ed podklad",
+              "checksum": "md5:f2f4da4fc5eff3a78161ece71002d0ff",
+              "file_id": "8ffc0394-373f-4014-a926-ab45cb25b06c",
+              "generated-image": true,
+              "iiif": "/api/iiif/v2/ae745399-037a-4d0a-856e-d61370fe6fa5:d34a2edf-4a0e-4e2a-8be1-ef547f081a95:sp5-balikova-anticke-sklo-42.jpg/",
+              "image_height": 591,
+              "image_width": 608,
+              "key": "sp5-balikova-anticke-sklo-42.jpg",
+              "mime_type": "image/jpeg",
+              "original_url": "/api/drafts/restorations/works/96e02d5f-8fd8-429f-b35d-4f9ddb68ab04/attachments/sp5-balikova-anticke-sklo-42.jpg",
+              "selected": true,
+              "size": 33695,
+              "version_id": "d34a2edf-4a0e-4e2a-8be1-ef547f081a95"
+            },
+            {
+              "bucket": "ae745399-037a-4d0a-856e-d61370fe6fa5",
+              "checksum": "md5:3e874b1e0da1fd3bb45e16533b8b64be",
+              "file_id": "30fd60ff-b3be-482b-ac31-b8306e89ddeb",
+              "generated-image": true,
+              "iiif": "/api/iiif/v2/ae745399-037a-4d0a-856e-d61370fe6fa5:083d2177-0ca9-412e-91be-141aba385da7:sp5-balikova-anticke-sklo-43.jpg/",
+              "image_height": 613,
+              "image_width": 664,
+              "key": "sp5-balikova-anticke-sklo-43.jpg",
+              "mime_type": "image/jpeg",
+              "size": 49263,
+              "version_id": "083d2177-0ca9-412e-91be-141aba385da7"
+            },
+            {
+              "bucket": "ae745399-037a-4d0a-856e-d61370fe6fa5",
+              "caption": "\u010c\u00ed\u0161ka po restaurov\u00e1n\u00ed, pohled ze t\u0159\u00ed stran",
+              "checksum": "md5:10aefc67f55852ebad4c321a7d1e8b8b",
+              "file_id": "b3455900-d192-4d6c-ae23-47a6c598d0f4",
+              "generated-image": true,
+              "iiif": "/api/iiif/v2/ae745399-037a-4d0a-856e-d61370fe6fa5:c539b695-a339-4613-8012-f05d2685b6b4:sp5-balikova-anticke-sklo-44.jpg/",
+              "image_height": 560,
+              "image_width": 1128,
+              "key": "sp5-balikova-anticke-sklo-44.jpg",
+              "mime_type": "image/jpeg",
+              "original_url": "/api/drafts/restorations/works/96e02d5f-8fd8-429f-b35d-4f9ddb68ab04/attachments/sp5-balikova-anticke-sklo-44.jpg",
+              "selected": true,
+              "size": 34876,
+              "version_id": "c539b695-a339-4613-8012-f05d2685b6b4"
+            },
+            {
+              "bucket": "ae745399-037a-4d0a-856e-d61370fe6fa5",
+              "checksum": "md5:beda106b28cc30787823b4c945bb1551",
+              "file_id": "e2d42da0-d1cf-4f75-8a5e-709f21a10621",
+              "generated-image": true,
+              "iiif": "/api/iiif/v2/ae745399-037a-4d0a-856e-d61370fe6fa5:03a9063e-fdb7-4050-827d-4e9d9712a0f7:sp5-balikova-anticke-sklo-45.jpg/",
+              "image_height": 495,
+              "image_width": 1564,
+              "key": "sp5-balikova-anticke-sklo-45.jpg",
+              "mime_type": "image/jpeg",
+              "size": 50699,
+              "version_id": "03a9063e-fdb7-4050-827d-4e9d9712a0f7"
+            },
+            {
+              "bucket": "ae745399-037a-4d0a-856e-d61370fe6fa5",
+              "checksum": "md5:ebb743c82fbeffdce5aa194b3417cb7b",
+              "file_id": "3814493a-7c38-4183-842e-6295a8e0a251",
+              "generated-image": true,
+              "iiif": "/api/iiif/v2/ae745399-037a-4d0a-856e-d61370fe6fa5:82637ba9-1b56-4a33-b7ed-70e8cce21558:sp5-balikova-anticke-sklo-46.jpg/",
+              "image_height": 606,
+              "image_width": 606,
+              "key": "sp5-balikova-anticke-sklo-46.jpg",
+              "mime_type": "image/jpeg",
+              "size": 29017,
+              "version_id": "82637ba9-1b56-4a33-b7ed-70e8cce21558"
+            },
+            {
+              "bucket": "ae745399-037a-4d0a-856e-d61370fe6fa5",
+              "checksum": "md5:bdbe26148b0f6120ec45faa613603e5f",
+              "file_id": "4629a176-e6e9-48ad-8747-e254153b86be",
+              "generated-image": true,
+              "iiif": "/api/iiif/v2/ae745399-037a-4d0a-856e-d61370fe6fa5:6a61710b-052d-45f7-98ab-d58f670c8e4c:sp5-balikova-anticke-sklo-47.jpg/",
+              "image_height": 607,
+              "image_width": 903,
+              "key": "sp5-balikova-anticke-sklo-47.jpg",
+              "mime_type": "image/jpeg",
+              "size": 89505,
+              "version_id": "6a61710b-052d-45f7-98ab-d58f670c8e4c"
+            },
+            {
+              "bucket": "ae745399-037a-4d0a-856e-d61370fe6fa5",
+              "checksum": "md5:afa347919e267585c579c54c12d44fb7",
+              "file_id": "7e90b583-eadb-44ae-a2b3-9265dcd37107",
+              "generated-image": true,
+              "iiif": "/api/iiif/v2/ae745399-037a-4d0a-856e-d61370fe6fa5:d2c48695-c4e2-4545-920c-9424781cd4f5:sp5-balikova-anticke-sklo-48.jpg/",
+              "image_height": 739,
+              "image_width": 1180,
+              "key": "sp5-balikova-anticke-sklo-48.jpg",
+              "mime_type": "image/jpeg",
+              "size": 59353,
+              "version_id": "d2c48695-c4e2-4545-920c-9424781cd4f5"
+            },
+            {
+              "bucket": "ae745399-037a-4d0a-856e-d61370fe6fa5",
+              "checksum": "md5:4e5411c7f7c6a95d13eb22266eb3e179",
+              "file_id": "10f4f2d4-c764-448a-8f01-76eff547b3e7",
+              "generated-image": true,
+              "iiif": "/api/iiif/v2/ae745399-037a-4d0a-856e-d61370fe6fa5:0424a7c0-cccf-4413-b92a-0c24955f457a:sp5-balikova-anticke-sklo-49.jpg/",
+              "image_height": 476,
+              "image_width": 713,
+              "key": "sp5-balikova-anticke-sklo-49.jpg",
+              "mime_type": "image/jpeg",
+              "size": 25296,
+              "version_id": "0424a7c0-cccf-4413-b92a-0c24955f457a"
+            },
+            {
+              "bucket": "ae745399-037a-4d0a-856e-d61370fe6fa5",
+              "checksum": "md5:23970d351a56e5e446287d3174b9dcc8",
+              "file_id": "95937734-c307-4c10-919f-641fb3f96b6d",
+              "generated-image": true,
+              "iiif": "/api/iiif/v2/ae745399-037a-4d0a-856e-d61370fe6fa5:d1dd5d38-adf3-4213-b903-f86336dacb10:sp5-balikova-anticke-sklo-50.jpg/",
+              "image_height": 476,
+              "image_width": 666,
+              "key": "sp5-balikova-anticke-sklo-50.jpg",
+              "mime_type": "image/jpeg",
+              "size": 18459,
+              "version_id": "d1dd5d38-adf3-4213-b903-f86336dacb10"
+            },
+            {
+              "bucket": "ae745399-037a-4d0a-856e-d61370fe6fa5",
+              "checksum": "md5:13f1d0c8ceb9e163dc15556ac8b21cd5",
+              "file_id": "fbaad7dc-6503-44c8-9bf4-5a10f06d1609",
+              "generated-image": true,
+              "iiif": "/api/iiif/v2/ae745399-037a-4d0a-856e-d61370fe6fa5:125d5774-934d-431c-9b11-53fb5a70d0f2:sp5-balikova-anticke-sklo-51.jpg/",
+              "image_height": 694,
+              "image_width": 433,
+              "key": "sp5-balikova-anticke-sklo-51.jpg",
+              "mime_type": "image/jpeg",
+              "size": 17492,
+              "version_id": "125d5774-934d-431c-9b11-53fb5a70d0f2"
+            },
+            {
+              "bucket": "ae745399-037a-4d0a-856e-d61370fe6fa5",
+              "checksum": "md5:148dc5a88db7d42f3b47a0ca927e78a0",
+              "file_id": "5598e0e4-e095-4b75-831e-6ab26f633f6f",
+              "generated-image": true,
+              "iiif": "/api/iiif/v2/ae745399-037a-4d0a-856e-d61370fe6fa5:56f82b5f-a828-4007-b30c-f2030999bcdf:sp5-balikova-anticke-sklo-52.jpg/",
+              "image_height": 694,
+              "image_width": 433,
+              "key": "sp5-balikova-anticke-sklo-52.jpg",
+              "mime_type": "image/png",
+              "size": 2732,
+              "version_id": "56f82b5f-a828-4007-b30c-f2030999bcdf"
+            },
+            {
+              "bucket": "ae745399-037a-4d0a-856e-d61370fe6fa5",
+              "checksum": "md5:759b6c8c890b03b44011068fbfa1089b",
+              "file_id": "22b621f1-7935-42f4-ab60-60a5df39335c",
+              "generated-image": true,
+              "iiif": "/api/iiif/v2/ae745399-037a-4d0a-856e-d61370fe6fa5:4ffbe868-6a45-43b2-b8d7-a3001c7be3b6:sp5-balikova-anticke-sklo-53.jpg/",
+              "image_height": 425,
+              "image_width": 414,
+              "key": "sp5-balikova-anticke-sklo-53.jpg",
+              "mime_type": "image/png",
+              "size": 27592,
+              "version_id": "4ffbe868-6a45-43b2-b8d7-a3001c7be3b6"
+            },
+            {
+              "bucket": "ae745399-037a-4d0a-856e-d61370fe6fa5",
+              "checksum": "md5:c4f421ddc938b0dcbdedff49ce5494e3",
+              "file_id": "6dde5733-c45d-47d4-bb0c-a4a3dcd15686",
+              "generated-image": true,
+              "iiif": "/api/iiif/v2/ae745399-037a-4d0a-856e-d61370fe6fa5:7c3c7392-cf4d-4a00-a4a2-98390aba17bb:sp5-balikova-anticke-sklo-54.jpg/",
+              "image_height": 425,
+              "image_width": 414,
+              "key": "sp5-balikova-anticke-sklo-54.jpg",
+              "mime_type": "image/png",
+              "size": 3491,
+              "version_id": "7c3c7392-cf4d-4a00-a4a2-98390aba17bb"
+            },
+            {
+              "bucket": "ae745399-037a-4d0a-856e-d61370fe6fa5",
+              "checksum": "md5:80a7be2e2380c652930e312019f58873",
+              "file_id": "870e2d0d-44c6-4e17-8f31-61ac5a58409b",
+              "generated-image": true,
+              "iiif": "/api/iiif/v2/ae745399-037a-4d0a-856e-d61370fe6fa5:348a21fe-c52d-468d-9b42-81ae05c12c09:sp5-balikova-anticke-sklo-55.jpg/",
+              "image_height": 565,
+              "image_width": 555,
+              "key": "sp5-balikova-anticke-sklo-55.jpg",
+              "mime_type": "image/png",
+              "size": 36324,
+              "version_id": "348a21fe-c52d-468d-9b42-81ae05c12c09"
+            },
+            {
+              "bucket": "ae745399-037a-4d0a-856e-d61370fe6fa5",
+              "checksum": "md5:54fc2af1e4b5c1a23f8b29bb5da41057",
+              "file_id": "7b6ac6ae-9b56-4caa-99b5-45c7c3234921",
+              "generated-image": true,
+              "iiif": "/api/iiif/v2/ae745399-037a-4d0a-856e-d61370fe6fa5:17e75961-58f7-45a2-b0ff-0a152772da5a:sp5-balikova-anticke-sklo-56.jpg/",
+              "image_height": 565,
+              "image_width": 555,
+              "key": "sp5-balikova-anticke-sklo-56.jpg",
+              "mime_type": "image/png",
+              "size": 8886,
+              "version_id": "17e75961-58f7-45a2-b0ff-0a152772da5a"
+            },
+            {
+              "bucket": "ae745399-037a-4d0a-856e-d61370fe6fa5",
+              "checksum": "md5:d6ae035d1093f7c3da4bac94f6793a21",
+              "file_id": "f359edf4-f54c-46bc-ba30-550e89d55b6b",
+              "generated-image": true,
+              "iiif": "/api/iiif/v2/ae745399-037a-4d0a-856e-d61370fe6fa5:e3c8012c-9a65-4e3d-bc91-97844688029a:sp5-balikova-anticke-sklo-57.jpg/",
+              "image_height": 625,
+              "image_width": 447,
+              "key": "sp5-balikova-anticke-sklo-57.jpg",
+              "mime_type": "image/png",
+              "size": 28358,
+              "version_id": "e3c8012c-9a65-4e3d-bc91-97844688029a"
+            },
+            {
+              "bucket": "ae745399-037a-4d0a-856e-d61370fe6fa5",
+              "checksum": "md5:808c84d81a1269e02bf8d2d9742c8090",
+              "file_id": "fa5409f5-900e-41d2-9362-b9c03750a6ce",
+              "generated-image": true,
+              "iiif": "/api/iiif/v2/ae745399-037a-4d0a-856e-d61370fe6fa5:f5c3e9ef-4d48-4eab-a8dc-4395e80b2aaa:sp5-balikova-anticke-sklo-58.jpg/",
+              "image_height": 625,
+              "image_width": 447,
+              "key": "sp5-balikova-anticke-sklo-58.jpg",
+              "mime_type": "image/png",
+              "size": 3729,
+              "version_id": "f5c3e9ef-4d48-4eab-a8dc-4395e80b2aaa"
+            },
+            {
+              "bucket": "ae745399-037a-4d0a-856e-d61370fe6fa5",
+              "checksum": "md5:3dfe5c32136e79baf159fd55a0bc397d",
+              "file_id": "6bff1e46-42ba-4b36-8567-562ef2665aa7",
+              "iiif": "/api/iiif/v2/ae745399-037a-4d0a-856e-d61370fe6fa5:063357ff-b7ad-402f-b214-719d2158b296:sp5-balikova-anticke-sklo.pdf/",
+              "key": "sp5-balikova-anticke-sklo.pdf",
+              "mime_type": "application/pdf",
+              "size": 3741217,
+              "version_id": "063357ff-b7ad-402f-b214-719d2158b296"
+            }
+          ],
+          "_restoration": "2ee7a65f-1ff9-4d15-b4d1-12ff9c1a0763",
+          "abstract": [
+            {
+              "lang": "cs",
+              "value": "Soubor p\u0159edm\u011bt\u016f, jeho\u017e sou\u010d\u00e1st\u00ed jje tak\u00e9 ryt\u00e1 \u010d\u00ed\u0161ka,\nbyl zdokumentov\u00e1n. P\u0159edm\u011bty byly o\u010di\u0161t\u011bny, slepeny, n\u00e1pisy tu\u0161\u00ed budou obnoveny\nv\u00a0budoucnu. S\u00a0v\u00fdjimkou nepatrn\u00fdch \u00falomk\u016f (men\u0161\u00ed ne\u017e 2 x 3 mm) byly\num\u00edst\u011bny v\u0161echny fragmenty. V\u00fdztu\u017e nebyla prov\u00e1d\u011bna, stejn\u011b jako dopl\u0148ov\u00e1n\u00ed\np\u0159edm\u011bt\u016f jin\u00fdmi materi\u00e1ly. K\u00a0zrestaurovan\u00fdm p\u0159edm\u011bt\u016fm byly p\u0159ilo\u017eeny i\nzrestaurovan\u00e9 eviden\u010dn\u00ed \u0161t\u00edtky, odebran\u00e9 vzorky n\u00e1nos\u016f, ne\u010distot.\nByla provedena re\u0161er\u0161e, pokus o bli\u017e\u0161\u00ed za\u0159azen\u00ed p\u0159edm\u011bt\u016f. Stav p\u0159edm\u011bt\u016f je\nstabilizov\u00e1n, je mo\u017en\u00e9 je bezpe\u010dn\u011b ulo\u017eit do depozit\u00e1\u0159e, pop\u0159\u00edpad\u011b je vystavit\nza dodr\u017een\u00ed p\u0159\u00edslu\u0161n\u00fdch opat\u0159en\u00ed."
+            }
+          ],
+          "creator": "Marta Bal\u00edkov\u00e1",
+          "id": "96e02d5f-8fd8-429f-b35d-4f9ddb68ab04",
+          "public": false,
+          "restorationPeriod": {
+            "since": "2017-09-01",
+            "until": "2017-12-01"
+          },
+          "supervisor": [
+            {
+              "code": "10710",
+              "comment": "",
+              "institution": {
+                "name": "\u00dastav skla a keramiky, V\u0160CHT Praha"
+              },
+              "name": "Rohanov\u00e1 Dana, doc. Dr. Ing. "
+            },
+            {
+              "code": "60727",
+              "comment": "",
+              "institution": {
+                "name": "Um\u011bleckopr\u016fmyslov\u00e9 museum"
+              },
+              "name": "Bro\u017ekov\u00e1 Zita, MgA. "
+            }
+          ],
+          "workType": {
+            "id": 387,
+            "level": 1,
+            "links": {
+              "parent": "https://restaurovani.vscht.cz/api/taxonomies/work-type/",
+              "parent_tree": "https://restaurovani.vscht.cz/api/taxonomies/work-type/?drilldown=True",
+              "self": "https://restaurovani.vscht.cz/api/taxonomies/work-type/semestralni-projekt-5/",
+              "tree": "https://restaurovani.vscht.cz/api/taxonomies/work-type/semestralni-projekt-5/?drilldown=True"
+            },
+            "path": "/semestralni-projekt-5",
+            "slug": "semestralni-projekt-5",
+            "title": [
+              {
+                "lang": "cs",
+                "value": "Semestr\u00e1ln\u00ed pr\u00e1ce 5"
+              }
+            ],
+            "tooltip": ""
+          }
+        },
+        "revision": 10,
+        "updated": "2019-12-25T10:21:19.308989+00:00"
+      }
+    ]
+  },
+  "revision": 32,
+  "updated": "2019-12-25T10:21:19.719733+00:00"
+}

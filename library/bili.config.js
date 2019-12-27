@@ -11,7 +11,7 @@ const input = glob('./*/*.vue', {sync: true}).filter(
 module.exports = {
     input,
     banner: true,
-    filename: 'src/index.js',
+    filename: 'library/index.js',
     formats: ['es'],
     plugins: [],
 };

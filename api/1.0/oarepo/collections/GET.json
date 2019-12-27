@@ -1,0 +1,26 @@
+{
+  "restorations": {
+    "code": "objects",
+    "title": {
+      "cs-cz": "Restaurované předměty",
+      "en-us": "Restorated objects"
+    },
+    "description": {
+      "cs-cz": "Databáze uměleckořemeslných předmětů, které byly konzervovány či restaurovány v rámci řešení semestrálních a bakalářských prací studenty oborů Konzervování a restaurování uměleckořemeslných děl ze skla a keramiky, z kovů a z textilních materiálů.",
+      "en-us": "Database of art & craftwork restoration projects that were done as a part of Bachelor theses and Semestral projects by the students of the Conservation & Restoration of Art and Craftwork from Glass and Ceramic, from Metal and Textile materials study programmes."
+    },
+    "rest": "/api/drafts/restorations/objects/"
+  },
+  "works": {
+    "code": "works",
+    "title": {
+      "cs-cz": "Restaurátorské zásahy",
+      "en-us": "Restoration works"
+    },
+    "description": {
+      "cs-cz": "Model restaurátorských zásahů",
+      "en-us": "Database of restoration works"
+    },
+    "rest": "/api/drafts/restorations/works/"
+  }
+}
