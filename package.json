@@ -9,6 +9,14 @@
     "lint": "vue-cli-service lint",
     "test:unit": "vue-cli-service test:unit"
   },
+  "license": "MIT",
+  "keywords": [
+    "invenio",
+    "vuejs",
+    "vuex",
+    "oarepo"
+  ],
+  "homepage": "https://github.com/oarepo/invenio-api-vuex",
   "dependencies": {
     "@oarepo/vue-query-synchronizer": "^1.1.0",
     "@oarepo/vuex-preloader": "^1.2.0",
