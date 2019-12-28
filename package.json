@@ -1,11 +1,12 @@
 {
   "name": "@oarepo/invenio-api-vuex",
   "version": "2.1.8",
+  "main": "oarepo-invenio-api-vuex.esm.js",
   "private": false,
   "scripts": {
     "serve": "vue-cli-service serve",
     "build-sample": "vue-cli-service build",
-    "build": "rm -rf dist; cd library; bili -c bili.config.js --plugins.vue --format esm ./index.js && cp ../package.json dist/ && cp ../README.md dist && mv dist ..",
+    "build": "./build.sh",
     "lint": "vue-cli-service lint",
     "test:unit": "vue-cli-service test:unit"
   },
@@ -42,6 +43,7 @@
     "eslint": "^6.8.0",
     "eslint-plugin-import": "^2.19.1",
     "eslint-plugin-vue": "^6.0.0",
+    "json": "^9.0.6",
     "moxios": "^0.4.0",
     "rollup-plugin-vue": "^5.1.4",
     "sinon": "^7.5.0",
