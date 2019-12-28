@@ -44,24 +44,6 @@ export default {
         facetsWithQuery () {
             return facetQuerySynchronization(this.facets, this.query)
         }
-    },
-    methods: {
-        stringify (x) {
-            var cache = []
-            const ret = JSON.stringify(x, function (key, value) {
-                if (typeof value === 'object' && value !== null) {
-                    if (cache.indexOf(value) !== -1) {
-                        // Circular reference found, discard key
-                        return '-> ../_' + key
-                    }
-                    // Store value in our collection
-                    cache.push(value)
-                }
-                return value
-            }, 4)
-            cache = null
-            return ret
-        }
     }
 }
 </script>
