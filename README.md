@@ -15,13 +15,14 @@ REST API.
 
 1. [Installation](#installation)
 2. [Using it together with vuex preloader](#preloader)
-3. [Store modules](#modules)
+3. [Using it together with vue query synchronizer](#vue-query-synchronizer)
+4. [Store modules](#modules)
     1. [Collections module](#collections-module)
     2. [Collection module](#collection)
-    3. [Record module](#record)
-4. [Configuration](#configuration)
+    3. [Record module](#recordModule)
+5. [Configuration](#configuration)
     1. [Facet processing](#facet-processing)
-5. [Mixins](#mixins)
+6. [Mixins](#mixins)
 
 
 ## Installation
@@ -56,21 +57,37 @@ add the following configuration to your routes:
 
 
 ```javascript
-import { routerCollection, routerItem } from '@oarepo/invenio-api-vuex' 
+// routes.js
+import { routerCollectionList, routerCollection, routerRecord } from '@oarepo/invenio-api-vuex' 
 
-routes = [
+export default [
+    {
+        path: '/',
+        redirect: '/collections'
+    },
+    routerCollectionList({
+        path: '/collections',
+        component: Collections
+    }),
+    routerRecord({
+        path: '/:collectionId/:recordId',
+        component: Record
+    }),
     routerCollection({
-        name: 'collection',
-        path: ':collectionId',
-        component: MyCollectionComponent,
-    }),
-    routerItem({
-        name: 'collection',
-        path: ':collectionId/:itemId',
-        component: MyItemComponent,
-    }),
+        path: '/:collectionId',
+        component: Collection,
+        props: query()
+    })
 ]
 ``` 
+
+See [src/router.js](./src/router.js) for details
+
+# Using it together with vue query synchronizer  <a name="vue-query-synchronizer"></a>
+
+To simplify facet & query handling, record collection can be used together with 
+``@oarepo/vue-query-synchronizer``. Add ``props: query()`` into router path 
+as above and see the example at [src/components/Collection.vue](./src/components/Collection.vue)
 
 ## Store modules <a name="modules"></a>
 
@@ -326,7 +343,7 @@ This call sets the ``reloadNeeded`` state so that the store is reloaded on the n
 route change when vuex-preloader is used (in case the created record falls into 
 the current page).
 
-### RecordModule <a name="record"></a>
+### RecordModule <a name="recordModule"></a>
 
 Record module is responsible for loading, updating, deleting a single record. 
 The module is mapped at ``oarepoRecord``

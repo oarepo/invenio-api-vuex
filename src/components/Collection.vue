@@ -16,7 +16,7 @@
                 {{ facet.label }}
                 <div class="facet-values">
                     <div v-for="fb in facet.facets" :key="fb.code">
-                        <input type="checkbox" v-model="fb.query"> {{ fb.count }} {{ fb.label }}
+                        <input type="checkbox" v-model="fb.model"> {{ fb.count }} {{ fb.label }}
                     </div>
                 </div>
             </div>
@@ -27,6 +27,7 @@
 
 <script>
 import { mapState } from 'vuex'
+import { facetQuerySynchronization } from '../../library'
 
 export default {
     name: 'Collections',
@@ -40,36 +41,8 @@ export default {
             queryParams: state => state.oarepoCollection.queryParams,
             facets: state => state.oarepoCollection.facets
         }),
-        stringifiedQuery () {
-            return this.stringify(this.query)
-        },
         facetsWithQuery () {
-            const query = this.query
-            const ret = this.facets.map(f => {
-                query._prop(`array:${f.code}`)
-                return {
-                    ...f,
-                    facets: f.facets.map(facet => {
-                        const ret = {
-                            ...facet
-                        }
-                        Object.defineProperty(ret, 'query', {
-                            get: function () {
-                                return query[f.code].includes(facet.value.toString())
-                            },
-                            set: function (value) {
-                                if (value) {
-                                    query._insert(f.code, facet.value)
-                                } else {
-                                    query._remove(f.code, facet.value)
-                                }
-                            }
-                        })
-                        return ret
-                    })
-                }
-            })
-            return ret
+            return facetQuerySynchronization(this.facets, this.query)
         }
     },
     methods: {

@@ -12,6 +12,7 @@ import { TranslationOptions } from './store/facets'
 import { State } from './store/types'
 import { routerCollection, routerCollectionList, routerRecord } from './router'
 import { applyMixins } from './store/mixin'
+import { facetQuerySynchronization } from './query'
 
 export {
     ConfigModule,
@@ -23,7 +24,10 @@ export {
     // router
     routerCollectionList,
     routerCollection,
-    routerRecord
+    routerRecord,
+
+    // query synchronization
+    facetQuerySynchronization
 }
 
 export default {
