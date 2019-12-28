@@ -27,7 +27,7 @@
 
 <script>
 import { mapState } from 'vuex'
-import { facetQuerySynchronization } from '../../library'
+import { facetQuerySynchronization } from '@oarepo/invenio-api-vuex'
 
 export default {
     name: 'Collections',

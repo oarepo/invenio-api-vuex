@@ -18,8 +18,12 @@ export {
     ConfigModule,
     CollectionListModule,
     CollectionModule,
+    RecordModule,
     TranslationOptions,
+    FacetOptions,
     State,
+
+    CallbackList,
 
     // router
     routerCollectionList,

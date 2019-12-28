@@ -6,8 +6,7 @@ import VueRouter from 'vue-router'
 import routes from './router'
 import VuexPreloader from '@oarepo/vuex-preloader'
 import VueQuerySynchronizer from '@oarepo/vue-query-synchronizer'
-import { TranslationOptions } from '../library'
-import { FacetOptions } from '../library/store/config'
+import { TranslationOptions, FacetOptions } from '@oarepo/invenio-api-vuex'
 
 Vue.config.productionTip = false
 
