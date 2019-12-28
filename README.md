@@ -83,7 +83,7 @@ export default [
 
 See [src/router.js](./src/router.js) for details
 
-# Using it together with vue query synchronizer  <a name="vue-query-synchronizer"></a>
+## Using it together with vue query synchronizer  <a name="vue-query-synchronizer"></a>
 
 To simplify facet & query handling, record collection can be used together with 
 ``@oarepo/vue-query-synchronizer``. Add ``props: query()`` into router path 
