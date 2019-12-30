@@ -454,6 +454,9 @@ Vue.use(InvenioAPI, {
     defaultRecordPreprocessors: new CallbackList(),
     recordPreprocessors: {},
 
+    defaultListRecordPreprocessors: new CallbackList(),
+    listRecordPreprocessors: {},
+
     collectionListMixins: [],
     collectionMixins: [],
     recordMixins: [],
@@ -483,6 +486,16 @@ with id ``collectionId`` ``recordPreprocessors[collectionId]`` are tried and if 
 ``defaultRecordPreprocessors`` are used.
 
 Preprocessor is a function with a signature ``preprocess(response.data, { record: RecordModule })``
+
+#### ``defaultListRecordPreprocessors``, ``listRecordPreprocessors``
+
+Preprocessors called when a listing of records is fetched from repository. 
+For a collection
+with id ``collectionId`` ``listRecordPreprocessors[collectionId]`` are tried and 
+if undefined ``defaultListRecordPreprocessors`` are used.
+
+Preprocessor is a function with a signature 
+``preprocess(record, { collection: CollectionModule })``
 
 
 ### Facet processing
