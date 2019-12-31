@@ -1,6 +1,6 @@
 {
   "name": "@oarepo/invenio-api-vuex",
-  "version": "2.1.10",
+  "version": "2.2.0",
   "main": "oarepo-invenio-api-vuex.esm.js",
   "private": false,
   "scripts": {
