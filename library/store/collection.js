@@ -22,6 +22,8 @@ class CollectionModule extends VuexModule {
 
     totalPages = 0
 
+    totalRecords = 0
+
     reloadNeeded = false
 
     constructor (config, options) {
@@ -51,6 +53,7 @@ class CollectionModule extends VuexModule {
                 collection: this
             }))
         const pageSize = this.queryParams.size || this.config.defaultPageSize
+        this.totalRecords = total
         this.totalPages = Math.ceil(total / pageSize)
     }
 
@@ -67,6 +70,14 @@ class CollectionModule extends VuexModule {
 
     get loaded () {
         return this.state === State.LOADED
+    }
+
+    get page() {
+        return this.queryParams.page || 1
+    }
+
+    get pageSize() {
+        return this.queryParams.size || 1
     }
 
     @Action
