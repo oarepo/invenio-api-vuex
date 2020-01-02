@@ -96,12 +96,15 @@ export default {
                 name: 'oarepoRecord'
             }
         )
-        Vue.prototype.$oarepo = {
+        if (Vue.prototype.$oarepo === undefined) {
+            Vue.prototype.$oarepo = {}
+        }
+        Object.assign(Vue.prototype.$oarepo, {
             config,
             collections,
             collection,
             record
-        }
+        })
     }
 }
 

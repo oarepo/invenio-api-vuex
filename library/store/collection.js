@@ -72,12 +72,30 @@ class CollectionModule extends VuexModule {
         return this.state === State.LOADED
     }
 
-    get page() {
-        return this.queryParams.page || 1
+    get page () {
+        return parseInt(this.queryParams.page || 1)
     }
 
-    get pageSize() {
-        return this.queryParams.size || 1
+    get pageSize () {
+        return parseInt(this.queryParams.size || this.config.defaultPageSize)
+    }
+
+    get axiosParams () {
+        const axiosParams = new URLSearchParams()
+        const qp = { ...this.queryParams }
+        if (qp.size === undefined) {
+            qp.size = this.config.defaultPageSize
+        }
+        Object.entries(this.queryParams).forEach(([pkey, pvalue]) => {
+            if (Array.isArray(pvalue)) {
+                pvalue.forEach((val) => {
+                    axiosParams.append(pkey, val)
+                })
+            } else {
+                axiosParams.append(pkey, pvalue)
+            }
+        })
+        return axiosParams
     }
 
     @Action
@@ -94,16 +112,7 @@ class CollectionModule extends VuexModule {
         this.state = State.LOADING
 
         // convert to http params
-        const axiosParams = new URLSearchParams()
-        Object.entries(this.queryParams).forEach(([pkey, pvalue]) => {
-            if (Array.isArray(pvalue)) {
-                pvalue.forEach((val) => {
-                    axiosParams.append(pkey, val)
-                })
-            } else {
-                axiosParams.append(pkey, pvalue)
-            }
-        })
+        const axiosParams = this.axiosParams
 
         const response = await axios.get(`${this.config.collectionURL(this.collectionId)}`, {
             params: axiosParams
