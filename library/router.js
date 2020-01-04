@@ -5,6 +5,7 @@ function routerCollectionList (pathParams) {
         name: 'oarepoCollectionList',
         meta: {
             preloader: {
+                key: 'oarepoCollectionList',
                 store: 'oarepoCollectionList',
                 action: 'load',
                 expiration: 3600
@@ -18,6 +19,7 @@ function routerCollection (pathParams) {
         name: 'oarepoCollection',
         meta: {
             preloader: {
+                key: 'oarepoCollection',
                 store: 'oarepoCollection',
                 action: 'load',
                 params: {
@@ -35,6 +37,7 @@ function routerRecord (pathParams) {
         name: 'oarepoRecord',
         meta: {
             preloader: {
+                key: 'oarepoRecord',
                 store: 'oarepoRecord',
                 action: 'load',
                 params: {
