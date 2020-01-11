@@ -74,6 +74,7 @@ export default {
         config.defaultRecordPreprocessors = convertToCallbackList(options.defaultRecordPreprocessors)
         config.listRecordPreprocessors = convertDictToCallbackList(options.listRecordPreprocessors)
         config.defaultListRecordPreprocessors = convertToCallbackList(options.defaultListRecordPreprocessors)
+        config.usePost = options.usePost
 
         const collections = new applyMixins(CollectionListModule, options.collectionListMixins)(
             config,

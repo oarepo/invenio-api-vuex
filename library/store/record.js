@@ -80,11 +80,21 @@ class RecordModule extends VuexModule {
         if (!Array.isArray(data)) {
             data = [data]
         }
-        const resp = await axios.patch(this.recordURL, data, {
-            headers: {
-                'Content-Type': 'application/json-patch+json'
-            }
-        })
+        let resp;
+        if (this.config.usePost) {
+            resp = await axios.post(this.recordURL, data, {
+                headers: {
+                    'Content-Type': 'application/json-patch+json',
+                    'X-HTTP-Method-Override': 'PATCH'
+                }
+            })
+        } else {
+            resp = await axios.patch(this.recordURL, data, {
+                headers: {
+                    'Content-Type': 'application/json-patch+json'
+                }
+            })
+        }
         this.setResponse(resp)
         this.state = State.LOADED
         return resp.data

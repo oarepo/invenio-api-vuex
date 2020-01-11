@@ -172,6 +172,7 @@ class ConfigModule {
 
     defaultListRecordPreprocessors = new CallbackList()
 
+    usePost = false
 
     get collectionsURL () {
         return `${this.apiURL}/1.0/oarepo/collections`
