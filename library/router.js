@@ -10,7 +10,8 @@ function routerCollectionList (pathParams) {
                 action: 'load',
                 expiration: 3600
             }
-        }
+        },
+        props: true,
     }, pathParams)
 }
 
@@ -28,7 +29,8 @@ function routerCollection (pathParams) {
                 expiration: 60,
                 query: true
             }
-        }
+        },
+        props: true,
     }, pathParams)
 }
 
@@ -46,7 +48,8 @@ function routerRecord (pathParams) {
                 },
                 expiration: 10
             }
-        }
+        },
+        props: true,
     }, pathParams)
 }
 
