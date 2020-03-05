@@ -40,7 +40,7 @@ Vue.use(Vuex)
 const store = new Vuex.Store({})
 
 Vue.use(InvenioAPI, {
-    store,
+    store: store,
     apiURL: '/api'
 })
 ```
