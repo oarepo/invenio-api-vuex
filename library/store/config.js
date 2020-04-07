@@ -175,15 +175,15 @@ class ConfigModule {
     usePost = false
 
     get collectionsURL () {
-        return `${this.apiURL}/1.0/oarepo/collections`
+        return `${this.apiURL}/1.0/oarepo/collections/`
     }
 
     collectionURL (collectionId) {
-        return `${this.apiURL}/${collectionId}`
+        return `${this.apiURL}/${collectionId}/`
     }
 
     recordURL (collectionId, persistentId) {
-        return `${this.apiURL}/${collectionId}/${persistentId}`
+        return `${this.apiURL}/${collectionId}/${persistentId}/`
     }
 }
 
