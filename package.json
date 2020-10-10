@@ -4,7 +4,7 @@
   "main": "oarepo-invenio-api-vuex.esm.js",
   "private": false,
   "scripts": {
-    "serve": "vue-cli-service serve",
+    "serve": "vue-cli-service serve --https --host localhost --port 8080 --public localhost",
     "build-sample": "vue-cli-service build",
     "build": "./build.sh",
     "lint": "vue-cli-service lint",
@@ -19,7 +19,7 @@
   ],
   "homepage": "https://github.com/oarepo/invenio-api-vuex",
   "dependencies": {
-    "@oarepo/vue-query-synchronizer": "^1.1.0",
+    "@oarepo/vue-query-synchronizer": "^2.0.1",
     "@oarepo/vuex-preloader": "^1.2.0",
     "axios": "^0.19.0",
     "core-js": "^3.4.3",

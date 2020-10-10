@@ -3,35 +3,36 @@ import {
     ConfigModule,
     convertDictToCallbackList,
     convertToCallbackList,
-    FacetOptions
 } from './store/config'
-import { CollectionListModule } from './store/collections'
 import { CollectionModule } from './store/collection'
+import { IndicesModule } from './store/indices'
 import { RecordModule } from './store/record'
-import { TranslationOptions } from './store/facets'
-import { State } from './store/types'
-import { routerCollection, routerCollectionList, routerRecord } from './router'
+import { State, FacetMode } from './store/types'
+import { routerCollection, routerRecord } from './router'
 import { applyMixins } from './store/mixin'
-import { facetQuerySynchronization } from './query'
+import FacetMixin from './components/FacetMixin'
 
 export {
     ConfigModule,
-    CollectionListModule,
     CollectionModule,
+    IndicesModule,
     RecordModule,
-    TranslationOptions,
-    FacetOptions,
     State,
+    FacetMode,
 
     CallbackList,
 
     // router
-    routerCollectionList,
     routerCollection,
     routerRecord,
 
-    // query synchronization
-    facetQuerySynchronization
+    FacetMixin
+}
+
+function detectBrowserLanguage () {
+    return navigator.languages
+        ? navigator.languages[0]
+        : (navigator.language || navigator.userLanguage)
 }
 
 export default {
@@ -42,8 +43,8 @@ export default {
             i18n (x) {
                 return x
             },
-            defaultFacetOptions: new FacetOptions({}),
-            facetOptions: {},
+            defaultFacetPreprocessors: new CallbackList(),
+            facetPreprocessors: {},
 
             defaultRecordPreprocessors: new CallbackList(),
             recordPreprocessors: {},
@@ -52,9 +53,12 @@ export default {
             listRecordPreprocessors: {},
 
             configModule: ConfigModule,
-            collectionListMixins: [],
+            indicesMixins: [],
             collectionMixins: [],
-            recordMixins: []
+            recordMixins: [],
+            queryMixins: [],
+            defaultLanguage: null,
+            loadIndices: true
         }
         options = {
             ...defaultOptions,
@@ -68,23 +72,25 @@ export default {
         config.apiURL = options.apiURL
         config.defaultPageSize = options.defaultPageSize
         config.i18n = options.i18n
-        config.defaultFacetOptions = options.defaultFacetOptions
-        config.facetOptions = options.facetOptions
+        config.defaultFacetPreprocessors = options.defaultFacetPreprocessors
+        config.facetPreprocessors = options.facetPreprocessors
         config.recordPreprocessors = convertDictToCallbackList(options.recordPreprocessors)
         config.defaultRecordPreprocessors = convertToCallbackList(options.defaultRecordPreprocessors)
         config.listRecordPreprocessors = convertDictToCallbackList(options.listRecordPreprocessors)
         config.defaultListRecordPreprocessors = convertToCallbackList(options.defaultListRecordPreprocessors)
         config.usePost = options.usePost
+        config.defaultLanguage = options.defaultLanguage || detectBrowserLanguage()
 
-        const collections = new applyMixins(CollectionListModule, options.collectionListMixins)(
+        const indices = new applyMixins(IndicesModule, options.indicesMixins)(
             config,
             {
                 store,
-                name: 'oarepoCollectionList'
+                name: 'oarepoIndices'
             }
         )
         const collection = new applyMixins(CollectionModule, options.collectionMixins)(
             config,
+            indices,
             {
                 store,
                 name: 'oarepoCollection'
@@ -100,12 +106,16 @@ export default {
         if (Vue.prototype.$oarepo === undefined) {
             Vue.prototype.$oarepo = {}
         }
+
         Object.assign(Vue.prototype.$oarepo, {
             config,
-            collections,
+            indices,
             collection,
             record
         })
+        if (options.loadIndices) {
+            indices.load()
+        }
     }
 }
 

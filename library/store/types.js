@@ -4,4 +4,10 @@ const State = Object.freeze({
     LOADED: 2
 })
 
-export { State }
+
+const FacetMode = Object.freeze({
+    ALL_FACETS: 'all',
+    SELECTED_FACETS: 'selected',
+})
+
+export { State, FacetMode }

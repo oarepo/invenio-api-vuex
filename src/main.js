@@ -4,18 +4,13 @@ import store from './store'
 import InvenioAPI from '@oarepo/invenio-api-vuex'
 import VueRouter from 'vue-router'
 import routes from './router'
-import VuexPreloader from '@oarepo/vuex-preloader'
-import VueQuerySynchronizer from '@oarepo/vue-query-synchronizer'
-import { TranslationOptions, FacetOptions } from '@oarepo/invenio-api-vuex'
+import QuerySupport from '@oarepo/vue-query-synchronizer'
 
 Vue.config.productionTip = false
 
 Vue.use(InvenioAPI, {
     store: store,
     i18n: x => `Translated '${x}'`,
-    defaultFacetOptions: new FacetOptions({
-        defaultTranslateValues: TranslationOptions.TRANSLATE
-    }),
     listRecordPreprocessors: {
         objects (record, { collection }) {
             record.links.ui = {
@@ -36,15 +31,17 @@ const router = new VueRouter({
     routes // short for `routes: routes`
 })
 
-Vue.use(VuexPreloader, {
-    router, store, debug: true
-})
+// Vue.use(VuexPreloader, {
+//     router, store, debug: true
+// })
 
-Vue.use(VueQuerySynchronizer, {
-    debug: true,
-    passUnknownProperties: true,
-    router
-})
+// Vue.use(VueQuerySynchronizer, {
+//     debug: true,
+//     passUnknownProperties: true,
+//     router
+// })
+
+Vue.use(QuerySupport, { router, debug: true })
 
 new Vue({
     store,

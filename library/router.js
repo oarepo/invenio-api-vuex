@@ -1,36 +1,23 @@
 import deepmerge from 'deepmerge'
 
-function routerCollectionList (pathParams) {
-    return deepmerge({
-        name: 'oarepoCollectionList',
-        meta: {
-            preloader: {
-                key: 'oarepoCollectionList',
-                store: 'oarepoCollectionList',
-                action: 'load',
-                expiration: 3600
-            }
-        },
-        props: true,
-    }, pathParams)
-}
 
-function routerCollection (pathParams) {
+
+function routerCollection (collectionId, pathParams) {
     return deepmerge({
-        name: 'oarepoCollection',
+        name: collectionId,
         meta: {
             preloader: {
                 key: 'oarepoCollection',
                 store: 'oarepoCollection',
                 action: 'load',
-                params: {
-                    collectionId: 'collectionId'
-                },
                 expiration: 60,
                 query: true
-            }
+            },
         },
-        props: true,
+        props: {
+            default: true,
+            collectionId
+        }
     }, pathParams)
 }
 
@@ -49,13 +36,12 @@ function routerRecord (pathParams) {
                 expiration: 10
             }
         },
-        props: true,
+        props: true
     }, pathParams)
 }
 
 
 export {
-    routerCollectionList,
     routerCollection,
     routerRecord
 }

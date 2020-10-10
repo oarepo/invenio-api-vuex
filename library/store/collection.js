@@ -1,22 +1,18 @@
 import { Action, Mutation, VuexModule } from 'vuex-class-modules'
 import axios from 'axios'
-import { State } from './types'
-import { facetFlattener } from './facets'
+import { State, FacetMode } from './types'
 
 
 class CollectionModule extends VuexModule {
     /** @type {ConfigModule} */
     config = null
 
+    /** @type {IndicesModule} */
+    indices = null
+
     collectionId = null
 
     state = State.INVALID
-
-    facets = []
-
-    records = []
-
-    response = null
 
     queryParams = {}
 
@@ -26,9 +22,18 @@ class CollectionModule extends VuexModule {
 
     reloadNeeded = false
 
-    constructor (config, options) {
+    facetMode = FacetMode.ALL_FACETS
+
+    response = {
+        aggregations: {},
+        records: [],
+        total: null
+    }
+
+    constructor (config, indices, options) {
         super(options)
         this.config = config
+        this.indices = indices
     }
 
     @Mutation
@@ -44,28 +49,69 @@ class CollectionModule extends VuexModule {
             records,
             total
         }
-        const collectionFacetOptions = this.config.facetOptions[this.collectionId] || this.config.defaultFacetOptions
-        this.facets = this.transformFacets(aggregations, collectionFacetOptions)
-        const collectionListRecordPreprocessors =
-            this.config.listRecordPreprocessors[this.collectionId] || this.config.defaultListRecordPreprocessors
-        this.records = records.map(
-            x => collectionListRecordPreprocessors.chainCall(x, {
-                collection: this
-            }))
+        // const collectionFacetOptions = this.config.facetOptions[this.collectionId] || this.config.defaultFacetOptions
+        // this.facets = this.transformFacets(aggregations, collectionFacetOptions)
         const pageSize = this.queryParams.size || this.config.defaultPageSize
         this.totalRecords = total
         this.totalPages = Math.ceil(total / pageSize)
     }
 
-    transformFacets (aggregations, facetOptions) {
-        const flattenedFacets =
-            facetFlattener(aggregations, facetOptions.facetExtractors, this)
+    @Action
+    async setFacetMode (facetMode) {
+        if (facetMode !== this.facetMode) {
+            this.facetMode = facetMode
+            await this.reload()
+        }
+    }
 
-        return facetOptions.facetPreprocessors.chainCall(flattenedFacets, {
-            facetOptions,
+    get records () {
+        const collectionListRecordPreprocessors =
+            this.config.listRecordPreprocessors[this.collectionId] || this.config.defaultListRecordPreprocessors
+        return this.response.records.map(
+            x => collectionListRecordPreprocessors.chainCall(x, {
+                collection: this
+            }))
+    }
+
+    get facets () {
+        const facetPreprocessors = this.config.facetPreprocessors[this.collectionId] || this.config.defaultFacetPreprocessors
+
+        const receivedFacets = facetPreprocessors.chainCall(this.response.aggregations, {
             collection: this,
             i18n: this.config.i18n
         })
+        let knownFacets = this.knownFacets
+        if (knownFacets === null) {
+            knownFacets = Object.keys(receivedFacets).map(x => ({
+                code: x,
+                facet: {
+                    label: x
+                }
+            }))
+        }
+        return knownFacets.map(x => ({
+            code: x.code,
+            received: true,
+            filtered: !!this.queryParams[x.code],
+            ...receivedFacets[x.code],
+            ...x['facet']
+        }))
+    }
+
+    get filters () {
+        const ret = this.indices.byEndpoint[this.collectionId]
+        if (ret) {
+            return ret.index.filters
+        }
+        return null
+    }
+
+    get knownFacets () {
+        const ret = this.indices.byEndpoint[this.collectionId]
+        if (ret) {
+            return ret.index.facets
+        }
+        return null
     }
 
     get loaded () {
@@ -86,7 +132,12 @@ class CollectionModule extends VuexModule {
         if (qp.size === undefined) {
             qp.size = this.config.defaultPageSize
         }
-        Object.entries(this.queryParams).forEach(([pkey, pvalue]) => {
+        if (this.facetMode === FacetMode.SELECTED_FACETS) {
+            if (qp.facets === undefined) {
+                qp.facets = ['___selected_only___']
+            }
+        }
+        Object.entries(qp).forEach(([pkey, pvalue]) => {
             if (Array.isArray(pvalue)) {
                 pvalue.forEach((val) => {
                     axiosParams.append(pkey, val)
@@ -100,8 +151,9 @@ class CollectionModule extends VuexModule {
 
     @Action
     async load ({ query, collectionId }) {
+        this.indices.selectEndpoint(collectionId)
         this.collectionId = collectionId
-        this.queryParams = { ...query }
+        this.queryParams = query
         return this.reload()
     }
 
@@ -113,7 +165,6 @@ class CollectionModule extends VuexModule {
 
         // convert to http params
         const axiosParams = this.axiosParams
-
         const response = await axios.get(`${this.config.collectionURL(this.collectionId)}`, {
             params: axiosParams
         })

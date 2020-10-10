@@ -1,5 +1,3 @@
-import { bucketExtractor, facetTranslator, NOT_A_FACET, TranslationOptions } from './facets'
-
 class CallbackList {
     callbacks = []
 
@@ -37,7 +35,7 @@ class CallbackList {
     }
 }
 
-function convertToCallbackList(x) {
+function convertToCallbackList (x) {
     if (x === null || x === undefined) {
         return new CallbackList()
     }
@@ -50,97 +48,11 @@ function convertToCallbackList(x) {
     return new CallbackList(...x)
 }
 
-function convertDictToCallbackList(obj) {
+function convertDictToCallbackList (obj) {
     if (obj === null || obj === undefined) {
         return {}
     }
     return Object.fromEntries(Object.entries(obj).map(x => [x[0], convertToCallbackList(x[1])]))
-}
-
-class FacetOptions {
-    facetExtractors = new CallbackList(bucketExtractor)
-    facetPreprocessors = new CallbackList(facetTranslator)
-
-    translation = {
-        /*
-            Translate facet titles by default. Can be overriden via translatedTitles
-         */
-        defaultTranslateTitles: TranslationOptions.NO_PREFIX,
-
-        /*
-            Translate facet values by default. Can be overriden via translatedValues
-         */
-        defaultTranslateValues: TranslationOptions.NO_TRANSLATION,
-
-        /*
-            A dictionary from facet name to Union[TranslationOptions, false, str].
-
-            not present: use defaultTranslateTitles
-            NO_TRANSLATION: do not translate the name to title
-            NO_PREFIX: use facet name as translation key
-            any other string: use the given string as a translation key
-         */
-        translateTitles: {},
-
-        /*
-            A dictionary from facet name to Union[TranslationOptions, false, str].
-
-            not present: use defaultTranslateValues
-            NO_TRANSLATION: do not translate the facet value's label
-            NO_PREFIX: use facet's label as translation key
-            FACET_NAME_PREFIX: use ${facet_name}.${facet.value.label} as translation key
-            any other string: use ${this_string}.${facet.value.label} as translation key
-         */
-        translateValues: {}
-    }
-
-    constructor ({
-                     parent,
-                     facetExtractors, facetPreprocessors,
-                     defaultTranslateTitles, defaultTranslateValues,
-                     translateTitles, translateValues
-                 }) {
-        if (parent) {
-            this.assign({
-                facetExtractors: parent.facetExtractors,
-                facetPreprocessors: parent.facetPreprocessors,
-                defaultTranslateTitles: parent.defaultTranslateTitles,
-                defaultTranslateValues: parent.defaultTranslateValues,
-                translateTitles: parent.translateTitles,
-                translateValues: parent.translateValues
-            })
-        }
-        this.assign({
-            facetExtractors, facetPreprocessors,
-            defaultTranslateTitles, defaultTranslateValues,
-            translateTitles, translateValues
-        })
-    }
-
-    assign ({
-                facetExtractors, facetPreprocessors,
-                defaultTranslateTitles, defaultTranslateValues,
-                translateTitles, translateValues
-            }) {
-        if (facetExtractors !== undefined) {
-            this.facetExtractors.addCallback(facetExtractors)
-        }
-        if (facetPreprocessors !== undefined) {
-            this.facetPreprocessors.addCallback(facetPreprocessors)
-        }
-        if (defaultTranslateTitles !== undefined) {
-            this.translation.defaultTranslateTitles = defaultTranslateTitles
-        }
-        if (defaultTranslateValues !== undefined) {
-            this.translation.defaultTranslateValues = defaultTranslateValues
-        }
-        if (translateTitles !== undefined) {
-            this.translation.translateTitles = { ...this.translation.translateTitles, ...translateTitles }
-        }
-        if (translateValues !== undefined) {
-            this.translation.translateValues = { ...this.translation.translateValues, ...translateValues }
-        }
-    }
 }
 
 class ConfigModule {
@@ -151,12 +63,12 @@ class ConfigModule {
 
     i18n = (x) => x
 
-    defaultFacetOptions = new FacetOptions({})
+    defaultFacetPreprocessors = new CallbackList()
 
     /*
-     * @type {Object<string, FacetOptions>}
+     * @type {Object<string, CallbackList>}
      */
-    facetOptions = {}
+    facetPreprocessors = {}
 
     /*
      * @type {Object<string, CallbackList>}
@@ -174,25 +86,28 @@ class ConfigModule {
 
     usePost = false
 
+    defaultLanguage = 'en'
+
     get collectionsURL () {
         return `${this.apiURL}/1.0/oarepo/collections`
     }
 
     collectionURL (collectionId) {
-        return `${this.apiURL}/${collectionId}`
+        return `${this.apiURL}/${collectionId}/`
     }
 
     recordURL (collectionId, persistentId) {
         return `${this.apiURL}/${collectionId}/${persistentId}`
+    }
+
+    get indicesURL () {
+        return `${this.apiURL}/oarepo/indices/`
     }
 }
 
 export {
     ConfigModule,
     CallbackList,
-    NOT_A_FACET,
-    TranslationOptions,
-    FacetOptions,
     convertToCallbackList,
     convertDictToCallbackList
 }

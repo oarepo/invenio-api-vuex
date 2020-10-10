@@ -1,6 +1,8 @@
 <template>
-  <div id="app">
+  <div id="app" style="display: flex; flex-direction: row; justify-content: space-around">
+    <div style="max-width: 800px">
       <router-view></router-view>
+    </div>
   </div>
 </template>
 
@@ -8,8 +10,7 @@
 
 export default {
   name: 'app',
-  components: {
-  }
+  components: {}
 }
 </script>
 

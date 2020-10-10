@@ -1,29 +1,44 @@
 <template>
-<div class="collections">
-    Collections
-    <ul>
-        <li v-for="collection of collections" :key="collection.code">
-            <router-link :to="{'name': 'oarepoCollection', params: {collectionId: collection.code}}">{{ collection.title['en-us'] }}</router-link><br>
-            <p>{{collection.description['en-us']}}</p>
-        </li>
-    </ul>
-</div>
+  <div class="collections">
+    <h1>Indices</h1>
+    <div v-for="(index, indexName) in indices" :key="indexName">
+      <h2>{{ indexName }}</h2>
+      <div v-for="(endpoint, endpointName) in index.endpoints" :key="endpointName" class="endpoint">
+        <h3>Running at endpoint {{ endpointName }}</h3>
+        <div class="links">
+          <router-link :to="{'name': endpointName}">User interface</router-link>
+          <br>
+          <a :href="endpoint.url" target="_blank">Link to API</a>
+        </div>
+      </div>
+    </div>
+  </div>
 </template>
+
+<style>
+.collections {
+  line-height: 150%;
+}
+
+.endpoint {
+  margin-left: 3em;
+}
+
+.links {
+  margin-left: 3em;
+}
+</style>
 
 <script>
 import { mapState } from 'vuex'
 
 export default {
-    name: 'Collections',
-    props: {},
-    computed: {
-        ...mapState({
-            collections: state => state.oarepoCollectionList.collections
-        })
-    }
+  name: 'Collections',
+  props: {},
+  computed: {
+    ...mapState({
+      indices: state => state.oarepoIndices.indices
+    })
+  }
 }
 </script>
-
-<!-- Add "scoped" attribute to limit CSS to this component only -->
-<style scoped>
-</style>
