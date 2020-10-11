@@ -1,5 +1,5 @@
 <template>
-  <component :is="activeComponent" :loading="loading" :records="records"
+  <component :is="activeComponent" :loading="loading" :records="uiRecords"
              :pages="pages" :facets="facets" :filters="filters"></component>
 </template>
 <script>
@@ -33,6 +33,19 @@ export default {
     },
     query () {
       return this.$route.query
+    },
+    uiRecords () {
+      return this.records.map(x => {
+        if (x.links && !x.links.ui) {
+          x.links.ui = {
+            name: `${this.collectionId}/record`,
+            params: {
+              recordId: x.id
+            }
+          }
+        }
+        return x
+      })
     }
   },
   data: function () {

@@ -1,16 +1,13 @@
-import {
-    CallbackList,
-    ConfigModule,
-    convertDictToCallbackList,
-    convertToCallbackList,
-} from './store/config'
+import { CallbackList, ConfigModule, convertDictToCallbackList, convertToCallbackList } from './store/config'
 import { CollectionModule } from './store/collection'
 import { IndicesModule } from './store/indices'
 import { RecordModule } from './store/record'
-import { State, FacetMode } from './store/types'
-import { routerCollection, routerRecord } from './router'
+import { FacetMode, State } from './store/types'
+import { collection, record } from './router'
 import { applyMixins } from './store/mixin'
 import FacetMixin from './components/FacetMixin'
+import InvenioCollection from './components/InvenioCollection.vue'
+import InvenioRecord from './components/InvenioRecord.vue'
 
 export {
     ConfigModule,
@@ -23,10 +20,12 @@ export {
     CallbackList,
 
     // router
-    routerCollection,
-    routerRecord,
+    collection,
+    record,
 
-    FacetMixin
+    FacetMixin,
+    InvenioCollection,
+    InvenioRecord
 }
 
 function detectBrowserLanguage () {

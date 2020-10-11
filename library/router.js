@@ -1,47 +1,42 @@
 import deepmerge from 'deepmerge'
+import InvenioCollection from './components/InvenioCollection.vue'
+import InvenioRecord from './components/InvenioRecord.vue'
 
 
-
-function routerCollection (collectionId, pathParams) {
+function collection (path, collectionId, component, extra = {}) {
     return deepmerge({
         name: collectionId,
-        meta: {
-            preloader: {
-                key: 'oarepoCollection',
-                store: 'oarepoCollection',
-                action: 'load',
-                expiration: 60,
-                query: true
-            },
-        },
+        path: path,
+        component: InvenioCollection,
         props: {
-            default: true,
-            collectionId
+            collectionId,
+            loadedComponent: component
+        },
+        meta: {
+            query: {
+                page: 'int:1',
+                size: 'int:10',
+                facets: 'commaarray:',
+                q: 'string:'
+            }
         }
-    }, pathParams)
+    }, extra)
 }
 
-function routerRecord (pathParams) {
+function record (path, collectionId, component, extra = {}) {
     return deepmerge({
-        name: 'oarepoRecord',
-        meta: {
-            preloader: {
-                key: 'oarepoRecord',
-                store: 'oarepoRecord',
-                action: 'load',
-                params: {
-                    collectionId: 'collectionId',
-                    recordId: 'recordId'
-                },
-                expiration: 10
-            }
-        },
-        props: true
-    }, pathParams)
+        name: `${collectionId}/record`,
+        path: `${path}/:recordId`,
+        component: InvenioRecord,
+        props: {
+            collectionId,
+            loadedComponent: component
+        }
+    }, extra)
 }
 
 
 export {
-    routerCollection,
-    routerRecord
+    collection,
+    record
 }

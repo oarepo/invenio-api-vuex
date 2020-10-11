@@ -10,13 +10,12 @@
         <br>
         <br>
         <div v-for="record of records" :key="record.links.self">
-          <h3>{{ record.metadata.title.cs }}</h3>
+          <router-link :to="record.links.ui"><h3>{{ record.metadata.title.cs }}</h3></router-link>
           <div>Creator:
             {{ record.metadata.works && record.metadata.works.length ? record.metadata.works[0].creator : '' }}
           </div>
           <div>Thumbnail: {{ record.metadata.thumbnail }}</div>
           <div>id: {{ record.metadata.id }}</div>
-          <!-- router-link :to="record.links.ui">{{ record.metadata.title[0].value }}</router-link -->
         </div>
       </div>
       <div class="col col-4 facets">
