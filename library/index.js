@@ -57,7 +57,9 @@ export default {
             recordMixins: [],
             queryMixins: [],
             defaultLanguage: null,
-            loadIndices: true
+            loadIndices: true,
+
+            facetMode: FacetMode.ALL_FACETS
         }
         options = {
             ...defaultOptions,
@@ -79,6 +81,7 @@ export default {
         config.defaultListRecordPreprocessors = convertToCallbackList(options.defaultListRecordPreprocessors)
         config.usePost = options.usePost
         config.defaultLanguage = options.defaultLanguage || detectBrowserLanguage()
+        config.facetMode = options.facetMode
 
         const indices = new applyMixins(IndicesModule, options.indicesMixins)(
             config,

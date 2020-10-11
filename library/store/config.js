@@ -88,6 +88,8 @@ class ConfigModule {
 
     defaultLanguage = 'en'
 
+    facetMode = null
+
     get collectionsURL () {
         return `${this.apiURL}/1.0/oarepo/collections`
     }

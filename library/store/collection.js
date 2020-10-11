@@ -22,7 +22,7 @@ class CollectionModule extends VuexModule {
 
     reloadNeeded = false
 
-    facetMode = FacetMode.ALL_FACETS
+    facetMode = null
 
     response = {
         aggregations: {},
@@ -34,6 +34,7 @@ class CollectionModule extends VuexModule {
         super(options)
         this.config = config
         this.indices = indices
+        this.facetMode = config.facetMode || FacetMode.ALL_FACETS
     }
 
     @Mutation

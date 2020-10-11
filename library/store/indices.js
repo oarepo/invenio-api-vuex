@@ -41,6 +41,19 @@ class IndicesModule extends VuexModule {
         this.state = State.LOADING
         const response = await axios.get(this.config.indicesURL + `?ln=${language}`)
         this.indices = response.data
+        // convert facet values array to translation map
+        Object.values(this.indices).forEach(idx => {
+            idx.facets.forEach(facet => {
+                if (facet.facet.values !== undefined) {
+                    facet.facet.translatedValues = facet.facet.values.reduce(
+                        (n, item) => {
+                            n[item.value] = item.label
+                            return n
+                        }, {}
+                    )
+                }
+            })
+        })
         this.currentLanguage = language
         if (this.currentEndpointName) {
             this.selectEndpoint(this.currentEndpointName)
