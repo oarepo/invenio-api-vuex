@@ -26,7 +26,7 @@ function collection (path, collectionId, component, extra = {}) {
 function record (path, collectionId, component, extra = {}) {
     return deepmerge({
         name: `${collectionId}/record`,
-        path: `${path}/:recordId`,
+        path: path ? `${path}/:recordId` : '',
         component: InvenioRecord,
         props: {
             collectionId,

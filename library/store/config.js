@@ -86,21 +86,9 @@ class ConfigModule {
 
     usePost = false
 
-    defaultLanguage = 'en'
+    language = 'en'
 
     facetMode = null
-
-    get collectionsURL () {
-        return `${this.apiURL}/1.0/oarepo/collections`
-    }
-
-    collectionURL (collectionId) {
-        return `${this.apiURL}/${collectionId}/`
-    }
-
-    recordURL (collectionId, persistentId) {
-        return `${this.apiURL}/${collectionId}/${persistentId}`
-    }
 
     get indicesURL () {
         return `${this.apiURL}/oarepo/indices/`

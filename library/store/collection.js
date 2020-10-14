@@ -147,36 +147,45 @@ class CollectionModule extends VuexModule {
                 axiosParams.append(pkey, pvalue)
             }
         })
+        axiosParams.append('ln', this.config.language)
         return axiosParams
     }
 
     @Action
     async load ({ query, collectionId }) {
-        this.indices.selectEndpoint(collectionId)
         this.collectionId = collectionId
         this.queryParams = query
         return this.reload()
     }
 
+    get collectionUrl () {
+        const index = this.indices.byEndpoint[this.collectionId]
+        if (index !== undefined) {
+            return index.endpoint.url
+        }
+        return null
+    }
 
     @Action
     async reload () {
-        // duplicate params
         this.state = State.LOADING
-
-        // convert to http params
-        const axiosParams = this.axiosParams
-        const response = await axios.get(`${this.config.collectionURL(this.collectionId)}`, {
-            params: axiosParams
-        })
-        const { aggregations, hits } = response.data
-        this.setSearchResults({
-            aggregations,
-            records: hits.hits,
-            total: hits.total
-        })
-        this.state = State.LOADED
-        return response.data
+        if (this.collectionUrl) {
+            // convert to http params
+            const response = await axios.get(this.collectionUrl, {
+                params: this.axiosParams
+            })
+            const { aggregations, hits } = response.data
+            this.setSearchResults({
+                aggregations,
+                records: hits.hits,
+                total: hits.total
+            })
+            this.state = State.LOADED
+            return response.data
+        } else {
+            // there is a watcher registered in the constructor that will trigger loading
+            return null
+        }
     }
 
     @Action
@@ -192,7 +201,8 @@ class CollectionModule extends VuexModule {
             metadata, {
                 headers: {
                     'Content-Type': 'application/json'
-                }
+                },
+                params: new URLSearchParams([['ln', this.config.language]])
             })
         this.reloadNeeded = true
         if (storeModule !== undefined) {

@@ -56,7 +56,7 @@ export default {
             collectionMixins: [],
             recordMixins: [],
             queryMixins: [],
-            defaultLanguage: null,
+            language: null,
             loadIndices: true,
 
             facetMode: FacetMode.ALL_FACETS
@@ -80,7 +80,7 @@ export default {
         config.listRecordPreprocessors = convertDictToCallbackList(options.listRecordPreprocessors)
         config.defaultListRecordPreprocessors = convertToCallbackList(options.defaultListRecordPreprocessors)
         config.usePost = options.usePost
-        config.defaultLanguage = options.defaultLanguage || detectBrowserLanguage()
+        config.language = options.language || detectBrowserLanguage()
         config.facetMode = options.facetMode
 
         const indices = new applyMixins(IndicesModule, options.indicesMixins)(
@@ -100,6 +100,7 @@ export default {
         )
         const record = new applyMixins(RecordModule, options.recordMixins)(
             config,
+            indices,
             {
                 store,
                 name: 'oarepoRecord'

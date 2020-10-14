@@ -2,11 +2,27 @@ import { Action, Mutation, VuexModule } from 'vuex-class-modules'
 import axios from 'axios'
 import { State } from './types'
 
+function until(conditionFunction) {
+    const timeout = [100]
+
+    const poll = resolve => {
+        if(conditionFunction()) {
+            resolve()
+        }
+        else {
+            timeout[0] *= 1.5
+            setTimeout(() => poll(resolve), timeout[0]);
+        }
+    }
+
+    return new Promise(poll);
+}
+
 class IndicesModule extends VuexModule {
     /** @type {ConfigModule} */
     config = null
 
-    indices = {}
+    indices = null
 
     currentLanguage = null
 
@@ -33,7 +49,7 @@ class IndicesModule extends VuexModule {
     @Action
     async load ({ language } = { language: null }) {
         if (language === null || language === undefined) {
-            language = this.config.defaultLanguage
+            language = this.config.language
         }
         if (language === this.currentLanguage && !this.reloadNeeded) {
             return      // already loaded
@@ -67,12 +83,23 @@ class IndicesModule extends VuexModule {
         return this.load({})
     }
 
+    @Action
+    async ensureLoaded () {
+        if (this.state === State.LOADING) {
+            // already loading, wait
+            await until(() => this.state !== State.LOADED);
+        }
+        if (this.indices === null) {
+            await this.reload()
+        }
+    }
+
     @Mutation
     selectEndpoint (endpointName) {
         this.currentEndpointName = null
         this.currentIndex = {}
         this.currentEndpoint = {}
-        for (const index of Object.values(this.indices)) {
+        for (const index of Object.values(this.indices || {})) {
             for (const [indexEndpointName, endpoint] of Object.entries(index.endpoints || {})) {
                 if (endpointName === indexEndpointName) {
                     this.currentIndex = index
@@ -86,7 +113,7 @@ class IndicesModule extends VuexModule {
 
     get byEndpoint () {
         const ret = {}
-        for (const index of Object.values(this.indices)) {
+        for (const index of Object.values(this.indices || {})) {
             for (const [indexEndpointName, endpoint] of Object.entries(index.endpoints || {})) {
                 ret[indexEndpointName] = {
                     endpoint, index

@@ -1,9 +1,9 @@
 <template>
-  <component :is="activeComponent" :loading="loading" :records="uiRecords"
+  <component :is="activeComponent" :loading="this.startupLoading || loading" :records="uiRecords"
              :pages="pages" :facets="facets" :filters="filters"></component>
 </template>
 <script>
-import { mapState, mapGetters } from 'vuex'
+import { mapGetters, mapState } from 'vuex'
 
 export default {
   props: {
@@ -19,7 +19,7 @@ export default {
     ...mapGetters('oarepoCollection', [
       'records',
       'facets',
-      'filters'
+      'filters',
     ]),
     ...mapGetters('oarepoIndices', [
       'byEndpoint'
@@ -50,14 +50,16 @@ export default {
   },
   data: function () {
     return {
-      stop: null
+      startupLoading: true
     }
   },
-  mounted () {
-    this.$oarepo.collection.load({
+  async beforeMount () {
+    await this.$oarepo.indices.ensureLoaded()
+    await this.$oarepo.collection.load({
       collectionId: this.collectionId,
       query: this.query
     })
+    this.startupLoading = false
   },
   watch: {
     query () {

@@ -1,5 +1,5 @@
 <template>
-  <component :is="activeComponent" :loading="loading" :record="record"></component>
+  <component :is="activeComponent" :loading="loading || startupLoading" :record="record"></component>
 </template>
 <script>
 import { mapState } from 'vuex'
@@ -24,8 +24,15 @@ export default {
       }
     }
   },
-  mounted () {
-    this.reload()
+  data: function() {
+    return {
+      startupLoading: true
+    }
+  },
+  async beforeMount () {
+    await this.$oarepo.indices.ensureLoaded()
+    await this.reload()
+    this.startupLoading = false
   },
   watch: {
     collectionId () {
@@ -36,8 +43,8 @@ export default {
     }
   },
   methods: {
-    reload () {
-      this.$oarepo.record.load({
+    async reload () {
+      return this.$oarepo.record.load({
         collectionId: this.collectionId,
         recordId: this.$route.params.recordId
       })

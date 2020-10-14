@@ -9,6 +9,8 @@ class RecordModule extends VuexModule {
 
     state = State.INVALID
 
+    indices = null
+
     record = {}
 
     metadata = {}
@@ -25,13 +27,18 @@ class RecordModule extends VuexModule {
 
     reloadNeeded = false
 
-    constructor (config, options) {
+    constructor (config, indices, options) {
         super(options)
         this.config = config
+        this.indices = indices
     }
 
-    get recordURL () {
-        return this.config.recordURL(this.collectionId, this.recordId)
+    get recordUrl () {
+        const index = this.indices.byEndpoint[this.collectionId]
+        if (index !== undefined) {
+            return `${index.endpoint.url}/${this.recordId}`
+        }
+        return null
     }
 
     get loaded () {
@@ -47,7 +54,7 @@ class RecordModule extends VuexModule {
     }
 
     @Mutation
-    setResponse(response) {
+    setResponse (response) {
         const record = response.data
         const collectionRecordPreprocessors =
             this.config.recordPreprocessors[this.collectionId] || this.config.defaultRecordPreprocessors
@@ -63,15 +70,23 @@ class RecordModule extends VuexModule {
 
     @Action
     async reload () {
+        console.log('reload starting')
         this.state = State.LOADING
-        const response = await axios.get(this.recordURL, {
-            headers: {
-                Accept: 'application/json'
-            }
-        })
-        this.setResponse(response)
-        this.state = State.LOADED
-        return response.data
+        if (this.recordUrl) {
+            const response = await axios.get(this.recordUrl, {
+                headers: {
+                    Accept: 'application/json'
+                },
+                params: new URLSearchParams([['ln', this.config.language]])
+            })
+            this.setResponse(response)
+            this.state = State.LOADED
+            console.log('reload finished')
+            return response.data
+        } else {
+            console.log('reload waiting')
+            return null
+        }
     }
 
     @Action
@@ -80,19 +95,21 @@ class RecordModule extends VuexModule {
         if (!Array.isArray(data)) {
             data = [data]
         }
-        let resp;
+        let resp
         if (this.config.usePost) {
-            resp = await axios.post(this.recordURL, data, {
+            resp = await axios.post(this.recordUrl, data, {
                 headers: {
                     'Content-Type': 'application/json-patch+json',
                     'X-HTTP-Method-Override': 'PATCH'
-                }
+                },
+                params: new URLSearchParams([['ln', this.config.language]])
             })
         } else {
-            resp = await axios.patch(this.recordURL, data, {
+            resp = await axios.patch(this.recordUrl, data, {
                 headers: {
                     'Content-Type': 'application/json-patch+json'
-                }
+                },
+                params: new URLSearchParams([['ln', this.config.language]])
             })
         }
         this.setResponse(resp)
@@ -103,10 +120,11 @@ class RecordModule extends VuexModule {
     @Action
     async save () {
         this.state = State.LOADING
-        const resp = await axios.post(this.recordURL, this.record.metadata, {
+        const resp = await axios.post(this.recordUrl, this.record.metadata, {
             headers: {
                 'Content-Type': 'application/json'
-            }
+            },
+            params: new URLSearchParams([['ln', this.config.language]])
         })
         this.setResponse(resp)
         this.state = State.LOADED
