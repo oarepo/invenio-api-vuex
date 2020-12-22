@@ -20,7 +20,7 @@
   "homepage": "https://github.com/oarepo/invenio-api-vuex",
   "dependencies": {
     "@oarepo/vue-query-synchronizer": "^2.3.0",
-    "axios": "^0.19.0",
+    "axios": "^0.21.1",
     "core-js": "^3.4.3",
     "deepmerge": "^4.2.2",
     "vue": "^2.6.10",
