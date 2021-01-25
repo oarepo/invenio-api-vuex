@@ -45,7 +45,7 @@
     "json": "^9.0.6",
     "moxios": "^0.4.0",
     "rollup-plugin-vue": "^5.1.4",
-    "sinon": "^7.5.0",
+    "sinon": "^9.2.4",
     "vue-cli-plugin-serve-api-mocks": "^1.0.0",
     "vue-template-compiler": "^2.6.10"
   }
